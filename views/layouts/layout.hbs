@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body class="primary">
+    {{> header}}
+
+    <div class="w3-row">
+        <div id="sidebarCol" class="w3-col w3-left w3-container w3-hide-small w3-hide-medium" style="width:250px; display:block;"><p></p></div>
+        <div class="w3-col w3-left w3-container w3-show-xl" style="width:5%"><p></p></div>
+        <div class="w3-col w3-right w3-container w3-show-xl" style="width:5%"><p></p></div>
+
+        <div class="w3-rest" style="max-width: 2000px;">
+            {{{body}}}
+        </div>
+        <div id="leftSidebar" class="secondary w3-card-2">{{> sidebar }}</div>
+    </div>
+
+
+<script type="text/javascript" src="/javascripts/scripts.js"></script>
+</body>
+</html>

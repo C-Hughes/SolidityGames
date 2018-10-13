@@ -1,0 +1,66 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#footer {
+  margin-top: 25px;
+  color:grey;
+  font-size: 12px;
+}
+
+.primary{
+  background-color: #1A1B1F;
+  color: #A1A29A;
+}
+
+.secondary{
+  background-color: #202126;
+  color: #A1A29A;
+}
+
+.header{
+  background-color: #2A2B31;
+  color: #A1A29A;
+}
+
+#header{
+  position: relative;
+  top:0px;
+  z-index:1;
+}
+
+#leftSidebar{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 250px;
+  height: 100vh;
+  overflow-y: scroll;
+  display: block;
+  z-index: 0;
+}
+
+#leftSidebarM{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 250px;
+  height: 100vh;
+  overflow-y: scroll;
+  display: none;
+  z-index: 0;
+}
+
+#leftSidebar::-webkit-scrollbar {
+  /* This is the magic bit */
+  display: none;
+}
