@@ -10,36 +10,34 @@
 <div class="w3-panel w3-card-4 w3-light-grey w3-margin">
     <h4>WarmUp.sol</h4>
     <pre><code class="typescript Tomorrow">
-    pragma solidity ^0.4.22;
+pragma solidity ^0.4.22;
 
-    contract WarmUp {
-        address public owner;
-        mapping(address => uint) public contributions;
+contract WarmUp {
+    address public owner;
+    mapping(address => uint) public contributions;
 
-        constructor() {
-            owner = 0xcCF90925D0756bd69D1f3d0fD965672f34d32C4E;
-        }
-
-        function viewContribution() public view returns (uint) {
-            return contributions[msg.sender];
-        }
-
-        function addToPot() public payable{
-            require(msg.value > 0);
-            contributions[msg.sender] += msg.value;
-        }
-
-        function claimOwnership() payable {
-            require(msg.value > 0 && contributions[msg.sender] > 0);
-            owner = msg.sender;
-        }
+    constructor() {
+        owner = 0xcCF90925D0756bd69D1f3d0fD965672f34d32C4E;
     }
+
+    function viewContribution() public view returns (uint) {
+        return contributions[msg.sender];
+    }
+
+    function addToPot() public payable{
+        require(msg.value > 0);
+        contributions[msg.sender] += msg.value;
+    }
+
+    function claimOwnership() payable {
+        require(msg.value > 0 && contributions[msg.sender] > 0);
+        owner = msg.sender;
+    }
+}
     </code></pre>
+    <button class="w3-button w3-orange w3-margin">Deploy</button>
 </div>
 
-<script src="https://www.w3schools.com/lib/w3codecolor.js"></script>
-
 <script>
-    w3CodeColor();
     hljs.initHighlightingOnLoad();
 </script>
