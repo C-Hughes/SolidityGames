@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d88a775f-34bf-4f30-8ae2-28a3fb0bb27d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/routes/games.js" afterPath="$PROJECT_DIR$/routes/games.js" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
       <change beforePath="$PROJECT_DIR$/views/games/odometer.hbs" afterPath="$PROJECT_DIR$/views/games/odometer.hbs" />
       <change beforePath="$PROJECT_DIR$/views/games/warmUp.hbs" afterPath="$PROJECT_DIR$/views/games/warmUp.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/layout.hbs" afterPath="$PROJECT_DIR$/views/layouts/layout.hbs" />
       <change beforePath="$PROJECT_DIR$/views/partials/header.hbs" afterPath="$PROJECT_DIR$/views/partials/header.hbs" />
-      <change beforePath="$PROJECT_DIR$/views/partials/sidebar.hbs" afterPath="$PROJECT_DIR$/views/partials/sidebar.hbs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,31 +18,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="index.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/index.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="950">
-              <caret line="38" column="31" lean-forward="true" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+            <state relative-caret-position="150">
+              <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="games.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/games.js">
+      <file leaf-file-name="header.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/partials/header.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+            <state relative-caret-position="300">
+              <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#header#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#header#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#header#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="warmUp.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -58,16 +62,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.hbs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/partials/header.hbs">
+      <file leaf-file-name="odometer.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#header#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#header#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#header#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="175">
+              <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,96 +75,55 @@
       <file leaf-file-name="layout.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/layouts/layout.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="100" lean-forward="false" selection-start-line="9" selection-start-column="100" selection-end-line="9" selection-end-column="100" />
+            <state relative-caret-position="600">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="warmUp.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
+      <file leaf-file-name="web3.hbs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/partials/web3.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="925">
-              <caret line="37" column="65" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="65" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="odometer.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/web3/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="w3codecolor.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/w3codecolor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1212">
-              <caret line="558" column="1" lean-forward="false" selection-start-line="558" selection-start-column="1" selection-end-line="558" selection-end-column="1" />
+            <state relative-caret-position="-600">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <marker date="1541967145028" expanded="true" signature="5103:5109" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="5126:5130" ph="&lt;" />
-                <marker date="1541967145028" expanded="true" signature="5298:5304" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="5321:5325" ph="&gt;" />
-                <marker date="1541967145028" expanded="true" signature="5373:5379" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="6811:6817" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="6942:6948" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="7063:7069" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="7186:7192" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="8235:8241" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="8326:8332" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="8527:8533" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="9351:9357" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="9524:9530" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="10200:10206" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="10281:10287" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="10412:10461" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="12065:12071" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="12176:12182" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="12293:12299" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="12410:12416" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="12528:12534" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="15119:15125" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="15234:15240" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="15355:15361" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="15476:15482" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="15598:15604" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="16745:16751" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="16858:16864" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="16977:16983" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="17096:17102" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="18338:18344" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="18364:18368" ph="&lt;" />
-                <marker date="1541967145028" expanded="true" signature="18550:18556" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="18577:18581" ph="&gt;" />
-                <marker date="1541967145028" expanded="true" signature="18629:18635" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="18742:18748" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="18860:18866" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="19192:19198" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="19354:19360" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="20625:20631" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="20744:20750" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="20868:20874" ph="..." />
-                <marker date="1541967145028" expanded="true" signature="20993:20999" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidebar.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/partials/sidebar.hbs">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/web3/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/web3-eth/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="27" column="87" lean-forward="false" selection-start-line="27" selection-start-column="87" selection-end-line="27" selection-end-column="87" />
+            <state relative-caret-position="-3675">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -182,15 +141,16 @@
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/public/javascripts/w3codecolor.js" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/views/layouts/layout.hbs" />
         <option value="$PROJECT_DIR$/views/games/odometer.js" />
         <option value="$PROJECT_DIR$/routes/games.js" />
-        <option value="$PROJECT_DIR$/views/games/warmUp.hbs" />
-        <option value="$PROJECT_DIR$/views/games/odometer.hbs" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/partials/sidebar.hbs" />
+        <option value="$PROJECT_DIR$/views/games/warmUp.hbs" />
+        <option value="$PROJECT_DIR$/views/games/odometer.hbs" />
+        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/partials/header.hbs" />
+        <option value="$PROJECT_DIR$/views/partials/web3.js" />
+        <option value="$PROJECT_DIR$/views/layouts/layout.hbs" />
       </list>
     </option>
   </component>
@@ -324,12 +284,12 @@
       <workItem from="1539446894071" duration="5959000" />
       <workItem from="1541375621783" duration="568000" />
       <workItem from="1541376209141" duration="4431000" />
-      <workItem from="1541962526953" duration="4517000" />
+      <workItem from="1541962526953" duration="8693000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15475000" />
+    <option name="totallyTimeSpent" value="19651000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2166" y="1037" width="2174" height="1816" extended-state="0" />
@@ -667,7 +627,7 @@
         <state relative-caret-position="1212">
           <caret line="558" column="1" lean-forward="false" selection-start-line="558" selection-start-column="1" selection-end-line="558" selection-end-column="1" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
             <marker date="1541967145028" expanded="true" signature="5103:5109" ph="..." />
             <marker date="1541967145028" expanded="true" signature="5126:5130" ph="&lt;" />
             <marker date="1541967145028" expanded="true" signature="5298:5304" ph="..." />
@@ -716,22 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="38" column="31" lean-forward="true" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/layout.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="100" lean-forward="false" selection-start-line="9" selection-start-column="100" selection-end-line="9" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/games/odometer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -748,34 +692,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="37" column="65" lean-forward="true" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="16" column="34" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/index.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="42" lean-forward="false" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -790,15 +710,102 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/web3/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-600">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/web3/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/web3-eth/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3675">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/partials/header.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        <state relative-caret-position="300">
+          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
           <folding>
             <element signature="n#style#0;n#div#0;n#header#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#header#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#header#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="42" lean-forward="false" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/web3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/layout.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/web3.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
