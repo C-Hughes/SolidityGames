@@ -7,6 +7,7 @@ var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
+var gamesRouter = require('./routes/games');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/games', gamesRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
