@@ -7,12 +7,10 @@
     <p>Claim ownership of the contract</p>
 </div>
 
-<div id="infoBox" class="w3-container w3-margin w3-card-4 header w3-hide">
-    <p><span id="transactionInfo"></span></p>
-</div>
-
 <div class="w3-panel w3-card-4 header w3-margin">
     <h4>WarmUp.sol</h4>
+    <span id="transactionInfo"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></span>
+
     <pre><code class="typescript Tomorrow">
 pragma solidity ^0.4.22;
 
@@ -39,7 +37,8 @@ contract WarmUp {
     }
 }
     </code></pre>
-    <button onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button>
+
+    <span id="contractABI"></span>
 </div>
 
 <script>
@@ -104,19 +103,41 @@ function deployContract() {
 
 function transactionPending(contract){
     var Tx = contract.transactionHash;
-
-    var x = document.getElementById("infoBox");
-    x.className += " w3-show";
-
-    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... ";
+    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
 }
 
 function transactionComplete(contract){
-    var x = document.getElementById("infoBox");
-    x.className += " w3-show";
+    var x = document.getElementById("contractABI");
+    x.innerHTML = '<div class="w3-bar">\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <button class="w3-button w3-red">addToPot()</button>\n' +
+            '    </div>\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <input class="w3-input w3-border" style="width:150px" type="text">\n' +
+            '    </div>\n' +
+            '  </div>\n' +
+            '  <div class="w3-bar">\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <button class="w3-button w3-red">claimOwnership()</button>\n' +
+            '    </div>\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <input class="w3-input w3-border" style="width:150px" type="text">\n' +
+            '    </div>\n' +
+            '  </div>\n' +
+            '  <div class="w3-bar">\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <button class="w3-button w3-blue">viewContribution()</button>\n' +
+            '    </div>\n' +
+            '    <div id="contractOwner" class="w3-bar-item"></div>\n' +
+            '  </div>\n' +
+            '  <div class="w3-bar">\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <button class="w3-button w3-blue">owner</button>\n' +
+            '    </div>\n' +
+            '    <div id="contractOwner" class="w3-bar-item"></div>\n' +
+            '  </div>';
 
     var Tx = contract.transactionHash;
-    document.getElementById('transactionInfo').innerHTML = "Contract: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+contract.address+"'>" + contract.address + "</a>";
-
+    document.getElementById('transactionInfo').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+contract.address+"'>" + contract.address + "</a>";
 }
 </script>
