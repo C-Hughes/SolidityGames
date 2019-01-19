@@ -10,9 +10,6 @@ function toggleElement(param) {
 
 //Function to set localstorage & change style wh en day/night toggle is pressed.
 function toggleDayNight(changeTo){
-    //Date color for BIGX tag
-    var BIGXDateBackground = "#f1373a";
-    var BIGXTextColor = "white";
 
     if (changeTo == "day"){
         //Set Colours
@@ -22,7 +19,7 @@ function toggleDayNight(changeTo){
         var textColorDay = "#172130";
 
         //Change theme to day colours
-        document.getElementById("dayNightBtn").innerHTML = '<div class="w3-card-2 w3-button secondary" title="Night Mode" onclick="toggleDayNight(\'night\')"><i class="far fa-moon" aria-hidden="true"></i></div>';
+        document.getElementById("dayNightBtn").innerHTML = '<span title="Night Mode" onclick="toggleDayNight(\'night\')"><i class="far fa-moon" aria-hidden="true"></i></span>';
 
         var elements = document.getElementsByClassName("primary");
         for (var i = 0; i < elements.length; i++) {
@@ -49,7 +46,7 @@ function toggleDayNight(changeTo){
         var headerNight = "#2A2B31";
         var textColorNight = "#A1A29A";
 
-        document.getElementById("dayNightBtn").innerHTML = '<div class="w3-card-2 w3-button secondary" title="Day Mode" onclick="toggleDayNight(\'day\')"><i class="far fa-sun" aria-hidden="true"></i></div>';
+        document.getElementById("dayNightBtn").innerHTML = '<span title="Day Mode" onclick="toggleDayNight(\'day\')"><i class="far fa-sun" aria-hidden="true"></i></span>';
 
         var elements = document.getElementsByClassName("primary");
         for (var i = 0; i < elements.length; i++) {
@@ -69,14 +66,6 @@ function toggleDayNight(changeTo){
         }
         localStorage.setItem("theme", "night");
     }
-
-    //Set Date colour for BIGX tag
-    elements = document.getElementsByClassName("BIGX");
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].childNodes[1].style.backgroundColor=BIGXDateBackground;
-        elements[i].childNodes[1].style.color=BIGXTextColor;
-        elements[i].style.fontWeight = 'bold';
-    }
 };
 
 
@@ -88,4 +77,4 @@ if (!localStorage.getItem("theme")){
     toggleDayNight(localStorage.getItem("theme"));
 }
 //Update day/night
-toggleDayNight(localStorage.getItem("theme"));
+//toggleDayNight(localStorage.getItem("theme"));
