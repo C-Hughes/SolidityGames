@@ -12,13 +12,13 @@
     <span id="transactionInfo"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></span>
     <span id="contractABI"></span>
     <pre><code class="typescript Tomorrow">
-pragma solidity ^0.4.22;
+pragma solidity ^0.5.2;
 
 contract WarmUp {
     address public owner;
     mapping(address => uint) public contributions;
 
-    constructor() {
+    constructor() public {
         owner = 0xcCF90925D0756bd69D1f3d0fD965672f34d32C4E;
     }
 
@@ -26,12 +26,12 @@ contract WarmUp {
         return contributions[msg.sender];
     }
 
-    function addToPot() public payable{
+    function addToPot() public payable {
         require(msg.value > 0);
         contributions[msg.sender] += msg.value;
     }
 
-    function claimOwnership() payable {
+    function claimOwnership() public payable {
         require(msg.value > 0 && contributions[msg.sender] > 0);
         owner = msg.sender;
     }
@@ -43,58 +43,20 @@ contract WarmUp {
 hljs.initHighlightingOnLoad();
 
 function deployContract() {
-
-    var warmupContract = web3.eth.contract([{
-        "constant": false,
-        "inputs": [],
-        "name": "addToPot",
-        "outputs": [],
-        "payable": true,
-        "stateMutability": "payable",
-        "type": "function"
-    }, {
-        "constant": true,
-        "inputs": [{"name": "", "type": "address"}],
-        "name": "contributions",
-        "outputs": [{"name": "", "type": "uint256"}],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    }, {
-        "constant": false,
-        "inputs": [],
-        "name": "claimOwnership",
-        "outputs": [],
-        "payable": true,
-        "stateMutability": "payable",
-        "type": "function"
-    }, {
-        "constant": true,
-        "inputs": [],
-        "name": "owner",
-        "outputs": [{"name": "", "type": "address"}],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    }, {
-        "constant": true,
-        "inputs": [],
-        "name": "viewContribution",
-        "outputs": [{"name": "", "type": "uint256"}],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    }, {"inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor"}]);
-    var warmup = warmupContract.new({
+    var warmupContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"addToPot","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"contributions","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"claimOwnership","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"viewContribution","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]);
+    var warmup = warmupContract.new(
+        {
         from: web3.eth.accounts[0],
-        data: '0x608060405234801561001057600080fd5b5060008054600160a060020a03191673ccf90925d0756bd69d1f3d0fd965672f34d32c4e1790556101f0806100466000396000f30060806040526004361061006c5763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166317ebf6ae811461007157806342e94c901461007b5780634e71e0c8146100bb5780638da5cb5b146100c3578063a931383414610101575b600080fd5b610079610116565b005b34801561008757600080fd5b506100a973ffffffffffffffffffffffffffffffffffffffff6004351661013a565b60408051918252519081900360200190f35b61007961014c565b3480156100cf57600080fd5b506100d8610195565b6040805173ffffffffffffffffffffffffffffffffffffffff9092168252519081900360200190f35b34801561010d57600080fd5b506100a96101b1565b6000341161012357600080fd5b336000908152600160205260409020805434019055565b60016020526000908152604090205481565b600034118015610169575033600090815260016020526040812054115b151561017457600080fd5b6000805473ffffffffffffffffffffffffffffffffffffffff191633179055565b60005473ffffffffffffffffffffffffffffffffffffffff1681565b33600090815260016020526040902054905600a165627a7a7230582051093ff41e0926b9b357787a2f77757ac5e40a6ee35b722def132718923deaa90029',
+        data: '0x608060405234801561001057600080fd5b5073ccf90925d0756bd69d1f3d0fd965672f34d32c4e6000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610311806100746000396000f3fe608060405260043610610067576000357c01000000000000000000000000000000000000000000000000000000009004806317ebf6ae1461006c57806342e94c90146100765780634e71e0c8146100db5780638da5cb5b146100e5578063a93138341461013c575b600080fd5b610074610167565b005b34801561008257600080fd5b506100c56004803603602081101561009957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101c5565b6040518082815260200191505060405180910390f35b6100e36101dd565b005b3480156100f157600080fd5b506100fa610279565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014857600080fd5b5061015161029e565b6040518082815260200191505060405180910390f35b60003411151561017657600080fd5b34600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540192505081905550565b60016020528060005260406000206000915090505481565b60003411801561022c57506000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054115b151561023757600080fd5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509056fea165627a7a72305820a1c9a5fe0802438061ca3f19ec0d03e724ec1357db0990ae7bb0833ad5560fd40029',
         gas: '4700000'
     }, function (e, contract) {
         console.log(e, contract);
         transactionPending(contract);
         if (typeof contract.address !== 'undefined') {
             console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
-            transactionComplete(contract);
+            //Add dApp Address to Local Storage
+            localStorage.setItem("warmUpAddr", contract.address);
+            updateUI(contract);
         }
     })
 }
@@ -104,7 +66,8 @@ function transactionPending(contract){
     document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
 }
 
-function transactionComplete(contract){
+function updateUI(contract){
+    //Display dApp UI
     var x = document.getElementById("contractABI");
     x.innerHTML = '<div class="w3-bar">\n' +
             '    <div class="w3-bar-item">\n' +
@@ -134,8 +97,12 @@ function transactionComplete(contract){
             '    </div>\n' +
             '    <div id="contractOwner" class="w3-bar-item"></div>\n' +
             '  </div>';
-
-    var Tx = contract.transactionHash;
     document.getElementById('transactionInfo').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+contract.address+"'>" + contract.address + "</a>";
+}
+
+//Check LocalStorage to see if the contract has been deployed.
+if (localStorage.getItem("warmUpAddr")){
+    //Add Contract to web3.eth.contract
+    updateUI("s");
 }
 </script>
