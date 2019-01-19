@@ -76,5 +76,3 @@ if (!localStorage.getItem("theme")){
     //Set day/night
     toggleDayNight(localStorage.getItem("theme"));
 }
-//Update day/night
-//toggleDayNight(localStorage.getItem("theme"));
