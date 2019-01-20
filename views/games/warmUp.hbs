@@ -9,9 +9,10 @@
 
 <div class="w3-panel w3-card-4 header w3-margin">
     <h4>WarmUp.sol</h4>
-    <span id="deployedContractAddress"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></span>
-    <span id="transactionInfo"></span>
-    <span id="contractInterface"></span>
+    <div id="deployedContractAddress"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></div>
+    <div id="transactionInfo"></div>
+    <div id="userErrors" class="w3-text-red"></div>
+    <div id="contractInterface"></div>
     <pre><code class="typescript Tomorrow">
 pragma solidity ^0.5.2;
 
@@ -43,10 +44,11 @@ contract WarmUp {
 <script>
 hljs.initHighlightingOnLoad();
 var abi = [{"constant":false,"inputs":[],"name":"addToPot","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"contributions","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"claimOwnership","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"viewContribution","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}];
-var warmupContract = web3.eth.contract(abi);
+var warmUpContract = web3.eth.contract(abi);
+var warmUpInstance;
 
 function deployContract() {
-    var warmUp = warmupContract.new(
+    var warmUp = warmUpContract.new(
         {
         from: web3.eth.accounts[0],
         data: '0x608060405234801561001057600080fd5b5073ccf90925d0756bd69d1f3d0fd965672f34d32c4e6000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610311806100746000396000f3fe608060405260043610610067576000357c01000000000000000000000000000000000000000000000000000000009004806317ebf6ae1461006c57806342e94c90146100765780634e71e0c8146100db5780638da5cb5b146100e5578063a93138341461013c575b600080fd5b610074610167565b005b34801561008257600080fd5b506100c56004803603602081101561009957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101c5565b6040518082815260200191505060405180910390f35b6100e36101dd565b005b3480156100f157600080fd5b506100fa610279565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014857600080fd5b5061015161029e565b6040518082815260200191505060405180910390f35b60003411151561017657600080fd5b34600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540192505081905550565b60016020528060005260406000206000915090505481565b60003411801561022c57506000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054115b151561023757600080fd5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509056fea165627a7a72305820a1c9a5fe0802438061ca3f19ec0d03e724ec1357db0990ae7bb0833ad5560fd40029',
@@ -58,7 +60,8 @@ function deployContract() {
             console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
             //Add dApp Address to Local Storage
             localStorage.setItem("warmUpAddr", contract.address);
-            updateUI(contract);
+            getInstance();
+            updateUI();
         }
     })
 }
@@ -68,7 +71,8 @@ function transactionPending(contract){
     document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
 }
 
-function updateUI(contract){
+function updateUI(){
+
     //Display dApp UI
     var x = document.getElementById("contractInterface");
     x.innerHTML = '<div class="w3-bar">\n' +
@@ -76,7 +80,7 @@ function updateUI(contract){
             '      <button class="w3-button w3-red" onclick="addToPot();">addToPot()</button>\n' +
             '    </div>\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <input id="addToPotInput" placeholder="Amount to add" class="w3-input w3-border" style="width:150px" type="text">\n' +
+            '      <input id="addToPotInput" onclick="clearErrors();" placeholder="0.001" class="w3-input w3-border" style="width:150px" type="text">\n' +
             '    </div>\n' +
             '  </div>\n' +
             '  <div class="w3-bar">\n' +
@@ -84,7 +88,7 @@ function updateUI(contract){
             '      <button class="w3-button w3-red">claimOwnership()</button>\n' +
             '    </div>\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <input class="w3-input w3-border" placeholder="Message Value" style="width:150px" type="text">\n' +
+            '      <input id="claimOwnershipInput" class="w3-input w3-border" placeholder="Message Value" style="width:150px" type="text">\n' +
             '    </div>\n' +
             '  </div>\n' +
             '  <div class="w3-bar">\n' +
@@ -99,34 +103,44 @@ function updateUI(contract){
             '    </div>\n' +
             '    <div id="contractOwner" class="w3-bar-item"></div>\n' +
             '  </div>';
-    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+contract.address+"'>" + contract.address + "</a>";
+    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+warmUpInstance.address+"'>" + warmUpInstance.address + "</a>";
 }
 //If the contract has already been deployed, get instance from localstorage variable
 function getInstance(){
     var warmUpAddr = localStorage.getItem("warmUpAddr");
-    var warmUp = warmupContract.at(warmUpAddr);
-    console.log(warmUp);
+    warmUpInstance = warmUpContract.at(warmUpAddr);
+    console.log(warmUpInstance);
 
-    return warmUp;
+    //return warmUpInstance;
 }
 
 //sent transaction to addToPot()
 function addToPot(){
-    //var contract = getInstance();
     var amountToAdd = document.getElementById("addToPotInput").value;
-    if(amountToAdd == 0){
-        alert("Must be greater than 0");
-        document.getElementById('addToPotInput').style.borderColor = "red";
+    if(amountToAdd < 0){
+        document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
+        document.getElementById('addToPotInput').classList.add("w3-border-red");
     } else {
-        alert(amountToAdd);
+        amountToAdd = web3.toWei(amountToAdd, 'ether');
+        warmUpInstance.addToPot({value: amountToAdd, gas: 212720}, function(error, result){
+            if(!error)
+                console.log(JSON.stringify(result));
+            else
+                console.error(error);
+        });
     }
-    //contract.addToPot(1000, {value: 200, gas: 2000});
+}
+
+function clearErrors(){
+    document.getElementById('userErrors').innerHTML = "";
+    document.getElementById('addToPotInput').classList.remove("w3-border-red");
+    document.getElementById('claimOwnershipInput').classList.remove("w3-border-red");
 }
 
 //Check LocalStorage to see if the contract has been deployed.
 if (localStorage.getItem("warmUpAddr")){
     //Add Contract to web3.eth.contract
-    var contract = getInstance();
-    updateUI(contract);
+    getInstance();
+    updateUI();
 }
 </script>
