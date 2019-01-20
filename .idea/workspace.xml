@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d88a775f-34bf-4f30-8ae2-28a3fb0bb27d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/views/games/warmUp.hbs" afterPath="$PROJECT_DIR$/views/games/warmUp.hbs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,11 +37,11 @@
       <file leaf-file-name="warmUp.hbs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="860">
-              <caret line="96" column="72" lean-forward="true" selection-start-line="96" selection-start-column="72" selection-end-line="96" selection-end-column="72" />
+            <state relative-caret-position="1235">
+              <caret line="119" column="5" lean-forward="false" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
               <folding>
-                <marker date="1547981175745" expanded="true" signature="5392:5403" ph="..." />
-                <marker date="1547981175745" expanded="true" signature="5788:5799" ph="..." />
+                <marker date="1547983214961" expanded="true" signature="5457:5468" ph="..." />
+                <marker date="1547983214961" expanded="true" signature="5881:5892" ph="..." />
               </folding>
             </state>
           </provider>
@@ -244,12 +245,12 @@
       <workItem from="1542574042851" duration="3587000" />
       <workItem from="1544111210867" duration="729000" />
       <workItem from="1544290294936" duration="612000" />
-      <workItem from="1547893448619" duration="7474000" />
+      <workItem from="1547893448619" duration="9408000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41124000" />
+    <option name="totallyTimeSpent" value="43058000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-10" y="0" width="1807" height="2110" extended-state="0" />
@@ -659,11 +660,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="860">
-          <caret line="96" column="72" lean-forward="true" selection-start-line="96" selection-start-column="72" selection-end-line="96" selection-end-column="72" />
+        <state relative-caret-position="1235">
+          <caret line="119" column="5" lean-forward="false" selection-start-line="119" selection-start-column="5" selection-end-line="119" selection-end-column="5" />
           <folding>
-            <marker date="1547981175745" expanded="true" signature="5392:5403" ph="..." />
-            <marker date="1547981175745" expanded="true" signature="5788:5799" ph="..." />
+            <marker date="1547983214961" expanded="true" signature="5457:5468" ph="..." />
+            <marker date="1547983214961" expanded="true" signature="5881:5892" ph="..." />
           </folding>
         </state>
       </provider>

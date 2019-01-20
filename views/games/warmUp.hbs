@@ -42,9 +42,9 @@ contract WarmUp {
 <script>
 hljs.initHighlightingOnLoad();
 var abi = [{"constant":false,"inputs":[],"name":"addToPot","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"contributions","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"claimOwnership","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"viewContribution","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}];
+var warmupContract = web3.eth.contract(abi);
 
 function deployContract() {
-    var warmupContract = web3.eth.contract(abi);
     var warmUp = warmupContract.new(
         {
         from: web3.eth.accounts[0],
@@ -72,10 +72,10 @@ function updateUI(contract){
     var x = document.getElementById("contractABI");
     x.innerHTML = '<div class="w3-bar">\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <button class="w3-button w3-red">addToPot()</button>\n' +
+            '      <button class="w3-button w3-red" onclick="addToPot();">addToPot()</button>\n' +
             '    </div>\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <input class="w3-input w3-border" style="width:150px" type="text">\n' +
+            '      <input id="addToPotInput" placeholder="Amount to add" class="w3-input w3-border" style="width:150px" type="text">\n' +
             '    </div>\n' +
             '  </div>\n' +
             '  <div class="w3-bar">\n' +
@@ -83,7 +83,7 @@ function updateUI(contract){
             '      <button class="w3-button w3-red">claimOwnership()</button>\n' +
             '    </div>\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <input class="w3-input w3-border" style="width:150px" type="text">\n' +
+            '      <input class="w3-input w3-border" placeholder="Message Value" style="width:150px" type="text">\n' +
             '    </div>\n' +
             '  </div>\n' +
             '  <div class="w3-bar">\n' +
@@ -103,11 +103,22 @@ function updateUI(contract){
 //If the contract has already been deployed, get instance from localstorage variable
 function getInstance(){
     var warmUpAddr = localStorage.getItem("warmUpAddr");
-    var warmupContract = web3.eth.contract(abi);
     var warmUp = warmupContract.at(warmUpAddr);
     console.log(warmUp);
 
     return warmUp;
+}
+
+//sent transaction to addToPot()
+function addToPot(){
+    //var contract = getInstance();
+    var amountToAdd = document.getElementById("addToPotInput").value;
+    if(amountToAdd == 0){
+        alert("Must be greater than 0");
+    } else {
+        alert(amountToAdd);
+    }
+    //contract.addToPot(1000, {value: 200, gas: 2000});
 }
 
 //Check LocalStorage to see if the contract has been deployed.
