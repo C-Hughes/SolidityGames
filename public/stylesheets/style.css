@@ -33,8 +33,12 @@ a:hover {
 
 #header{
   position: relative;
-  top:0px;
+  top:0;
   z-index:1;
+}
+
+#mainBody{
+  margin: 50px 0px 0px 190px;
 }
 
 #leftSidebar{
@@ -48,18 +52,8 @@ a:hover {
   z-index: 0;
 }
 
-#leftSidebarM{
-  position: fixed;
-  top:0;
-  left:0;
-  width: 250px;
-  height: 100vh;
-  overflow-y: scroll;
-  display: none;
-  z-index: 0;
-}
-
 #leftSidebar::-webkit-scrollbar {
   /* This is the magic bit */
   display: none;
 }
+

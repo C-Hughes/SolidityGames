@@ -9,8 +9,9 @@
 
 <div class="w3-panel w3-card-4 header w3-margin">
     <h4>WarmUp.sol</h4>
-    <span id="transactionInfo"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></span>
-    <span id="contractABI"></span>
+    <span id="deployedContractAddress"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></span>
+    <span id="transactionInfo"></span>
+    <span id="contractInterface"></span>
     <pre><code class="typescript Tomorrow">
 pragma solidity ^0.5.2;
 
@@ -69,7 +70,7 @@ function transactionPending(contract){
 
 function updateUI(contract){
     //Display dApp UI
-    var x = document.getElementById("contractABI");
+    var x = document.getElementById("contractInterface");
     x.innerHTML = '<div class="w3-bar">\n' +
             '    <div class="w3-bar-item">\n' +
             '      <button class="w3-button w3-red" onclick="addToPot();">addToPot()</button>\n' +
@@ -98,7 +99,7 @@ function updateUI(contract){
             '    </div>\n' +
             '    <div id="contractOwner" class="w3-bar-item"></div>\n' +
             '  </div>';
-    document.getElementById('transactionInfo').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+contract.address+"'>" + contract.address + "</a>";
+    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+contract.address+"'>" + contract.address + "</a>";
 }
 //If the contract has already been deployed, get instance from localstorage variable
 function getInstance(){
@@ -115,6 +116,7 @@ function addToPot(){
     var amountToAdd = document.getElementById("addToPotInput").value;
     if(amountToAdd == 0){
         alert("Must be greater than 0");
+        document.getElementById('addToPotInput').style.borderColor = "red";
     } else {
         alert(amountToAdd);
     }

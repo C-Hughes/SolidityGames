@@ -11,17 +11,16 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
 </head>
 <body class="primary">
-    {{> header}}
-
-    <div class="w3-row">
-        <div id="sidebarCol" class="w3-col w3-left w3-container" style="width:190px; display:block;"><p></p></div>
-        <div class="w3-rest w3-container" style="max-width: 2000px;">
-            {{{body}}}
-        </div>
-        <div id="leftSidebar" class="secondary w3-card-2">{{> sidebar }}</div>
+    <div id="header">
+        {{> header}}
     </div>
-
-<script type="text/javascript" src="/javascripts/scripts.js"></script>
-<script type="text/javascript" src="/javascripts/web3.js"></script>
+    <div id="leftSidebar" class="secondary w3-card-2 w3-sidebar w3-bar-block">
+        {{> sidebar }}
+    </div>
+    <div id="mainBody" class="w3-container">
+        {{{body}}}
+    </div>
+    <script type="text/javascript" src="/javascripts/scripts.js"></script>
+    <script type="text/javascript" src="/javascripts/web3.js"></script>
 </body>
 </html>
