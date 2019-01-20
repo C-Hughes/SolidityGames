@@ -36,11 +36,11 @@
       <file leaf-file-name="warmUp.hbs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1335">
-              <caret line="105" column="15" lean-forward="false" selection-start-line="105" selection-start-column="15" selection-end-line="105" selection-end-column="15" />
+            <state relative-caret-position="860">
+              <caret line="96" column="72" lean-forward="true" selection-start-line="96" selection-start-column="72" selection-end-line="96" selection-end-column="72" />
               <folding>
-                <marker date="1547899097985" expanded="true" signature="5377:5388" ph="..." />
-                <marker date="1547899097985" expanded="true" signature="5773:5784" ph="..." />
+                <marker date="1547981175745" expanded="true" signature="5392:5403" ph="..." />
+                <marker date="1547981175745" expanded="true" signature="5788:5799" ph="..." />
               </folding>
             </state>
           </provider>
@@ -108,7 +108,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-10" />
-    <option name="width" value="2086" />
+    <option name="width" value="1807" />
     <option name="height" value="2110" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -244,18 +244,18 @@
       <workItem from="1542574042851" duration="3587000" />
       <workItem from="1544111210867" duration="729000" />
       <workItem from="1544290294936" duration="612000" />
-      <workItem from="1547893448619" duration="5647000" />
+      <workItem from="1547893448619" duration="7474000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39297000" />
+    <option name="totallyTimeSpent" value="41124000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="0" width="2086" height="2110" extended-state="0" />
+    <frame x="-10" y="0" width="1807" height="2110" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15797392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18367347" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -659,11 +659,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="105" column="15" lean-forward="false" selection-start-line="105" selection-start-column="15" selection-end-line="105" selection-end-column="15" />
+        <state relative-caret-position="860">
+          <caret line="96" column="72" lean-forward="true" selection-start-line="96" selection-start-column="72" selection-end-line="96" selection-end-column="72" />
           <folding>
-            <marker date="1547899097985" expanded="true" signature="5377:5388" ph="..." />
-            <marker date="1547899097985" expanded="true" signature="5773:5784" ph="..." />
+            <marker date="1547981175745" expanded="true" signature="5392:5403" ph="..." />
+            <marker date="1547981175745" expanded="true" signature="5788:5799" ph="..." />
           </folding>
         </state>
       </provider>

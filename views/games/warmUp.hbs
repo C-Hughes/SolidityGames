@@ -41,10 +41,11 @@ contract WarmUp {
 
 <script>
 hljs.initHighlightingOnLoad();
+var abi = [{"constant":false,"inputs":[],"name":"addToPot","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"contributions","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"claimOwnership","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"viewContribution","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}];
 
 function deployContract() {
-    var warmupContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"addToPot","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"contributions","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"claimOwnership","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"viewContribution","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]);
-    var warmup = warmupContract.new(
+    var warmupContract = web3.eth.contract(abi);
+    var warmUp = warmupContract.new(
         {
         from: web3.eth.accounts[0],
         data: '0x608060405234801561001057600080fd5b5073ccf90925d0756bd69d1f3d0fd965672f34d32c4e6000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610311806100746000396000f3fe608060405260043610610067576000357c01000000000000000000000000000000000000000000000000000000009004806317ebf6ae1461006c57806342e94c90146100765780634e71e0c8146100db5780638da5cb5b146100e5578063a93138341461013c575b600080fd5b610074610167565b005b34801561008257600080fd5b506100c56004803603602081101561009957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101c5565b6040518082815260200191505060405180910390f35b6100e36101dd565b005b3480156100f157600080fd5b506100fa610279565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014857600080fd5b5061015161029e565b6040518082815260200191505060405180910390f35b60003411151561017657600080fd5b34600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540192505081905550565b60016020528060005260406000206000915090505481565b60003411801561022c57506000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054115b151561023757600080fd5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509056fea165627a7a72305820a1c9a5fe0802438061ca3f19ec0d03e724ec1357db0990ae7bb0833ad5560fd40029',
@@ -99,10 +100,20 @@ function updateUI(contract){
             '  </div>';
     document.getElementById('transactionInfo').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+contract.address+"'>" + contract.address + "</a>";
 }
+//If the contract has already been deployed, get instance from localstorage variable
+function getInstance(){
+    var warmUpAddr = localStorage.getItem("warmUpAddr");
+    var warmupContract = web3.eth.contract(abi);
+    var warmUp = warmupContract.at(warmUpAddr);
+    console.log(warmUp);
+
+    return warmUp;
+}
 
 //Check LocalStorage to see if the contract has been deployed.
 if (localStorage.getItem("warmUpAddr")){
     //Add Contract to web3.eth.contract
-    updateUI("s");
+    var contract = getInstance();
+    updateUI(contract);
 }
 </script>
