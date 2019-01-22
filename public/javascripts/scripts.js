@@ -75,4 +75,13 @@ if (!localStorage.getItem("theme")){
 } else {
     //Set day/night
     toggleDayNight(localStorage.getItem("theme"));
+    completedStatus();
+}
+
+function completedStatus(){
+    //Check if any challanges have been completed
+    if (localStorage.getItem("warmUpComplete")){
+        document.getElementById("warmUpBtn").classList.add("w3-green");
+        document.getElementById("warmUpBtn").innerHTML = "1. WarmUp <i class=\"fas fa-check\"></i>";
+    }
 }
