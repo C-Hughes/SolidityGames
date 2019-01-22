@@ -93,13 +93,19 @@ function updateUI(){
             '  </div>\n' +
             '  <div class="w3-bar">\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <button class="w3-button w3-blue">viewContribution()</button>\n' +
+            '      <button onclick="viewContributions();" class="w3-button w3-blue">viewContribution()</button>\n' +
+            '    </div>\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <div id="viewContributions"></div>\n' +
             '    </div>\n' +
             '    <div id="contractOwner" class="w3-bar-item"></div>\n' +
             '  </div>\n' +
             '  <div class="w3-bar">\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <button class="w3-button w3-blue">owner</button>\n' +
+            '      <button onclick="viewOwner()" class="w3-button w3-blue">owner</button>\n' +
+            '    </div>\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <div id="viewOwner"></div>\n' +
             '    </div>\n' +
             '    <div id="contractOwner" class="w3-bar-item"></div>\n' +
             '  </div>';
@@ -123,12 +129,38 @@ function addToPot(){
     } else {
         amountToAdd = web3.toWei(amountToAdd, 'ether');
         warmUpInstance.addToPot({value: amountToAdd, gas: 212720}, function(error, result){
-            if(!error)
-                console.log(JSON.stringify(result));
-            else
-                console.error(error);
-        });
+        if (!error) {
+            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>  Pending... (This can take a minute)";
+            var transaction = web3.eth.getTransaction(result, function(error, result){
+                if(!error){
+                    if (typeof result.blockNumber !== null) {
+                        console.log(JSON.stringify(result));
+                        alert("Transaction Mined");
+                    }
+                } else {
+                    console.error(error);
+                }
+            });
+        } else {
+            document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+        }});
     }
+}
+
+function claimOwnership(){
+
+}
+
+function viewContributions(){
+    warmUpInstance.viewContribution.call(function(error, result){
+        document.getElementById('viewContributions').innerHTML = result + ' wei';
+    });
+}
+
+function viewOwner(){
+    warmUpInstance.owner.call(function(error, result){
+        document.getElementById('viewOwner').innerHTML = result;
+    });
 }
 
 function clearErrors(){
