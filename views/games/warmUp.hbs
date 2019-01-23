@@ -5,6 +5,8 @@
     <br>
     <h2>Beat This Level</h2>
     <p>Claim ownership of the contract</p>
+    <button id="helpButton" class="w3-button w3-red" onclick="getHelp();">Help</button>
+    <div id="HelpText" style="display: none;">HelpText</div>
 </div>
 
 <div class="w3-panel w3-card-4 header w3-margin">
@@ -202,10 +204,37 @@ function clearErrors(){
     document.getElementById('claimOwnershipInput').classList.remove("w3-border-red");
 }
 
+function getHelp(){
+    var Level = 1;
+    var helpText = document.getElementById('HelpText');
+    if (localStorage.getItem("warmUpHelp")){
+        Level = localStorage.getItem("warmUpHelp");
+    } else {
+        localStorage.setItem("warmUpHelp", "1");
+    }
+
+    helpText.style.display = "block";
+    if(Level == "1"){
+        helpText.innerHTML = "Level 1 Help";
+        localStorage.setItem("warmUpHelp", "2");
+    } else if (Level == "2"){
+        helpText.innerHTML = "Level 1 Help. Level 2 Help";
+        localStorage.setItem("warmUpHelp", "3");
+    } else {
+        helpText.innerHTML = "Level 1 Help. Level 2 Help. Level 3 Help";
+        localStorage.setItem("warmUpHelp", "4");
+    }
+}
+
 //Check LocalStorage to see if the contract has been deployed.
 if (localStorage.getItem("warmUpAddr")){
     //Add Contract to web3.eth.contract
     getInstance();
     updateUI();
+}
+//Check LocalStorage to see if user has requested help.
+if (localStorage.getItem("warmUpHelp")){
+    //Show help
+    //getHelp();
 }
 </script>
