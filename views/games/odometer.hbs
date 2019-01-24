@@ -1,14 +1,21 @@
 <div class="w3-container w3-margin w3-card-4 header">
-<br>
-<h2>Beat This Level</h2>
-<p>Claim ownership of the contract</p>
-<p>Aquire more token than you initially have</p>
+    <br>
+    <h2>Beat This Level</h2>
+    <p>Claim ownership of the contract</p>
+    <p>Aquire more token than you initially have</p>
+    <button id="helpButton" class="w3-button w3-red" onclick="getHelp();">Help</button>
+    <div id="HelpText" style="display: none;">HelpText</div>
 </div>
 
 <div class="w3-panel w3-card-4 header w3-margin">
     <h4>Odometer.sol</h4>
+    <div id="deployedContractAddress" class="w3-margin"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></div>
+    <div id="transactionInfo" class="w3-margin"></div>
+    <div id="userErrors" class="w3-text-red w3-margin"></div>
+    <div id="contractInterface"></div>
+
     <pre><code class="typescript Tomorrow">
-pragma solidity ^0.4.22;
+pragma solidity ^0.5.2;
 
 contract odometer {
     address public owner;
@@ -27,12 +34,17 @@ contract odometer {
         tokens[msg.sender] += msg.value;
     }
 
-    function sellTokens(uint _tokens) {
-        require(tokens[msg.sender] >= _tokens);
+    function sellTokens(uint _amount) public{
+        require(tokens[msg.sender] - _amount >= 0);
+        tokens[msg.sender] -= _amount;
+    }
+
+    function claimOwnership() public payable {
+        require(msg.value > 0 && tokens[msg.sender] > 1000000000000000000000000000);
+        owner = msg.sender;
     }
 }
 </code></pre>
-    <button class="w3-button w3-orange w3-margin">Deploy</button>
 </div>
 
 <script>

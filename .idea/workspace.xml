@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d88a775f-34bf-4f30-8ae2-28a3fb0bb27d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/views/games/warmUp.hbs" afterPath="$PROJECT_DIR$/views/games/warmUp.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/games/odometer.hbs" afterPath="$PROJECT_DIR$/views/games/odometer.hbs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -74,15 +74,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="warmUp.hbs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="warmUp.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="206" column="19" lean-forward="false" selection-start-line="206" selection-start-column="19" selection-end-line="206" selection-end-column="19" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="44" selection-end-column="6" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <marker date="1548266058337" expanded="true" signature="5869:5880" ph="..." />
                 <marker date="1548266058337" expanded="true" signature="6346:6357" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="odometer.hbs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1125">
+              <caret line="45" column="1" lean-forward="false" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,16 +105,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="550">
               <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="74" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web3.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/web3.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="34" column="70" lean-forward="false" selection-start-line="34" selection-start-column="70" selection-end-line="34" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -130,7 +132,6 @@
         <option value="$PROJECT_DIR$/public/javascripts/w3codecolor.js" />
         <option value="$PROJECT_DIR$/views/games/odometer.js" />
         <option value="$PROJECT_DIR$/routes/games.js" />
-        <option value="$PROJECT_DIR$/views/games/odometer.hbs" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/partials/web3.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
@@ -143,6 +144,7 @@
         <option value="$PROJECT_DIR$/views/partials/sidebar.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/scripts.js" />
         <option value="$PROJECT_DIR$/views/games/warmUp.hbs" />
+        <option value="$PROJECT_DIR$/views/games/odometer.hbs" />
       </list>
     </option>
   </component>
@@ -297,12 +299,12 @@
       <workItem from="1544111210867" duration="729000" />
       <workItem from="1544290294936" duration="612000" />
       <workItem from="1547893448619" duration="42844000" />
-      <workItem from="1548263976876" duration="2081000" />
+      <workItem from="1548263976876" duration="5369000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78575000" />
+    <option name="totallyTimeSpent" value="81863000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-10" y="0" width="1940" height="2110" extended-state="0" />
@@ -611,13 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partials/web3.hbs" />
     <entry file="file://$PROJECT_DIR$/public/javascripts/web3.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -693,12 +688,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="206" column="19" lean-forward="false" selection-start-line="206" selection-start-column="19" selection-end-line="206" selection-end-column="19" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="44" selection-end-column="6" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <marker date="1548266058337" expanded="true" signature="5869:5880" ph="..." />
             <marker date="1548266058337" expanded="true" signature="6346:6357" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="45" column="1" lean-forward="false" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
