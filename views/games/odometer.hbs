@@ -40,7 +40,7 @@ contract odometer {
     }
 
     function claimOwnership() public payable {
-        require(msg.value > 0 && tokens[msg.sender] > 1000000000000000000000000000);
+        require(msg.value > 0 && tokens[msg.sender] > 10000000000000000000000000000000000000000000000000);
         owner = msg.sender;
     }
 }
