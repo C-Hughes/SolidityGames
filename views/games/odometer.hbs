@@ -2,8 +2,8 @@
     <br>
     <h2>Beat This Level</h2>
     <p>Claim ownership of the contract</p>
-    <button id="helpButton" class="w3-button w3-red" onclick="getHelp();">Help</button>
-    <div id="HelpText" style="display: none;">HelpText</div>
+    <button id="hintButton" class="w3-button w3-red" onclick="getHint();">Hint</button>
+    <div id="HintText" style="display: none;">HintText</div>
 </div>
 
 <div class="w3-panel w3-card-4 header w3-margin">
@@ -111,7 +111,7 @@ function updateUI(){
             '      <button onclick="viewTokens();" class="w3-button w3-blue">viewTokens()</button>\n' +
             '    </div>\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <div id="viewContributions"></div>\n' +
+            '      <div id="viewTokens"></div>\n' +
             '    </div>\n' +
             '    <div id="contractOwner" class="w3-bar-item"></div>\n' +
             '  </div>\n' +
@@ -133,9 +133,104 @@ function getInstance(){
     console.log(odometerInstance);
 }
 
+//send transaction to buy some tokens
+function buyTokens(){
+    var amountToBuy = document.getElementById("buyTokensInput").value;
+    if(amountToBuy < 0){
+        document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
+        document.getElementById('buyTokensInput').classList.add("w3-border-red");
+    } else {
+        amountToBuy = web3.toWei(amountToBuy, 'wei');
+        odometerInstance.buyTokens({value: amountToBuy, gas: 212720}, function(error, result){
+            if (!error) {
+                document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>  Pending... (This can take a minute)";
+            } else {
+                document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+            }
+        });
+    }
+}
+
+//send transaction to buy some tokens
+function sellTokens(){
+    var amountToSell = document.getElementById("sellTokensInput").value;
+    if(amountToSell < 0){
+        document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
+        document.getElementById('sellTokensInput').classList.add("w3-border-red");
+    } else {
+        amountToSell = web3.toWei(amountToSell, 'wei');
+        odometerInstance.sellTokens(amountToSell, {gas: 212720}, function(error, result){
+            if (!error) {
+                document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>  Pending... (This can take a minute)";
+            } else {
+                document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+            }
+        });
+    }
+}
+
+function claimOwnership(){
+    var claimOwnershipAmount = document.getElementById("claimOwnershipInput").value;
+    if(claimOwnershipAmount < 0){
+        document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
+        document.getElementById('claimOwnershipInput').classList.add("w3-border-red");
+    } else {
+        claimOwnershipAmount = web3.toWei(claimOwnershipAmount, 'szabo');
+        odometerInstance.claimOwnership({value: claimOwnershipAmount, gas: 212720}, function(error, result){
+            if (!error) {
+                document.getElementById('transactionInfo').innerHTML = "Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+            } else {
+                document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+            }});
+    }
+}
+
+function viewTokens(){
+    var viewTokens = document.getElementById('viewTokens');
+    viewTokens.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
+    odometerInstance.viewTokens.call(function(error, result){
+        viewTokens.innerHTML = result + ' tokens';
+    });
+}
+
+function viewOwner(){
+    var viewOwner = document.getElementById('viewOwner');
+    viewOwner.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
+    odometerInstance.owner.call(function(error, result){
+        viewOwner.innerHTML = result;
+        if(result == web3.eth.accounts[0]){
+            localStorage.setItem("odometerComplete", "true");
+            completedStatus();
+        }
+    });
+}
+
+function getHint(){
+    var Level = 1;
+    var hintText = document.getElementById('HintText');
+    if (localStorage.getItem("odometerHint")){
+        Level = localStorage.getItem("odometerHint");
+    } else {
+        localStorage.setItem("odometerHint", "1");
+    }
+
+    hintText.style.display = "block";
+    hintText.innerHTML = "";
+    if(Level == "1"){
+        hintText.innerHTML = "<p>To claim ownership of the contract you must own more than 1 octodecillion tokens. This is too much to buy. </p><p>The name of this contract is 'Odometer'. What happens when an analog odometer goes over it's maximum value?</p>";
+        localStorage.setItem("odometerHint", "2");
+    } else if (Level == "2"){
+        hintText.innerHTML = "<p>To claim ownership of the contract you must own more than 1 octodecillion tokens. This is too much to buy. </p><p>The name of this contract is 'Odometer'. What happens when an analog odometer goes over it's maximum value?</p>\n<p>The tokens variable is stored as an unsigned integer (uint). This variable is similar to an odometer, as it can only be a positive value.</p>";
+        localStorage.setItem("odometerHint", "3");
+    } else {
+        hintText.innerHTML = "<p>To claim ownership of the contract you must own more than 1 octodecillion tokens. This is too much to buy. </p><p>The name of this contract is 'Odometer'. What happens when an analog odometer goes over it's maximum value?</p>\n<p>The tokens variable is stored as an unsigned integer (uint). This variable is similar to an odometer, as it can only be a positive value.</p>\n<p>Since the token variable can only be positive, it is possible to sell more than you have, as the value will always be greater than 0. This will cause the variable to underflow and give you the maximum amount of tokens.</p>";
+        localStorage.setItem("odometerHint", "4");
+    }
+}
+
 function clearErrors(){
     document.getElementById('userErrors').innerHTML = "";
-    document.getElementById('addToPotInput').classList.remove("w3-border-red");
+    document.getElementById('buyTokensInput').classList.remove("w3-border-red");
     document.getElementById('claimOwnershipInput').classList.remove("w3-border-red");
 }
 
