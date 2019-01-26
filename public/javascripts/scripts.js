@@ -84,8 +84,12 @@ function completedStatus(){
         document.getElementById("warmUpBtn").classList.add("w3-green");
         document.getElementById("warmUpBtn").innerHTML = "1. WarmUp <i class=\"fas fa-check\"></i>";
     }
+    if (localStorage.getItem("rubixiComplete")){
+        document.getElementById("rubixiBtn").classList.add("w3-green");
+        document.getElementById("rubixiBtn").innerHTML = "2. Rubixi <i class=\"fas fa-check\"></i>";
+    }
     if (localStorage.getItem("odometerComplete")){
         document.getElementById("odometerBtn").classList.add("w3-green");
-        document.getElementById("odometerBtn").innerHTML = "2. Odometer <i class=\"fas fa-check\"></i>";
+        document.getElementById("odometerBtn").innerHTML = "3. Odometer <i class=\"fas fa-check\"></i>";
     }
 }

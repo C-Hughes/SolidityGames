@@ -1,0 +1,182 @@
+<div class="w3-container w3-margin w3-card-4 header">
+    <h2>Beat This Level</h2>
+    <p>Claim ownership of the contract</p>
+    <button id="hintButton" class="w3-button w3-red" onclick="getHint();">Hint</button>
+    <div id="HintText" style="display: none;">HintText</div>
+</div>
+
+<div class="w3-panel w3-card-4 header w3-margin">
+    <h4>Rubixi.sol</h4>
+    <div id="deployedContractAddress" class="w3-margin"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></div>
+    <div id="transactionInfo" class="w3-margin"></div>
+    <div id="userErrors" class="w3-text-red w3-margin"></div>
+    <div id="contractInterface"></div>
+
+    <pre><code class="typescript Tomorrow">
+pragma solidity ^0.4.23;
+
+contract Rubixi {
+    address public creator;
+    mapping(address => uint) public amount;
+
+    //Constructor to set creator
+    function Rubix() {
+        creator = msg.sender;
+    }
+
+    function buyIn() public payable {
+        require(msg.value > 0);
+        amount[msg.sender] += msg.value;
+    }
+
+    function viewBalance() public view returns (uint) {
+        return amount[msg.sender];
+    }
+
+    function sellBalance() public payable {
+        msg.sender.transfer(amount[msg.sender]);
+    }
+
+    function transferBalance(address _sendTo) public {
+        amount[_sendTo] += amount[msg.sender];
+        amount[msg.sender] -= amount[msg.sender];
+    }
+
+    //Transfer contract balance to creator
+    function collectAll() public {
+        require(msg.sender == creator);
+        creator.transfer(this.balance);
+    }
+}
+</code></pre>
+</div>
+<script>
+hljs.initHighlightingOnLoad();
+var abi = [{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"viewBalance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"buyIn","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"Rubix","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_sendTo","type":"address"}],"name":"transferBalance","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"sellBalance","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"collectAll","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"amount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}];
+var rubixiContract = web3.eth.contract(abi);
+var rubixiInstance;
+
+function deployContract() {
+    var rubixi = rubixiContract.new(
+        {
+            from: web3.eth.accounts[0],
+            data: '0x608060405234801561001057600080fd5b506105c0806100206000396000f30060806040526004361061008e576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806302d05d3f146100935780633ff1e05b146100ea57806353aab434146101155780636062e18a1461011f57806363b6b31f146101365780638e84330214610179578063952c96fb14610183578063b9f0bf661461019a575b600080fd5b34801561009f57600080fd5b506100a86101f1565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100f657600080fd5b506100ff610216565b6040518082815260200191505060405180910390f35b61011d61025d565b005b34801561012b57600080fd5b506101346102bb565b005b34801561014257600080fd5b50610177600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102fd565b005b610181610418565b005b34801561018f57600080fd5b506101986104a0565b005b3480156101a657600080fd5b506101db600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061057c565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905090565b60003411151561026c57600080fd5b34600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540192505081905550565b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540192505081905550600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254039250508190555050565b3373ffffffffffffffffffffffffffffffffffffffff166108fc600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020549081150290604051600060405180830381858888f1935050505015801561049d573d6000803e3d6000fd5b50565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156104fb57600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050158015610579573d6000803e3d6000fd5b50565b600160205280600052604060002060009150905054815600a165627a7a723058201fbd18036e68fab336a0fe3fa7524164c0c8df2f7130583416371986c34746510029',
+            gas: '4700000',
+            gasPrice: 21000000000
+        }, function (e, contract) {
+            console.log(e, contract);
+            transactionPending(contract);
+            if (typeof contract.address !== 'undefined') {
+                console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+                //Add dApp Address to Local Storage
+                localStorage.setItem("rubixiAddr", contract.address);
+                getInstance();
+                document.getElementById('transactionInfo').innerHTML = "";
+                updateUI();
+            }
+        })
+}
+
+function transactionPending(contract){
+    var Tx = contract.transactionHash;
+    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
+}
+
+function updateUI(){
+
+    //Display dApp UI
+    var x = document.getElementById("contractInterface");
+    x.innerHTML = '<div class="w3-bar">\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <button class="w3-button w3-red" onclick="Rubix();">Rubix()</button>\n' +
+            '    </div>\n' +
+            '  </div>\n' +
+            '  <div class="w3-bar">\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <button onclick="buyIn();" class="w3-button w3-red">buyIn()</button>\n' +
+            '    </div>\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <input id="buyInInput" class="w3-input w3-border" placeholder="amount" style="width:150px" type="text">\n' +
+            '    </div>\n' +
+            '  </div>\n' +
+            '  <div class="w3-bar">\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <button onclick="viewBalance();" class="w3-button w3-blue">viewBalance()</button>\n' +
+            '    </div>\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <div id="viewBalance"></div>\n' +
+            '    </div>\n' +
+            '    <div id="contractCreator" class="w3-bar-item"></div>\n' +
+            '  </div>\n' +
+            '  <div class="w3-bar">\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <button onclick="viewCreator()" class="w3-button w3-blue">creator</button>\n' +
+            '    </div>\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <div id="viewCreator"></div>\n' +
+            '    </div>\n' +
+            '    <div id="contractOwner" class="w3-bar-item"></div>\n' +
+            '  </div>';
+    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+rubixiInstance.address+"'>" + rubixiInstance.address + "</a>";
+}
+//If the contract has already been deployed, get instance from localstorage variable
+function getInstance(){
+    var rubixiAddr = localStorage.getItem("rubixiAddr");
+    rubixiInstance = rubixiContract.at(rubixiAddr);
+    console.log(rubixiInstance);
+}
+
+
+
+function viewOwner(){
+    var viewOwner = document.getElementById('viewOwner');
+    viewOwner.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
+    warmUpInstance.owner.call(function(error, result){
+        viewOwner.innerHTML = result;
+        if(result == web3.eth.accounts[0]){
+            localStorage.setItem("warmUpComplete", "true");
+            completedStatus();
+        }
+    });
+}
+
+function clearErrors(){
+    document.getElementById('userErrors').innerHTML = "";
+    document.getElementById('addToPotInput').classList.remove("w3-border-red");
+    document.getElementById('claimOwnershipInput').classList.remove("w3-border-red");
+}
+
+function getHelp(){
+    var Level = 1;
+    var helpText = document.getElementById('HelpText');
+    if (localStorage.getItem("warmUpHelp")){
+        Level = localStorage.getItem("warmUpHelp");
+    } else {
+        localStorage.setItem("warmUpHelp", "1");
+    }
+
+    helpText.style.display = "block";
+    if(Level == "1"){
+        helpText.innerHTML = "Level 1 Help";
+        localStorage.setItem("warmUpHelp", "2");
+    } else if (Level == "2"){
+        helpText.innerHTML = "Level 1 Help. Level 2 Help";
+        localStorage.setItem("warmUpHelp", "3");
+    } else {
+        helpText.innerHTML = "Level 1 Help. Level 2 Help. Level 3 Help";
+        localStorage.setItem("warmUpHelp", "4");
+    }
+}
+
+//Check LocalStorage to see if the contract has been deployed.
+if (localStorage.getItem("rubixiAddr")){
+    //Add Contract to web3.eth.contract
+    getInstance();
+    updateUI();
+}
+//Check LocalStorage to see if user has requested help.
+if (localStorage.getItem("warmUpHelp")){
+    //Show help
+    //getHelp();
+}
+</script>
