@@ -1,6 +1,6 @@
 <div class="w3-container w3-margin w3-card-4 header">
     <h2>Beat This Level</h2>
-    <p>Claim ownership of the contract</p>
+    <p>Become the creator of the contract</p>
     <button id="hintButton" class="w3-button w3-red" onclick="getHint();">Hint</button>
     <div id="HintText" style="display: none;">HintText</div>
 </div>
@@ -13,14 +13,14 @@
     <div id="contractInterface"></div>
 
     <pre><code class="typescript Tomorrow">
-pragma solidity ^0.4.23;
+pragma solidity ^0.4.22;
 
 contract Rubixi {
     address public creator;
     mapping(address => uint) public amount;
 
     //Constructor to set creator
-    function Rubix() {
+    function rubixi() {
         creator = msg.sender;
     }
 
@@ -34,7 +34,9 @@ contract Rubixi {
     }
 
     function sellBalance() public payable {
-        msg.sender.transfer(amount[msg.sender]);
+        uint _amount = amount[msg.sender];
+        amount[msg.sender] = 0;
+        msg.sender.transfer(_amount);
     }
 
     function transferBalance(address _sendTo) public {
@@ -52,7 +54,7 @@ contract Rubixi {
 </div>
 <script>
 hljs.initHighlightingOnLoad();
-var abi = [{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"viewBalance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"buyIn","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"Rubix","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_sendTo","type":"address"}],"name":"transferBalance","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"sellBalance","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"collectAll","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"amount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}];
+var abi = [{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"viewBalance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"buyIn","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_sendTo","type":"address"}],"name":"transferBalance","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"sellBalance","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"collectAll","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"rubixi","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"amount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}];
 var rubixiContract = web3.eth.contract(abi);
 var rubixiInstance;
 
@@ -60,7 +62,7 @@ function deployContract() {
     var rubixi = rubixiContract.new(
         {
             from: web3.eth.accounts[0],
-            data: '0x608060405234801561001057600080fd5b506105c0806100206000396000f30060806040526004361061008e576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806302d05d3f146100935780633ff1e05b146100ea57806353aab434146101155780636062e18a1461011f57806363b6b31f146101365780638e84330214610179578063952c96fb14610183578063b9f0bf661461019a575b600080fd5b34801561009f57600080fd5b506100a86101f1565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100f657600080fd5b506100ff610216565b6040518082815260200191505060405180910390f35b61011d61025d565b005b34801561012b57600080fd5b506101346102bb565b005b34801561014257600080fd5b50610177600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102fd565b005b610181610418565b005b34801561018f57600080fd5b506101986104a0565b005b3480156101a657600080fd5b506101db600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061057c565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905090565b60003411151561026c57600080fd5b34600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540192505081905550565b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540192505081905550600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254039250508190555050565b3373ffffffffffffffffffffffffffffffffffffffff166108fc600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020549081150290604051600060405180830381858888f1935050505015801561049d573d6000803e3d6000fd5b50565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156104fb57600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050158015610579573d6000803e3d6000fd5b50565b600160205280600052604060002060009150905054815600a165627a7a723058201fbd18036e68fab336a0fe3fa7524164c0c8df2f7130583416371986c34746510029',
+            data: '0x608060405234801561001057600080fd5b5061060b806100206000396000f30060806040526004361061008e576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806302d05d3f146100935780633ff1e05b146100ea57806353aab4341461011557806363b6b31f1461011f5780638e84330214610162578063952c96fb1461016c578063b556fc0514610183578063b9f0bf661461019a575b600080fd5b34801561009f57600080fd5b506100a86101f1565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100f657600080fd5b506100ff610216565b6040518082815260200191505060405180910390f35b61011d61025d565b005b34801561012b57600080fd5b50610160600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102bb565b005b61016a6103d6565b005b34801561017857600080fd5b506101816104a9565b005b34801561018f57600080fd5b50610198610585565b005b3480156101a657600080fd5b506101db600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506105c7565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905090565b60003411151561026c57600080fd5b34600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540192505081905550565b600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540192505081905550600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254039250508190555050565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490506000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055503373ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f193505050501580156104a5573d6000803e3d6000fd5b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561050457600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050158015610582573d6000803e3d6000fd5b50565b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b600160205280600052604060002060009150905054815600a165627a7a72305820800671281b7544fb402c159d262b09f93e18a34502c597db60ff8bc5954aa5980029',
             gas: '4700000',
             gasPrice: 21000000000
         }, function (e, contract) {
@@ -88,7 +90,7 @@ function updateUI(){
     var x = document.getElementById("contractInterface");
     x.innerHTML = '<div class="w3-bar">\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <button class="w3-button w3-red" onclick="Rubix();">Rubix()</button>\n' +
+            '      <button class="w3-button w3-red" onclick="rubixi();">rubixi()</button>\n' +
             '    </div>\n' +
             '  </div>\n' +
             '  <div class="w3-bar">\n' +
@@ -97,6 +99,24 @@ function updateUI(){
             '    </div>\n' +
             '    <div class="w3-bar-item">\n' +
             '      <input id="buyInInput" class="w3-input w3-border" placeholder="amount" style="width:150px" type="text">\n' +
+            '    </div>\n' +
+            '  </div>\n' +
+            '  <div class="w3-bar">\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <button onclick="transferBalance();" class="w3-button w3-red">transferBalance()</button>\n' +
+            '    </div>\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <input id="transferBalanceInput" class="w3-input w3-border" placeholder="Address" style="width:150px" type="text">\n' +
+            '    </div>\n' +
+            '  </div>\n' +
+            '  <div class="w3-bar">\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <button onclick="sellBalance();" class="w3-button w3-red">sellBalance()</button>\n' +
+            '    </div>\n' +
+            '  </div>\n' +
+            '  <div class="w3-bar">\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <button onclick="collectAll();" class="w3-button w3-red">collectAll()</button>\n' +
             '    </div>\n' +
             '  </div>\n' +
             '  <div class="w3-bar">\n' +
@@ -126,15 +146,79 @@ function getInstance(){
     console.log(rubixiInstance);
 }
 
+function rubixi(){
+    rubixiInstance.rubixi(function(error, result){
+        if (!error) {
+            document.getElementById('transactionInfo').innerHTML = "Please wait for MetaMask to confirm the transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+        } else {
+            document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+        }
+    });
+}
 
+function buyIn(){
+    var amountToAdd = document.getElementById("buyInInput").value;
+    if(amountToAdd == 0){
+        document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
+        document.getElementById('buyInInput').classList.add("w3-border-red");
+    } else {
+        amountToAdd = web3.toWei(amountToAdd, 'szabo');
+        rubixiInstance.buyIn({value: amountToAdd, gas: 212720}, function(error, result){
+            if (!error) {
+                document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Please wait for MetaMask to confirm the transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+            } else {
+                document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+            }
+        });
+    }
+}
 
-function viewOwner(){
-    var viewOwner = document.getElementById('viewOwner');
-    viewOwner.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
-    warmUpInstance.owner.call(function(error, result){
-        viewOwner.innerHTML = result;
+function transferBalance(){
+    var address = document.getElementById("transferBalanceInput").value;
+    rubixiInstance.transferBalance(address, {gas: 212720}, function(error, result){
+        if (!error) {
+            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Please wait for MetaMask to confirm the transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+        } else {
+            document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+        }
+    });
+}
+
+function sellBalance(){
+    rubixiInstance.sellBalance({gas: 212720}, function(error, result){
+        if (!error) {
+            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Please wait for MetaMask to confirm the transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+        } else {
+            document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+        }
+    });
+}
+
+function collectAll(){
+    rubixiInstance.collectAll({gas: 212720}, function(error, result){
+        if (!error) {
+            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Please wait for MetaMask to confirm the transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+        } else {
+            document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+        }
+    });
+}
+
+function viewBalance(){
+    var viewBalance = document.getElementById('viewBalance');
+    viewBalance.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
+    rubixiInstance.viewBalance.call(function(error, result){
+        viewBalance.innerHTML = result + ' wei';
+    });
+}
+
+function viewCreator(){
+    var viewCreator = document.getElementById('viewCreator');
+    viewCreator.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
+    rubixiInstance.creator.call(function(error, result){
+        viewCreator.innerHTML = result;
         if(result == web3.eth.accounts[0]){
-            localStorage.setItem("warmUpComplete", "true");
+            localStorage.setItem("rubixiComplete", "true");
             completedStatus();
         }
     });
@@ -146,25 +230,24 @@ function clearErrors(){
     document.getElementById('claimOwnershipInput').classList.remove("w3-border-red");
 }
 
-function getHelp(){
+function getHint(){
     var Level = 1;
-    var helpText = document.getElementById('HelpText');
-    if (localStorage.getItem("warmUpHelp")){
-        Level = localStorage.getItem("warmUpHelp");
+    var hintText = document.getElementById('HintText');
+    if (localStorage.getItem("rubixiHint")){
+        Level = localStorage.getItem("rubixiHint");
     } else {
-        localStorage.setItem("warmUpHelp", "1");
+        localStorage.setItem("rubixiHint", "1");
     }
 
-    helpText.style.display = "block";
+    hintText.style.display = "block";
+    hintText.innerHTML = "";
     if(Level == "1"){
-        helpText.innerHTML = "Level 1 Help";
-        localStorage.setItem("warmUpHelp", "2");
+        hintText.innerHTML = "<p>Before Solidity v0.4.23, a function with the same name as the contract is the constructor function. This code is executed exactly once, when the contract is initially deployed. </p>";
+        document.getElementById('hintButton').innerHTML = "Hint (1/2)";
+        localStorage.setItem("rubixiHint", "2");
     } else if (Level == "2"){
-        helpText.innerHTML = "Level 1 Help. Level 2 Help";
-        localStorage.setItem("warmUpHelp", "3");
-    } else {
-        helpText.innerHTML = "Level 1 Help. Level 2 Help. Level 3 Help";
-        localStorage.setItem("warmUpHelp", "4");
+        hintText.innerHTML = "<p>Before Solidity v0.4.23, a function with the same name as the contract is the constructor function. This code is executed exactly once, when the contract is initially deployed. </p><p>In Solidity, function and variable names are case sensitive.</p>";
+        document.getElementById('hintButton').innerHTML = "Hint (2/2)";
     }
 }
 

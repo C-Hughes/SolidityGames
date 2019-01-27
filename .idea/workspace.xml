@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d88a775f-34bf-4f30-8ae2-28a3fb0bb27d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/views/games/rubixi.hbs" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/public/javascripts/scripts.js" afterPath="$PROJECT_DIR$/public/javascripts/scripts.js" />
-      <change beforePath="$PROJECT_DIR$/routes/games.js" afterPath="$PROJECT_DIR$/routes/games.js" />
-      <change beforePath="$PROJECT_DIR$/views/games/odometer.hbs" afterPath="$PROJECT_DIR$/views/games/odometer.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/games/rubixi.hbs" afterPath="$PROJECT_DIR$/views/games/rubixi.hbs" />
       <change beforePath="$PROJECT_DIR$/views/games/warmUp.hbs" afterPath="$PROJECT_DIR$/views/games/warmUp.hbs" />
       <change beforePath="$PROJECT_DIR$/views/partials/sidebar.hbs" afterPath="$PROJECT_DIR$/views/partials/sidebar.hbs" />
     </list>
@@ -72,11 +69,11 @@
       <file leaf-file-name="warmUp.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="111" column="28" lean-forward="false" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
+            <state relative-caret-position="960">
+              <caret line="222" column="5" lean-forward="false" selection-start-line="218" selection-start-column="8" selection-end-line="222" selection-end-column="5" />
               <folding>
-                <marker date="1548519831523" expanded="true" signature="5869:5880" ph="..." />
-                <marker date="1548519831523" expanded="true" signature="6346:6357" ph="..." />
+                <marker date="1548596031966" expanded="true" signature="5869:5880" ph="..." />
+                <marker date="1548596031966" expanded="true" signature="6346:6357" ph="..." />
               </folding>
             </state>
           </provider>
@@ -85,8 +82,8 @@
       <file leaf-file-name="odometer.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="60" column="20" lean-forward="false" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+            <state relative-caret-position="1356">
+              <caret line="229" column="1" lean-forward="true" selection-start-line="208" selection-start-column="0" selection-end-line="229" selection-end-column="1" />
               <folding>
                 <marker date="1548430124263" expanded="true" signature="6465:6476" ph="..." />
                 <marker date="1548430124263" expanded="true" signature="6943:6954" ph="..." />
@@ -99,10 +96,11 @@
       <file leaf-file-name="rubixi.hbs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/games/rubixi.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="64" column="33" lean-forward="true" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
+            <state relative-caret-position="1075">
+              <caret line="64" column="3179" lean-forward="false" selection-start-line="64" selection-start-column="3179" selection-end-line="64" selection-end-column="3179" />
               <folding>
-                <marker date="1548519933596" expanded="true" signature="7697:7708" ph="..." />
+                <marker date="1548599794568" expanded="true" signature="7918:7929" ph="..." />
+                <marker date="1548599794568" expanded="true" signature="8392:8403" ph="..." />
               </folding>
             </state>
           </provider>
@@ -121,8 +119,8 @@
       <file leaf-file-name="sidebar.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/partials/sidebar.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state relative-caret-position="500">
+              <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -150,8 +148,8 @@
         <option value="$PROJECT_DIR$/views/layouts/layout.hbs" />
         <option value="$PROJECT_DIR$/views/games/odometer.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/scripts.js" />
-        <option value="$PROJECT_DIR$/views/partials/sidebar.hbs" />
         <option value="$PROJECT_DIR$/routes/games.js" />
+        <option value="$PROJECT_DIR$/views/partials/sidebar.hbs" />
         <option value="$PROJECT_DIR$/views/games/warmUp.hbs" />
         <option value="$PROJECT_DIR$/views/games/rubixi.hbs" />
       </list>
@@ -309,12 +307,12 @@
       <workItem from="1544290294936" duration="612000" />
       <workItem from="1547893448619" duration="42844000" />
       <workItem from="1548263976876" duration="12872000" />
-      <workItem from="1548440912164" duration="2846000" />
+      <workItem from="1548440912164" duration="10990000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92212000" />
+    <option name="totallyTimeSpent" value="100356000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-10" y="0" width="1940" height="2110" extended-state="0" />
@@ -657,30 +655,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="60" column="20" lean-forward="false" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
-          <folding>
-            <marker date="1548430124263" expanded="true" signature="6465:6476" ph="..." />
-            <marker date="1548430124263" expanded="true" signature="6943:6954" ph="..." />
-            <marker date="1548430124263" expanded="true" signature="7420:7431" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1335">
           <caret line="92" column="62" lean-forward="false" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/sidebar.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -701,23 +679,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/sidebar.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1356">
+          <caret line="229" column="1" lean-forward="true" selection-start-line="208" selection-start-column="0" selection-end-line="229" selection-end-column="1" />
+          <folding>
+            <marker date="1548430124263" expanded="true" signature="6465:6476" ph="..." />
+            <marker date="1548430124263" expanded="true" signature="6943:6954" ph="..." />
+            <marker date="1548430124263" expanded="true" signature="7420:7431" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="111" column="28" lean-forward="false" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
+        <state relative-caret-position="960">
+          <caret line="222" column="5" lean-forward="false" selection-start-line="218" selection-start-column="8" selection-end-line="222" selection-end-column="5" />
           <folding>
-            <marker date="1548519831523" expanded="true" signature="5869:5880" ph="..." />
-            <marker date="1548519831523" expanded="true" signature="6346:6357" ph="..." />
+            <marker date="1548596031966" expanded="true" signature="5869:5880" ph="..." />
+            <marker date="1548596031966" expanded="true" signature="6346:6357" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/games/rubixi.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="64" column="33" lean-forward="true" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
+        <state relative-caret-position="1075">
+          <caret line="64" column="3179" lean-forward="false" selection-start-line="64" selection-start-column="3179" selection-end-line="64" selection-end-column="3179" />
           <folding>
-            <marker date="1548519933596" expanded="true" signature="7697:7708" ph="..." />
+            <marker date="1548599794568" expanded="true" signature="7918:7929" ph="..." />
+            <marker date="1548599794568" expanded="true" signature="8392:8403" ph="..." />
           </folding>
         </state>
       </provider>
