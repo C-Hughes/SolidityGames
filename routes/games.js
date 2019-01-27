@@ -13,4 +13,8 @@ router.get('/odometer', function(req, res, next) {
     res.render('games/odometer', { title: '3. Odometer'});
 });
 
+router.get('/keepingSecrets', function(req, res, next) {
+    res.render('games/keepingSecrets', { title: '4. Keeping Secrets'});
+});
+
 module.exports = router;
