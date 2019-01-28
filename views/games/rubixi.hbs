@@ -149,7 +149,8 @@ function getInstance(){
 function rubixi(){
     rubixiInstance.rubixi(function(error, result){
         if (!error) {
-            document.getElementById('transactionInfo').innerHTML = "Please wait for MetaMask to confirm the transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction - <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+            getTransaction(result);
         } else {
             document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
         }
@@ -165,7 +166,8 @@ function buyIn(){
         amountToAdd = web3.toWei(amountToAdd, 'szabo');
         rubixiInstance.buyIn({value: amountToAdd, gas: 212720}, function(error, result){
             if (!error) {
-                document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Please wait for MetaMask to confirm the transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+                document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+                getTransaction(result);
             } else {
                 document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
             }
@@ -177,7 +179,8 @@ function transferBalance(){
     var address = document.getElementById("transferBalanceInput").value;
     rubixiInstance.transferBalance(address, {gas: 212720}, function(error, result){
         if (!error) {
-            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Please wait for MetaMask to confirm the transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+            getTransaction(result);
         } else {
             document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
         }
@@ -187,7 +190,8 @@ function transferBalance(){
 function sellBalance(){
     rubixiInstance.sellBalance({gas: 212720}, function(error, result){
         if (!error) {
-            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Please wait for MetaMask to confirm the transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+            getTransaction(result);
         } else {
             document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
         }
@@ -197,7 +201,8 @@ function sellBalance(){
 function collectAll(){
     rubixiInstance.collectAll({gas: 212720}, function(error, result){
         if (!error) {
-            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Please wait for MetaMask to confirm the transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+            getTransaction(result);
         } else {
             document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
         }

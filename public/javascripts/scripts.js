@@ -1,13 +1,3 @@
-//Show/hide element
-function toggleElement(param) {
-    var x = document.getElementById(param);
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
-    } else {
-        x.style.display = 'none';
-    }
-}
-
 //Function to set localstorage & change style wh en day/night toggle is pressed.
 function toggleDayNight(changeTo){
 
@@ -68,14 +58,17 @@ function toggleDayNight(changeTo){
     }
 };
 
-
-//Set local storage if not initialised
-if (!localStorage.getItem("theme")){
-    localStorage.setItem("theme", "night");
-} else {
-    //Set day/night
-    toggleDayNight(localStorage.getItem("theme"));
-    completedStatus();
+function getTransaction(hash){
+    var transactionInterval = setInterval(function() {
+        web3.eth.getTransactionReceipt(hash, function(err, data) {
+            if(data){
+                console.log(data.blockNumber);
+                clearInterval(transactionInterval);
+                document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-check w3-text-green\"></i> Transaction Successful";
+            }
+        });
+        console.log(1);
+    }, 2000);
 }
 
 function completedStatus(){
@@ -92,4 +85,13 @@ function completedStatus(){
         document.getElementById("odometerBtn").classList.add("w3-green");
         document.getElementById("odometerBtn").innerHTML = "3. Odometer <i class=\"fas fa-check\"></i>";
     }
+}
+
+//Set local storage if not initialised
+if (!localStorage.getItem("theme")){
+    localStorage.setItem("theme", "night");
+} else {
+    //Set day/night
+    toggleDayNight(localStorage.getItem("theme"));
+    completedStatus();
 }

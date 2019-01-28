@@ -133,18 +133,7 @@ function addToPot(){
         warmUpInstance.addToPot({value: amountToAdd, gas: 212720}, function(error, result){
         if (!error) {
             document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>  Pending... (This can take a minute)";
-            var transaction = web3.eth.getTransaction(result, function(error, result){
-                if(!error){
-                    if (result.blockNumber == "null") {
-                        console.log(JSON.stringify(result));
-                        alert("Transaction Mined");
-                    } else {
-                        alert("Not null");
-                    }
-                } else {
-                    console.error(error);
-                }
-            });
+            getTransaction(result);
         } else {
             document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
         }});
@@ -160,17 +149,8 @@ function claimOwnership(){
         claimOwnershipAmount = web3.toWei(claimOwnershipAmount, 'szabo');
         warmUpInstance.claimOwnership({value: claimOwnershipAmount, gas: 212720}, function(error, result){
             if (!error) {
-                document.getElementById('transactionInfo').innerHTML = "Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
-                var transaction = web3.eth.getTransaction(result, function(error, result){
-                    if(!error){
-                        if (typeof result.blockNumber !== "null") {
-                            console.log(JSON.stringify(result));
-                            alert("Transaction Mined");
-                        }
-                    } else {
-                        console.error(error);
-                    }
-                });
+                document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)";
+                getTransaction(result);
             } else {
                 document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
             }});
