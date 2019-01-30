@@ -17,4 +17,21 @@ router.get('/keepingSecrets', function(req, res, next) {
     res.render('games/keepingSecrets', { title: '4. Keeping Secrets'});
 });
 
+router.get('/externalFactors', function(req, res, next) {
+    res.render('games/externalFactors', { title: '5. External Factors'});
+});
+
+router.get('/forcedPayments', function(req, res, next) {
+    res.render('games/forcedPayments', { title: '6. Forced Payments'});
+});
+
+router.get('/simpleDAO', function(req, res, next) {
+    res.render('games/simpleDAO', { title: '7. simpleDAO'});
+});
+
+router.get('/randomness', function(req, res, next) {
+    res.render('games/randomness', { title: '8. Randomness'});
+});
+
+
 module.exports = router;
