@@ -57,3 +57,13 @@ a:hover {
   display: none;
 }
 
+#leftSidebar a.current{
+  color: #000000;
+  background:#CCCCCC;
+}
+
+#leftSidebar a.completed{
+  color: #FFFFFF;
+  background:#4CAF50;
+}
+

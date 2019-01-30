@@ -71,21 +71,25 @@ function getTransaction(hash){
     }, 2000);
 }
 
+
+
 function completedStatus(){
     //Check if any challanges have been completed
     if (localStorage.getItem("warmUpComplete")){
-        document.getElementById("warmUpBtn").classList.add("w3-green");
+        document.getElementById("warmUpBtn").classList.add("completed");
         document.getElementById("warmUpBtn").innerHTML = "1. WarmUp <i class=\"fas fa-check\"></i>";
     }
     if (localStorage.getItem("rubixiComplete")){
-        document.getElementById("rubixiBtn").classList.add("w3-green");
+        document.getElementById("rubixiBtn").classList.add("completed");
         document.getElementById("rubixiBtn").innerHTML = "2. Rubixi <i class=\"fas fa-check\"></i>";
     }
     if (localStorage.getItem("odometerComplete")){
-        document.getElementById("odometerBtn").classList.add("w3-green");
+        document.getElementById("odometerBtn").classList.add("completed");
         document.getElementById("odometerBtn").innerHTML = "3. Odometer <i class=\"fas fa-check\"></i>";
     }
 }
+
+
 
 //Set local storage if not initialised
 if (!localStorage.getItem("theme")){
@@ -95,3 +99,9 @@ if (!localStorage.getItem("theme")){
     toggleDayNight(localStorage.getItem("theme"));
     completedStatus();
 }
+
+var path = window.location.pathname;
+if(path.substr(path.length - 1) == "/"){
+    path = path.substring(0, path.length - 1);
+}
+$("a[href*='" + path + "']").addClass("current").removeClass("completed");
