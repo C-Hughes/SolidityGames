@@ -44,11 +44,13 @@ function getBalance() {
 
 function getNetwork() {
     var network = "Not Connected";
+    document.getElementById("etherNetwork").style.color = "Green";
     try {
         web3.version.getNetwork((err, netId) => {
             switch (netId) {
             case "1":
-                network = "Mainnet";
+                network = "Mainnet - Please use a test network!";
+                document.getElementById("etherNetwork").style.color = "Red";
                 console.log('This is mainnet')
                 break
             case "2":
@@ -72,8 +74,27 @@ function getNetwork() {
                 console.log('This is an unknown network.')
             }
             document.getElementById("etherNetwork").innerHTML = network;
+
         })
     } catch (err) {
         document.getElementById("etherBalance").innerHTML = err;
     }
 }
+
+function getTransaction(hash){
+    var transactionInterval = setInterval(function() {
+        web3.eth.getTransactionReceipt(hash, function(err, data) {
+            if(data){
+                console.log(data.blockNumber);
+                clearInterval(transactionInterval);
+                document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-check w3-text-green\"></i> Transaction Successful";
+            }
+        });
+        console.log(1);
+    }, 2000);
+}
+
+//Every 30 seconds update balance
+var accountInterval = setInterval(function() {
+    getBalance();
+}, 30000);

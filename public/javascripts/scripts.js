@@ -58,21 +58,6 @@ function toggleDayNight(changeTo){
     }
 };
 
-function getTransaction(hash){
-    var transactionInterval = setInterval(function() {
-        web3.eth.getTransactionReceipt(hash, function(err, data) {
-            if(data){
-                console.log(data.blockNumber);
-                clearInterval(transactionInterval);
-                document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-check w3-text-green\"></i> Transaction Successful";
-            }
-        });
-        console.log(1);
-    }, 2000);
-}
-
-
-
 function completedStatus(){
     //Check if any challanges have been completed
     if (localStorage.getItem("warmUpComplete")){
