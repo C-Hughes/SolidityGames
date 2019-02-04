@@ -13,19 +13,20 @@
     <div id="userErrors" class="w3-text-red w3-margin"></div>
     <div id="contractInterface"></div>
 
-    <pre><code class="typescript Tomorrow">
+    <pre><code class="Javascript Tomorrow">
 pragma solidity ^0.5.3;
 
 contract externalFactors {
     address public owner;
 
     constructor() public {
-        owner = 0xcCF90925D0756bd69D1f3d0fD965672f34d32C4E;
+        owner = msg.sender;
     }
 
     function claimOwnership() public payable {
-        require(tx.origin != msg.sender);
-        owner = msg.sender;
+        if (tx.origin != msg.sender) {
+            owner = msg.sender;
+        }
     }
 }
 </code></pre>

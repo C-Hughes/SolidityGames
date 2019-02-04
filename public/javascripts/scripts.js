@@ -72,6 +72,10 @@ function completedStatus(){
         document.getElementById("odometerBtn").classList.add("completed");
         document.getElementById("odometerBtn").innerHTML = "3. Odometer <i class=\"fas fa-check\"></i>";
     }
+    if (localStorage.getItem("keepingSecretsComplete")){
+        document.getElementById("keepingSecretsBtn").classList.add("completed");
+        document.getElementById("keepingSecretsBtn").innerHTML = "4. keepingSecrets <i class=\"fas fa-check\"></i>";
+    }
 }
 
 

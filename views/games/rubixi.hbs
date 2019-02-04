@@ -1,7 +1,7 @@
 <div class="w3-container w3-margin w3-card-4 header">
     <h2>Beat This Level</h2>
     <p>Become the creator of the contract</p>
-    <button id="hintButton" class="w3-button w3-red" onclick="getHint();">Hint</button>
+    <button id="hintButton" class="w3-button w3-amber" onclick="getHint();">Get Hint (2)</button>
     <div id="HintText" style="display: none;">HintText</div>
 </div>
 
@@ -235,21 +235,17 @@ function clearErrors(){
     document.getElementById('claimOwnershipInput').classList.remove("w3-border-red");
 }
 
+var Level = 1;
 function getHint(){
-    var Level = 1;
-    var hintText = document.getElementById('HintText');
-    if (localStorage.getItem("rubixiHint")){
-        Level = localStorage.getItem("rubixiHint");
-    } else {
-        localStorage.setItem("rubixiHint", "1");
-    }
 
+    var hintText = document.getElementById('HintText');
     hintText.style.display = "block";
     hintText.innerHTML = "";
+
     if(Level == "1"){
         hintText.innerHTML = "<p>Before Solidity v0.4.23, a function with the same name as the contract is the constructor function. This code is executed exactly once, when the contract is initially deployed. </p>";
         document.getElementById('hintButton').innerHTML = "Hint (1/2)";
-        localStorage.setItem("rubixiHint", "2");
+        Level = 2;
     } else if (Level == "2"){
         hintText.innerHTML = "<p>Before Solidity v0.4.23, a function with the same name as the contract is the constructor function. This code is executed exactly once, when the contract is initially deployed. </p><p>In Solidity, function and variable names are case sensitive.</p>";
         document.getElementById('hintButton').innerHTML = "Hint (2/2)";
@@ -261,10 +257,5 @@ if (localStorage.getItem("rubixiAddr")){
     //Add Contract to web3.eth.contract
     getInstance();
     updateUI();
-}
-//Check LocalStorage to see if user has requested help.
-if (localStorage.getItem("warmUpHelp")){
-    //Show help
-    //getHelp();
 }
 </script>
