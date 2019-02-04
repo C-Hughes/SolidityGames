@@ -1,0 +1,155 @@
+<div class="w3-container w3-margin w3-card-4 header">
+    <br>
+    <h2>Beat This Level</h2>
+    <p>Find the secret to claim ownership of the contract</p>
+    <button id="hintButton" class="w3-button w3-amber" onclick="getHint();">Get Hint (3)</button>
+    <div id="HintText" style="display: none;"></div>
+</div>
+
+<div class="w3-panel w3-card-4 header w3-margin">
+    <h4>simpleDAO.sol</h4>
+    <div id="deployedContractAddress" class="w3-margin"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></div>
+    <div id="transactionInfo" class="w3-margin"></div>
+    <div id="userErrors" class="w3-text-red w3-margin"></div>
+    <div id="contractInterface"></div>
+
+    <pre><code class="Javascript Tomorrow">
+pragma solidity ^0.4.0;
+
+contract SimpleDAO {
+    mapping (address => uint) public credit;
+
+    function donate(address to){
+        credit[to] += msg.value;
+    }
+
+    function queryCredit(address to) returns (uint){
+        return credit[to];
+    }
+
+    function withdraw(uint amount){
+        if (credit[msg.sender]>= amount){
+            msg.sender.call.value(amount)();
+            credit[msg.sender]-=amount;
+        }
+    }
+}
+</code></pre>
+</div>
+<script>
+    hljs.initHighlightingOnLoad();
+
+    var abi = [{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_secret","type":"bytes32"}],"name":"claimOwnership","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[{"name":"_secret","type":"bytes32"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"}];
+    var keepingSecretsContract = web3.eth.contract(abi);
+    var keepingSecretsInstance;
+
+    function deployContract() {
+        var keepingsecrets = keepingSecretsContract.new(
+                "0x546869734973546865536563726574",
+                {
+                    from: web3.eth.accounts[0],
+                    data: '0x608060405234801561001057600080fd5b5060405160208061021b8339810180604052602081101561003057600080fd5b810190808051906020019092919050505073ccf90925d0756bd69d1f3d0fd965672f34d32c4e6000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550806001819055505061016f806100ac6000396000f3fe608060405234801561001057600080fd5b5060043610610053576000357c0100000000000000000000000000000000000000000000000000000000900480638da5cb5b14610058578063b367c657146100a2575b600080fd5b6100606100d0565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100ce600480360360208110156100b857600080fd5b81019080803590602001909291905050506100f5565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b80600154141561014057336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b5056fea165627a7a72305820cdaaaad9e4c54d23bc1788290c58d64269e3fcce02cc0f02fa7a40a907a1c6cf0029',
+                    gas: '4700000'
+                }, function (e, contract) {
+                    console.log(e, contract);
+                    transactionPending(contract);
+                    if (typeof contract.address !== 'undefined') {
+                        console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+                        //Add dApp Address to Local Storage
+                        localStorage.setItem("keepingSecretsAddr", contract.address);
+                        getInstance();
+                        document.getElementById('transactionInfo').innerHTML = "";
+                        updateUI();
+                    }
+                })
+    }
+
+    function transactionPending(contract){
+        var Tx = contract.transactionHash;
+        document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
+    }
+
+    function updateUI(){
+        //Display dApp UI
+        var x = document.getElementById("contractInterface");
+        x.innerHTML = '  <div class="w3-bar">\n' +
+                '    <div class="w3-bar-item">\n' +
+                '      <button onclick="claimOwnership();" class="w3-button w3-red">claimOwnership()</button>\n' +
+                '    </div>\n' +
+                '    <div class="w3-bar-item">\n' +
+                '      <input id="claimOwnershipInput" class="w3-input w3-border" placeholder="_secret" style="width:150px" type="text">\n' +
+                '    </div>\n' +
+                '  </div>\n' +
+                '  <div class="w3-bar">\n' +
+                '    <div class="w3-bar-item">\n' +
+                '      <button onclick="viewOwner()" class="w3-button w3-blue">owner</button>\n' +
+                '    </div>\n' +
+                '    <div class="w3-bar-item">\n' +
+                '      <div id="viewOwner"></div>\n' +
+                '    </div>\n' +
+                '  </div>';
+        document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+keepingSecretsInstance.address+"'>" + keepingSecretsInstance.address + "</a>";
+    }
+    //If the contract has already been deployed, get instance from localstorage variable
+    function getInstance(){
+        var keepingSecretsAddr = localStorage.getItem("keepingSecretsAddr");
+        keepingSecretsInstance = keepingSecretsContract.at(keepingSecretsAddr);
+        console.log(keepingSecretsInstance);
+    }
+
+    function claimOwnership(){
+        var claimOwnershipSecret = document.getElementById("claimOwnershipInput").value;
+        if(claimOwnershipSecret < 0){
+            document.getElementById('userErrors').innerHTML = "Value must have a value";
+            document.getElementById('claimOwnershipInput').classList.add("w3-border-red");
+        } else {
+            keepingSecretsInstance.claimOwnership(claimOwnershipSecret, {gas: 212720}, function(error, result){
+                if (!error) {
+                    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)";
+                    getTransaction(result);
+                } else {
+                    document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+                }});
+        }
+    }
+
+    function viewOwner(){
+        var viewOwner = document.getElementById('viewOwner');
+        viewOwner.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
+        keepingSecretsInstance.owner.call(function(error, result){
+            viewOwner.innerHTML = result;
+            if(result == web3.eth.accounts[0]){
+                localStorage.setItem("keepingSecretsComplete", "true");
+                completedStatus();
+            }
+        });
+    }
+
+    var Level = 1;
+    function getHint(){
+
+        var hintText = document.getElementById('HintText');
+        hintText.style.display = "block";
+        hintText.innerHTML = "";
+
+        if(Level == "1"){
+            hintText.innerHTML = "<p>The blockchain is public and easily viewable. This allows anyone to view the transactions, account balances and contract variable values - including ones set as private.</p>";
+            Level = 2;
+            document.getElementById('hintButton').innerHTML = "Hint (1/3)";
+        } else if (Level == "2"){
+            hintText.innerHTML = "<p>The blockchain is public and easily viewable. This allows anyone to view the transactions, account balances and contract variable values - including ones set as private.</p><p>Try using a block explorer, such as <a href='https://ropsten.etherscan.io/'>https://ropsten.etherscan.io/</a> to view the initialisation transaction for the deployed smart contract. Look carefully at the input data.</p>";
+            Level = 3;
+            document.getElementById('hintButton').innerHTML = "Hint (2/3)";
+        } else {
+            hintText.innerHTML = "<p>The blockchain is public and easily viewable. This allows anyone to view the transactions, account balances and contract variable values - including ones set as private.</p><p>Try using a block explorer, such as <a href='https://ropsten.etherscan.io/'>https://ropsten.etherscan.io/</a> to view the initialisation transaction for the deployed smart contract. Look carefully at the input data.</p><p>Make sure to set the input data view to UTF-8.  </p>";
+            document.getElementById('hintButton').innerHTML = "Hint (3/3)";
+        }
+    }
+
+    //Check LocalStorage to see if the contract has been deployed.
+    if (localStorage.getItem("simpleDAOAddr")){
+        //Add Contract to web3.eth.contract
+        getInstance();
+        updateUI();
+    }
+</script>

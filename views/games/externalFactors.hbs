@@ -23,7 +23,7 @@ contract externalFactors {
         owner = msg.sender;
     }
 
-    function claimOwnership() public payable {
+    function() payable public {
         if (tx.origin != msg.sender) {
             owner = msg.sender;
         }
