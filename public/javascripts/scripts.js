@@ -58,6 +58,20 @@ function toggleDayNight(changeTo){
     }
 };
 
+function openTab(evt, tabName) {
+    var i, x, tablinks;
+    x = document.getElementsByClassName("tab");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < x.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" w3-light-grey", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " w3-light-grey";
+}
+
 function completedStatus(){
     //Check if any challanges have been completed
     if (localStorage.getItem("warmUpComplete")){
@@ -77,8 +91,6 @@ function completedStatus(){
         document.getElementById("keepingSecretsBtn").innerHTML = "4. keepingSecrets <i class=\"fas fa-check\"></i>";
     }
 }
-
-
 
 //Set local storage if not initialised
 if (!localStorage.getItem("theme")){
