@@ -15,7 +15,7 @@ router.get('/smartContracts', function(req, res, next) {
 });
 
 router.get('/metamask', function(req, res, next) {
-    res.render('info/metamask', { title: 'Solidity Games' });
+    res.render('info/metaMask', { title: 'Solidity Games' });
 });
 
 router.get('/survey', function(req, res, next) {
