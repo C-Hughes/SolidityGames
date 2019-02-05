@@ -18,6 +18,18 @@ router.get('/metamask', function(req, res, next) {
     res.render('info/metaMask', { title: 'Solidity Games' });
 });
 
+router.get('/vulnerabilities', function(req, res, next) {
+    res.render('resources/vulnerabilities', { title: 'Solidity Games' });
+});
+
+router.get('/realexamples', function(req, res, next) {
+    res.render('resources/realExamples', { title: 'Solidity Games' });
+});
+
+router.get('/securitytools', function(req, res, next) {
+    res.render('resources/securityTools', { title: 'Solidity Games' });
+});
+
 router.get('/survey', function(req, res, next) {
     res.render('pages/survey', { title: 'Solidity Games' });
 });

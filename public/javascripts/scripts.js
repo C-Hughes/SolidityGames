@@ -9,7 +9,7 @@ function toggleDayNight(changeTo){
         var textColorDay = "#172130";
 
         //Change theme to day colours
-        document.getElementById("dayNightBtn").innerHTML = '<span title="Night Mode" onclick="toggleDayNight(\'night\')"><i class="far fa-moon" aria-hidden="true"></i></span>';
+        document.getElementById("dayNightBtn").innerHTML = '<span title="Night Mode" onclick="toggleDayNight(\'night\')"><i class="fas fa-moon" aria-hidden="true"></i></span>';
 
         var elements = document.getElementsByClassName("primary");
         for (var i = 0; i < elements.length; i++) {
@@ -36,7 +36,7 @@ function toggleDayNight(changeTo){
         var headerNight = "#2A2B31";
         var textColorNight = "#A1A29A";
 
-        document.getElementById("dayNightBtn").innerHTML = '<span title="Day Mode" onclick="toggleDayNight(\'day\')"><i class="far fa-sun" aria-hidden="true"></i></span>';
+        document.getElementById("dayNightBtn").innerHTML = '<span title="Day Mode" onclick="toggleDayNight(\'day\')"><i class="fas fa-sun" aria-hidden="true"></i></span>';
 
         var elements = document.getElementsByClassName("primary");
         for (var i = 0; i < elements.length; i++) {
