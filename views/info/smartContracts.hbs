@@ -1,5 +1,31 @@
 <div class="w3-card w3-panel header">
     <h3>Smart Contracts</h3>
 
-    <p>Smart Contracts</p>
+    <p>Smart contracts are immutable applications that run as programmed without the possibility of censorship,
+    downtime or third-party interference. These applications are stored on the blockchain and executed on the Ethereum Virtual Machine (EVM),
+    using the crypto-fuel, Ether, to pay for transactions. Code running inside the EVM is sandboxed and has no access to networks,
+    filesystem or other processes [3](Ethereum, 2018). Smart contracts are programmed in the contract-oriented, high-level language,
+    Solidity, before being compiled to the Turing-complete bytecode language called EVM bytecode.
+    </p>
+    <h4>Transfering Ether</h4>
+    <p>
+    Solidity has several functions that can be used to transfer ether [4](Ethereum, 2018): 
+<address>.transfer(uint256 amount):
+The transfer function sends the amount in Wei to the given address, forwards 2300 gas stipend and throws on failure.
+
+<address>.send(uint256 amount) returns (bool):
+The send function sends the amount in Wei to the given address, forwards 2300 gas stipend and returns  false on failure.
+The send function transfer fails if the call stack depth is at 1024, or if the recipient runs out of gas. To make safer ether transfers, the return value should always be checked, or the transfer() function should be used. 
+
+<address>.call(...) returns (bool):
+The call function issues a low-level call, forwarding all available gas and returns false on failure. This is mostly used by contracts to invoke function of other contracts that require large amounts of gas to pass the transaction.
+
+<address>.callcode(...) returns (bool):
+The call function is similar to call, and issues a low-level callcode, forwarding all available gas and returns false on failure. This use of this function is discouraged and will be deprecated in the future.
+
+<address>.delegatecall(...) returns (bool):
+The delegatecall function issues a low-level delegatecall, forwarding all available gas and returns false on failure.
+
+It is important to note that when a smart contract receives ether without data using any of these functions, the fallback address is invoked automatically [5](Ethereum, 2018). The fallback address has no name assigned to it and cannot have arguments, however can still execute complex operations as long as enough gas is passed to it.
+    </p>
 </div>
