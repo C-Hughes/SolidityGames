@@ -90,6 +90,18 @@ function completedStatus(){
         document.getElementById("keepingSecretsBtn").classList.add("completed");
         document.getElementById("keepingSecretsBtn").innerHTML = "4. keepingSecrets <i class=\"fas fa-check\"></i>";
     }
+    if (localStorage.getItem("externalFactorsComplete")){
+        document.getElementById("externalFactorsBtn").classList.add("completed");
+        document.getElementById("externalFactorsBtn").innerHTML = "5. externalFactors <i class=\"fas fa-check\"></i>";
+    }
+    if (localStorage.getItem("forcedPaymentsComplete")){
+        document.getElementById("forcedPaymentsBtn").classList.add("completed");
+        document.getElementById("forcedPaymentsBtn").innerHTML = "6. ForcedPayments <i class=\"fas fa-check\"></i>";
+    }
+    if (localStorage.getItem("simpleDAOComplete")){
+        document.getElementById("simpleDAOBtn").classList.add("completed");
+        document.getElementById("simpleDAOBtn").innerHTML = "7. simpleDAO <i class=\"fas fa-check\"></i>";
+    }
 }
 
 //Set local storage if not initialised

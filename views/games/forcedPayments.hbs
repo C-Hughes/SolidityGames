@@ -2,8 +2,8 @@
     <br>
     <h2>Beat This Level</h2>
     <p>Make the contracts address have a balance greater than 0</p>
-    <button id="hintButton" class="w3-button w3-red" onclick="getHint();">Hint</button>
-    <div id="HintText" style="display: none;">HintText</div>
+    <button id="hintButton" class="w3-button w3-amber" onclick="getHint();">Hint (3)</button>
+    <div id="HintText" style="display: none;"></div>
 </div>
 
 <div class="w3-panel w3-card-4 header w3-margin">
@@ -25,12 +25,12 @@ contract forcedPayments {/*
 </div>
 <script>
 hljs.initHighlightingOnLoad();
-var abi = [{"constant":false,"inputs":[],"name":"addToPot","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"contributions","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"claimOwnership","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"viewContribution","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}];
-var warmUpContract = web3.eth.contract(abi);
-var warmUpInstance;
+var abi = [];
+var forcedPaymentspContract = web3.eth.contract(abi);
+var forcedPaymentsInstance;
 
 function deployContract() {
-    var warmUp = warmUpContract.new(
+    var forcedPayments = forcedPaymentsContract.new(
             {
                 from: web3.eth.accounts[0],
                 data: '0x608060405234801561001057600080fd5b5073ccf90925d0756bd69d1f3d0fd965672f34d32c4e6000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610311806100746000396000f3fe608060405260043610610067576000357c01000000000000000000000000000000000000000000000000000000009004806317ebf6ae1461006c57806342e94c90146100765780634e71e0c8146100db5780638da5cb5b146100e5578063a93138341461013c575b600080fd5b610074610167565b005b34801561008257600080fd5b506100c56004803603602081101561009957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101c5565b6040518082815260200191505060405180910390f35b6100e36101dd565b005b3480156100f157600080fd5b506100fa610279565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014857600080fd5b5061015161029e565b6040518082815260200191505060405180910390f35b60003411151561017657600080fd5b34600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540192505081905550565b60016020528060005260406000206000915090505481565b60003411801561022c57506000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054115b151561023757600080fd5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205490509056fea165627a7a72305820a1c9a5fe0802438061ca3f19ec0d03e724ec1357db0990ae7bb0833ad5560fd40029',
@@ -56,50 +56,39 @@ function transactionPending(contract){
 
 function updateUI(){
 
-    //Display dApp UI
+    var x = document.getElementById("contractInterface");
+    x.innerHTML = '<div class="w3-bar"><div class="w3-bar-item"><button class="w3-button w3-blue" onclick="submitLevel();">Submit Level</button></div>';
+
     document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+warmUpInstance.address+"'>" + warmUpInstance.address + "</a>";
 }
 //If the contract has already been deployed, get instance from localstorage variable
 function getInstance(){
-    var warmUpAddr = localStorage.getItem("warmUpAddr");
-    warmUpInstance = warmUpContract.at(warmUpAddr);
-    console.log(warmUpInstance);
-
-    //return warmUpInstance;
+    var forcedPaymentsAddr = localStorage.getItem("forcedPaymentsAddr");
+    forcedPaymentsInstance = forcedPaymentsContract.at(forcedPaymentsAddr);
+    console.log(forcedPaymentsInstance);
 }
 
+var Level = 1;
 function getHint(){
-    var Level = 1;
-    var hintText = document.getElementById('HintText');
-    if (localStorage.getItem("warmUpHint")){
-        Level = localStorage.getItem("warmUpHint");
-    } else {
-        localStorage.setItem("warmUpHint", "1");
-    }
 
+    var hintText = document.getElementById('HintText');
     hintText.style.display = "block";
     hintText.innerHTML = "";
+
     if(Level == "1"){
-        hintText.innerHTML = "<p>To claim ownership of the contract you must own more than 1 octodecillion tokens. This is too much to buy. </p><p>The name of this contract is 'Odometer'. What happens when an analog odometer goes over it's maximum value?</p>";
-        localStorage.setItem("warmUpHint", "2");
+        hintText.innerHTML = "<p>Before Solidity v0.4.23, a function with the same name as the contract is the constructor function. This code is executed exactly once, when the contract is initially deployed. </p>";
+        document.getElementById('hintButton').innerHTML = "Hint (1/2)";
+        Level = 2;
     } else if (Level == "2"){
-        hintText.innerHTML = "<p>To claim ownership of the contract you must own more than 1 octodecillion tokens. This is too much to buy. </p><p>The name of this contract is 'Odometer'. What happens when an analog odometer goes over it's maximum value?</p>\n<p>The tokens variable is stored as an unsigned integer (uint). This variable is similar to an odometer, as it can only be a positive value.</p>";
-        localStorage.setItem("warmUpHint", "3");
-    } else {
-        hintText.innerHTML = "<p>To claim ownership of the contract you must own more than 1 octodecillion tokens. This is too much to buy. </p><p>The name of this contract is 'Odometer'. What happens when an analog odometer goes over it's maximum value?</p>\n<p>The tokens variable is stored as an unsigned integer (uint). This variable is similar to an odometer, as it can only be a positive value.</p>\n<p>Since the token variable can only be positive, it is possible to sell more than you have, as the value will always be greater than 0. This will cause the variable to underflow and give you the maximum amount of tokens.</p>";
-        localStorage.setItem("warmUpHint", "4");
+        hintText.innerHTML = "<p>Before Solidity v0.4.23, a function with the same name as the contract is the constructor function. This code is executed exactly once, when the contract is initially deployed. </p><p>In Solidity, function and variable names are case sensitive.</p>";
+        document.getElementById('hintButton').innerHTML = "Hint (2/2)";
     }
 }
 
 //Check LocalStorage to see if the contract has been deployed.
-if (localStorage.getItem("warmUpAddr")){
+if (localStorage.getItem("forcedPaymentsAddr")){
     //Add Contract to web3.eth.contract
     getInstance();
     updateUI();
-}
-//Check LocalStorage to see if user has requested help.
-if (localStorage.getItem("warmUpHelp")){
-    //Show help
-    //getHelp();
 }
 </script>
