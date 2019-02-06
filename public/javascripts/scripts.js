@@ -65,7 +65,7 @@ function openTab(evt, tabName) {
         x[i].style.display = "none";
     }
     tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < x.length; i++) {
+    for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" w3-light-grey", "");
     }
     document.getElementById(tabName).style.display = "block";

@@ -38,7 +38,7 @@ contract SimpleStorage {
     The call function is similar to call, and issues a low-level callcode, forwarding all available gas and returns false on failure. This use of this function is discouraged and will be deprecated in the future.
     <pre><code>&lt;address>.delegatecall(...) returns (bool):</code></pre>
     The delegatecall function issues a low-level delegatecall, forwarding all available gas and returns false on failure.
-    It is important to note that when a smart contract receives ether without data using any of these functions, the fallback address is invoked automatically [5](Ethereum, 2018). The fallback address has no name assigned to it and cannot have arguments, however can still execute complex operations as long as enough gas is passed to it.
+    It is important to note that when a smart contract receives ether without data using any of these functions, the fallback address is invoked automatically. The fallback address has no name assigned to it and cannot have arguments, however can still execute complex operations as long as enough gas is passed to it.
     </p>
 </div>
 <script>
