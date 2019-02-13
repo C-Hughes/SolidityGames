@@ -14,23 +14,33 @@
     <div id="contractInterface"></div>
 
     <pre><code class="Javascript Tomorrow">
-pragma solidity ^0.4.0;
+pragma solidity ^0.5.2;
 
 contract SimpleDAO {
     mapping (address => uint) public credit;
 
-    function donate(address to){
-        credit[to] += msg.value;
+    constructor() public payable {
+        credit[msg.sender] = msg.value/10;
     }
 
-    function queryCredit(address to) returns (uint){
-        return credit[to];
+    function viewCredit() public view returns (uint) {
+        return credit[msg.sender];
     }
 
-    function withdraw(uint amount){
-        if (credit[msg.sender]>= amount){
-            msg.sender.call.value(amount)();
-            credit[msg.sender]-=amount;
+    function buyCredit() public payable {
+        require(msg.value > 2);
+        credit[msg.sender] += msg.value/2;
+    }
+
+    function donate(address _to) public payable{
+        credit[_to] += credit[msg.sender];
+        credit[msg.sender] -= credit[msg.sender];
+    }
+
+    function withdraw(uint _amount) public {
+        if (credit[msg.sender]>= _amount){
+            msg.sender.call.value(_amount)("");
+            credit[msg.sender]-=_amount;
         }
     }
 }
@@ -39,24 +49,24 @@ contract SimpleDAO {
 <script>
 hljs.initHighlightingOnLoad();
 
-var abi = [];
+var abi = [{"constant":false,"inputs":[{"name":"_to","type":"address"}],"name":"donate","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_amount","type":"uint256"}],"name":"withdraw","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"viewCredit","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"buyCredit","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"credit","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":true,"stateMutability":"payable","type":"constructor"}];
 var simpleDAOContract = web3.eth.contract(abi);
 var simpleDAOInstance;
 
 function deployContract() {
     var simpleDAO = simpleDAOContract.new(
-            "0x546869734973546865536563726574",
             {
                 from: web3.eth.accounts[0],
-                data: '0x608060405234801561001057600080fd5b5060405160208061021b8339810180604052602081101561003057600080fd5b810190808051906020019092919050505073ccf90925d0756bd69d1f3d0fd965672f34d32c4e6000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550806001819055505061016f806100ac6000396000f3fe608060405234801561001057600080fd5b5060043610610053576000357c0100000000000000000000000000000000000000000000000000000000900480638da5cb5b14610058578063b367c657146100a2575b600080fd5b6100606100d0565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100ce600480360360208110156100b857600080fd5b81019080803590602001909291905050506100f5565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b80600154141561014057336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b5056fea165627a7a72305820cdaaaad9e4c54d23bc1788290c58d64269e3fcce02cc0f02fa7a40a907a1c6cf0029',
-                gas: '4700000'
+                data: '0x6080604052600a3481151561001057fe5b046000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550610482806100626000396000f3fe608060405260043610610066576000357c010000000000000000000000000000000000000000000000000000000090048062362a951461006b5780632e1a7d4d146100af578063609c6a09146100ea5780638e4e6f0614610115578063d5d44d801461011f575b600080fd5b6100ad6004803603602081101561008157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610184565b005b3480156100bb57600080fd5b506100e8600480360360208110156100d257600080fd5b810190808035906020019092919050505061029b565b005b3480156100f657600080fd5b506100ff610398565b6040518082815260200191505060405180910390f35b61011d6103de565b005b34801561012b57600080fd5b5061016e6004803603602081101561014257600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061043e565b6040518082815260200191505060405180910390f35b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020546000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020546000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254039250508190555050565b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054101515610395573373ffffffffffffffffffffffffffffffffffffffff168160405180600001905060006040518083038185875af1925050503d8060008114610340576040519150601f19603f3d011682016040523d82523d6000602084013e610345565b606091505b505050806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825403925050819055505b50565b60008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905090565b600a341115156103ed57600080fd5b600a34036000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540192505081905550565b6000602052806000526040600020600091509050548156fea165627a7a72305820cdf7af244b34939e5fb6d762079b2708ca7189fb44bd5fa282794425739af4e40029',
+                gas: '4700000',
+                value: 100000
             }, function (e, contract) {
                 console.log(e, contract);
                 transactionPending(contract);
                 if (typeof contract.address !== 'undefined') {
                     console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
                     //Add dApp Address to Local Storage
-                    localStorage.setItem("keepingSecretsAddr", contract.address);
+                    localStorage.setItem("simpleDAOAddr", contract.address);
                     getInstance();
                     document.getElementById('transactionInfo').innerHTML = "";
                     updateUI();
@@ -72,29 +82,113 @@ function transactionPending(contract){
 function updateUI(){
     //Display dApp UI
     var x = document.getElementById("contractInterface");
-    x.innerHTML = '  <div class="w3-bar">\n' +
+    x.innerHTML = '<div class="w3-bar">\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <button onclick="claimOwnership();" class="w3-button w3-red">claimOwnership()</button>\n' +
+            '      <button onclick="checkBalance();" class="w3-button w3-blue">View Contract Balance</button>\n' +
             '    </div>\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <input id="claimOwnershipInput" class="w3-input w3-border" placeholder="_secret" style="width:150px" type="text">\n' +
+            '      <div id="checkBalance"></div>\n' +
             '    </div>\n' +
-            '  </div>\n' +
+            '    <div class="w3-bar">\n' +
+            '      <div class="w3-bar-item">\n' +
+            '        <button onclick="checkCredit();" class="w3-button w3-blue">View Credit</button>\n' +
+            '      </div>\n' +
+            '      <div class="w3-bar-item">\n' +
+            '        <div id="viewCredit"></div>\n' +
+            '      </div>\n' +
             '  <div class="w3-bar">\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <button onclick="viewOwner()" class="w3-button w3-blue">owner</button>\n' +
+            '      <button onclick="buyCredit();" class="w3-button w3-red">buyCredit()</button>\n' +
             '    </div>\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <div id="viewOwner"></div>\n' +
+            '      <input id="buyCreditInput" class="w3-input w3-border" placeholder="Amount to Buy" style="width:150px" type="text">\n' +
+            '    </div>\n' +
+            '  </div>\n' +
+            '    <div class="w3-bar">' +
+            '      <div class="w3-bar-item">\n' +
+            '        <button onclick="transferBalance();" class="w3-button w3-red">donate()</button>\n' +
+            '      </div>\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <input id="transferBalanceInput" class="w3-input w3-border" placeholder="To Address" style="width:150px" type="text">\n' +
+            '    </div>\n' +
+            '    <div class="w3-bar">' +
+            '      <div class="w3-bar-item">\n' +
+            '        <button onclick="withdraw();" class="w3-button w3-red">withdraw()</button>\n' +
+            '      </div>\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <input id="withdrawInput" class="w3-input w3-border" placeholder="Amount to Withdraw" style="width:180px" type="text">\n' +
             '    </div>\n' +
             '  </div>';
-    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+keepingSecretsInstance.address+"'>" + keepingSecretsInstance.address + "</a>";
+
+    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+simpleDAOInstance.address+"'>" + simpleDAOInstance.address + "</a>";
 }
 //If the contract has already been deployed, get instance from localstorage variable
 function getInstance(){
     var simpleDAOAddr = localStorage.getItem("simpleDAOAddr");
     simpleDAOInstance = simpleDAOContract.at(simpleDAOAddr);
     console.log(simpleDAOInstance);
+}
+
+function checkBalance(){
+    var checkBalance = document.getElementById('checkBalance');
+    checkBalance.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
+    web3.fromWei(web3.eth.getBalance(simpleDAOInstance.address, function(error, result){
+        checkBalance.innerHTML = result + ' wei';
+        if(result == 0){
+            localStorage.setItem("simpleDAOComplete", "true");
+            completedStatus();
+        }
+    }));
+}
+
+function checkCredit(){
+    var viewCredit = document.getElementById('viewCredit');
+    viewCredit.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
+    simpleDAOInstance.viewCredit.call(function(error, result){
+        viewCredit.innerHTML = result + ' Tokens';
+
+    })
+}
+
+function donate(){
+    var address = document.getElementById("transferBalanceInput").value;
+    simpleDAOInstance.donate(address, {gas: 212720}, function(error, result){
+        if (!error) {
+            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+            getTransaction(result);
+        } else {
+            document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+        }
+    });
+}
+
+function withdraw(){
+    var amount = document.getElementById("withdrawInput").value;
+    simpleDAOInstance.withdraw(amount,{gas: 212720}, function(error, result){
+        if (!error) {
+            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+            getTransaction(result);
+        } else {
+            document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+        }
+    });
+}
+
+function buyCredit(){
+    var amountToAdd = document.getElementById("buyCreditInput").value;
+    if(amountToAdd < 2){
+        document.getElementById('userErrors').innerHTML = "Value must be greater than 2";
+        document.getElementById('buyInInput').classList.add("w3-border-red");
+    } else {
+        simpleDAOInstance.buyCredit({value: amountToAdd, gas: 212720}, function(error, result){
+            if (!error) {
+                document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+                getTransaction(result);
+            } else {
+                document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+            }
+        });
+    }
 }
 
 var Level = 1;
@@ -119,5 +213,8 @@ if (localStorage.getItem("simpleDAOAddr")){
     //Add Contract to web3.eth.contract
     getInstance();
     updateUI();
+
+    //checkBalance();
+    //checkCredit();
 }
 </script>
