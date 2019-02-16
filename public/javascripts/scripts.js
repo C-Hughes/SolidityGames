@@ -43,7 +43,7 @@ function toggleDayNight(changeTo){
         var primaryNight = "#1A1B1F";
         var secondaryNight = "#202126";
         var headerNight = "#2A2B31";
-        var textColorNight = "#A1A29A";
+        var textColorNight = "#D2D7D3";
 
         document.getElementById("dayNightBtn").innerHTML = '<button title="Day Mode" class="w3-right w3-bar-item w3-button" onclick="toggleDayNight(\'day\')"><i class="fas fa-sun" aria-hidden="true"></i></button>';
 
@@ -111,6 +111,28 @@ function completedStatus(){
         document.getElementById("simpleDAOBtn").classList.add("completed");
         document.getElementById("simpleDAOBtn").innerHTML = "7. simpleDAO <i class=\"fas fa-check\"></i>";
     }
+}
+
+function acceptConsent(){
+    // Get the checkbox
+    var checkBox = document.getElementById("surveyCheck");
+    // Get the output text
+    var btn = document.getElementById("continueBtn");
+
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+}
+
+function showSurvey(){
+    var surveyConsent = document.getElementById("surveyConsent");
+    var survey = document.getElementById("survey");
+
+    survey.className = survey.className.replace(" w3-hide", " w3-show");
+    surveyConsent.className += " w3-hide";
 }
 
 //Set local storage if not initialised
