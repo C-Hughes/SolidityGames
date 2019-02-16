@@ -47,14 +47,9 @@ a:hover {
   left:0;
   width: 200px;
   height: 100vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   display: block;
   z-index: 0;
-}
-
-#leftSidebar::-webkit-scrollbar {
-  /* This is the magic bit */
-  display: none;
 }
 
 #leftSidebar a.current{
@@ -67,8 +62,29 @@ a:hover {
   background:#4CAF50;
 }
 
+/* Scroll bar */
+/* width */
+#leftSidebar::-webkit-scrollbar {
+  width: 5px;
+}
 
+/* Track */
+#leftSidebar::-webkit-scrollbar-track {
+  background: #2A2B31;
+}
 
+/* Handle */
+#leftSidebar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+#leftSidebar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Survey CSS */
 
 
 h1.likert-header {
@@ -139,3 +155,4 @@ form .buttons .clear {background-color: white;}
 form .buttons .submit {background-color: #67ab49;}
 form .buttons .clear:hover {background-color: #ccc;}
 form .buttons .submit:hover {background-color: #14892c;}
+

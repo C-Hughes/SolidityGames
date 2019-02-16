@@ -106,7 +106,7 @@ function updateUI(){
             '  </div>\n' +
             '    <div class="w3-bar">' +
             '      <div class="w3-bar-item">\n' +
-            '        <button onclick="transferBalance();" class="w3-button w3-red">donate()</button>\n' +
+            '        <button onclick="donate();" class="w3-button w3-red">donate()</button>\n' +
             '      </div>\n' +
             '    <div class="w3-bar-item">\n' +
             '      <input id="transferBalanceInput" class="w3-input w3-border" placeholder="To Address" style="width:150px" type="text">\n' +
@@ -176,9 +176,9 @@ function withdraw(){
 
 function buyCredit(){
     var amountToAdd = document.getElementById("buyCreditInput").value;
-    if(amountToAdd < 2){
-        document.getElementById('userErrors').innerHTML = "Value must be greater than 2";
-        document.getElementById('buyInInput').classList.add("w3-border-red");
+    if(amountToAdd < 10){
+        document.getElementById('userErrors').innerHTML = "Value must be greater than 10";
+        document.getElementById('buyCreditInput').classList.add("w3-border-red");
     } else {
         simpleDAOInstance.buyCredit({value: amountToAdd, gas: 212720}, function(error, result){
             if (!error) {
