@@ -111,7 +111,8 @@ function updateUI(){
             '      <div id="viewOwner"></div>\n' +
             '    </div>\n' +
             '  </div>';
-    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+warmUpInstance.address+"'>" + warmUpInstance.address + "</a>";
+    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+warmUpInstance.address+"'>" + warmUpInstance.address + "</a>" +
+            "<i id='removeBtn' title='Remove Contract' class=\"far fa-trash-alt w3-text-red\" onclick='removeContract(\"warmUpAddr\");'></i>";
 }
 //If the contract has already been deployed, get instance from localstorage variable
 function getInstance(){

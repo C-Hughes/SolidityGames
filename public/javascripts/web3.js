@@ -94,6 +94,14 @@ function getTransaction(hash){
     }, 2000);
 }
 
+function removeContract(contractLevel){
+    var conf = confirm("Are you sure you want to remove the deployed contract?");
+    if (conf == true) {
+        localStorage.removeItem(contractLevel);
+        location.reload();
+    }
+}
+
 //Every 30 seconds update balance
 var accountInterval = setInterval(function() {
     getBalance();

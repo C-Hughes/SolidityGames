@@ -49,6 +49,10 @@ a:hover {
   width:150px;
 }
 
+#removeBtn{
+  cursor: pointer;
+}
+
 #leftSidebar{
   position: fixed;
   top:0;
