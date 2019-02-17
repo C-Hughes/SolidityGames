@@ -41,6 +41,14 @@ a:hover {
   margin: 50px 0px 0px 200px;
 }
 
+#mainBody button{
+  width:200px;
+}
+
+#mainBody input{
+  width:150px;
+}
+
 #leftSidebar{
   position: fixed;
   top:0;

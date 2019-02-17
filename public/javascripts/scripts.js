@@ -43,7 +43,7 @@ function toggleDayNight(changeTo){
         var primaryNight = "#1A1B1F";
         var secondaryNight = "#202126";
         var headerNight = "#2A2B31";
-        var textColorNight = "#D2D7D3";
+        var textColorNight = "#bebebe";
 
         document.getElementById("dayNightBtn").innerHTML = '<button title="Day Mode" class="w3-right w3-bar-item w3-button" onclick="toggleDayNight(\'day\')"><i class="fas fa-sun" aria-hidden="true"></i></button>';
 
