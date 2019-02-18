@@ -18,7 +18,8 @@ var schema = new Schema({
     TeachingAbility: {type: String, required: false},
     ChallengesImproved: {type: String, required: false},
     OverallImproved: {type: String, required: false},
-    OtherFeedback: {type: String, required: false}
+    OtherFeedback: {type: String, required: false},
+    LocalStorage: {type: String, required: false}
 });
 
 module.exports = mongoose.model('survey', schema);
