@@ -56,7 +56,7 @@
     <div class="wrap">
         <h1 class="likert-header">Feedback Survey</h1>
         <form action="">
-            <label class="statement">What is your preferred gender?</label>
+            <label class="statement">What gender do you identify with?</label>
             <select class="w3-select likertSelect" name="option">
                 <option value="" disabled selected>Select Gender</option>
                 <option value="1">Male</option>
@@ -74,13 +74,15 @@
                 <option value="4">...</option>
             </select>
 
-            <label class="statement">What university course are you studying?</label>
+            <label class="statement">What did you study at university?</label>
+            <input class="w3-input w3-border likertSelect" type="text">
+
+            <label class="statement">What is your occupation?</label>
             <input class="w3-input w3-border likertSelect" type="text">
 
             <label class="statement">What is your programming experience level?</label>
             <select class="w3-select likertSelect" name="option">
                 <option value="" disabled selected>Select Experience</option>
-                <option value="1">Prefer not to say</option>
                 <option value="2">None</option>
                 <option value="3">Beginner</option>
                 <option value="4">Intermediate</option>
@@ -115,7 +117,7 @@
             <br>
 
 
-            <label class="statement">When you first saw the webapp, what was your overall impression?</label>
+            <label class="statement">What was your first impression of the overall website?</label>
             <ul class='likert'>
                 <li>
                     <input type="radio" name="likert" value="strong_agree">
@@ -292,7 +294,7 @@
             <label class="statement">How could the overall website be improved?</label>
             <textarea rows="4" cols="75"></textarea>
 
-            <label class="statement">Please use this to give any feedback that doesn't fit any of the questions</label>
+            <label class="statement">Any other feedback?</label>
             <textarea rows="4" cols="75"></textarea>
 
             <div class="buttons">

@@ -1,26 +1,21 @@
 window.addEventListener('load', async () => {
     // Modern dapp browsers...
     if (window.ethereum) {
-    window.web3 = new Web3(ethereum);
-    try {
-        // Request account access if needed
-        await ethereum.enable();
-        // Acccounts now exposed
-        console.log('MetaMask Connected');
-        getBalance();
-        getNetwork();
-        //web3.eth.sendTransaction({/* ... */});
-    } catch (error) {
-        // User denied account access...
-        console.log('Access Denied');
-    }
-} else if (window.web3) {
-    window.web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/a451bf526f1042488bc0a802c35fee4e"));
-    // Acccounts always exposed
-    //web3.eth.sendTransaction({/* ... */});
-}
-// Non-dapp browsers...
-else {
+        window.web3 = new Web3(ethereum);
+        try {
+            // Request account access if needed
+            await ethereum.enable();
+            // Acccounts now exposed
+            console.log('MetaMask Connected');
+            getBalance();
+            getNetwork();
+            //web3.eth.sendTransaction({/* ... */});
+        } catch (error) {
+            // User denied account access...
+            console.log('Access Denied');
+        }
+    } else {
+    //Non-dapp browsers
     console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
 }
 });
@@ -43,9 +38,10 @@ function getBalance() {
 }
 
 function getNetwork() {
+    document.getElementById("etherNetwork").style.color = "Red";
     var network = "Not Connected";
-    document.getElementById("etherNetwork").style.color = "Green";
     try {
+        document.getElementById("etherNetwork").style.color = "Green";
         web3.version.getNetwork((err, netId) => {
             switch (netId) {
             case "1":
@@ -54,7 +50,8 @@ function getNetwork() {
                 console.log('This is mainnet')
                 break
             case "2":
-                network = "Morden Deprecated Network";
+                network = "Deprecated Morden Network";
+                document.getElementById("etherNetwork").style.color = "Red";
                 console.log('This is the deprecated Morden test network.')
                 break
             case "3":
@@ -71,14 +68,16 @@ function getNetwork() {
                 break
             default:
                 network = "Unknown Network";
+                document.getElementById("etherNetwork").style.color = "Red";
                 console.log('This is an unknown network.')
             }
             document.getElementById("etherNetwork").innerHTML = network;
 
         })
     } catch (err) {
-        document.getElementById("etherBalance").innerHTML = err;
+        console.log(err);
     }
+    document.getElementById("etherNetwork").innerHTML = network;
 }
 
 function getTransaction(hash){
