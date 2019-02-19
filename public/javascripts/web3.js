@@ -35,7 +35,7 @@ function getBalance() {
             })
         });
     } catch (err) {
-        document.getElementById("etherBalance").innerHTML = err;
+        console.log(err);
     }
 }
 
