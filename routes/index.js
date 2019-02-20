@@ -1,6 +1,21 @@
 var express = require('express');
 var router = express.Router();
 
+router.get('/welcome', function(req, res, next) {
+    res.render('pages/welcome', { title: 'Welcome Page' });
+});
+
+router.post('/welcome', function(req, res, next) {
+    req.session.authenticated = true;
+    res.redirect('/');
+});
+
+
+
+router.use('/', isAuthenticated, function(req, res, next){
+    next();
+});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Solidity Games' });
@@ -35,3 +50,10 @@ router.get('/survey', function(req, res, next) {
 });
 
 module.exports = router;
+
+function isAuthenticated(req, res ,next){
+    if (req.session.authenticated = true){
+        return next();
+    }
+    res.redirect('/welcome');
+}

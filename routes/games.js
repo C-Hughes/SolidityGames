@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+router.use('/', isAuthenticated, function(req, res, next){
+   next();
+});
+
 router.get('/warmUp', function(req, res, next) {
     res.render('games/warmUp', { title: '1. Warm Up'});
 });
@@ -35,3 +39,10 @@ router.get('/randomness', function(req, res, next) {
 
 
 module.exports = router;
+
+function isAuthenticated(req, res ,next){
+    if (req.session.authenticated = true){
+        return next();
+    }
+    res.redirect('/welcome');
+}

@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 
 var indexRouter = require('./routes/index');
 var gamesRouter = require('./routes/games');
@@ -34,7 +36,19 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+    secret: 'SecretSession3258947',
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    cookie: { maxAge: 43200 * 60 * 1000 }
+}));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function(req, res ,next){
+   res.locals.session = req.session;
+   next();
+});
 
 app.use('/games', gamesRouter);
 app.use('/', indexRouter);

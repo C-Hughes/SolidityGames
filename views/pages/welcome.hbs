@@ -1,0 +1,38 @@
+<div id="WelcomePage" class="header">
+    <div class="w3-margin">
+        <h3>Who is the researcher?</h3>
+        <h3>Purpose of the study:</h3>
+        <h3>What will I be asked to do?</h3>
+        <h3>Time Commitment:</h3>
+        <h3>Must I take part?</h3>
+        <h3>Are there any risks?</h3>
+        <h3>Confidentiality/Anonymity:</h3>
+        <h3>How can I take part?</h3>
+    </div>
+    <div>
+        <form action="/welcome" method="post">
+            <input id="welcomeCheck" class="w3-check" type="checkbox"  onclick="acceptWebsiteConsent()">
+            <label>I accept</label>
+            <br>
+            <br>
+            <button type="submit" id="continueWebsite" class="w3-button w3-block w3-green" style="display: none;">Continue to Website</button>
+        </form>
+    </div>
+</div>
+
+<script>
+function acceptWebsiteConsent(){
+    // Get the checkbox
+    var checkBox = document.getElementById("welcomeCheck");
+    // Get the output text
+    var btn = document.getElementById("continueWebsite");
+
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+}
+</script>
+
