@@ -41,7 +41,7 @@ router.get('/randomness', function(req, res, next) {
 module.exports = router;
 
 function isAuthenticated(req, res ,next){
-    if (req.session.authenticated = true){
+    if (req.session.authenticated == true){
         return next();
     }
     res.redirect('/welcome');
