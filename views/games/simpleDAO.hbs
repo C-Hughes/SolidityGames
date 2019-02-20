@@ -176,10 +176,10 @@ function donate(){
     var address = document.getElementById("transferBalanceInput").value;
     simpleDAOInstance.donate(address, {gas: 212720}, function(error, result){
         if (!error) {
-            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+            document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a></div>";
             getTransaction(result);
         } else {
-            document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+            document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
         }
     });
 }
@@ -188,10 +188,10 @@ function withdraw(){
     var amount = document.getElementById("withdrawInput").value;
     simpleDAOInstance.withdraw(amount,{gas: 212720}, function(error, result){
         if (!error) {
-            document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+            document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a></div>";
             getTransaction(result);
         } else {
-            document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+            document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
         }
     });
 }
@@ -205,10 +205,10 @@ function buyCredit(){
         amountToAdd = web3.toWei(amountToAdd, 'ether');
         simpleDAOInstance.buyCredit({value: amountToAdd, gas: 212720}, function(error, result){
             if (!error) {
-                document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>";
+                document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a></div>";
                 getTransaction(result);
             } else {
-                document.getElementById('transactionInfo').innerHTML = '<pre>' + error + '</pre>'
+                document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
             }
         });
     }
