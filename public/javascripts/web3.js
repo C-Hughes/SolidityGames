@@ -86,12 +86,10 @@ function getTransaction(hash){
     var transactionInterval = setInterval(function() {
         web3.eth.getTransactionReceipt(hash, function(err, data) {
             if(data){
-                console.log(data.blockNumber);
                 clearInterval(transactionInterval);
-                document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-check w3-text-green\"></i> Transaction Successful";
+                document.getElementById(hash).innerHTML = "<i class='fas fa-check w3-text-green'></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+hash+"'>" + hash + "</a>";
             }
         });
-        console.log(1);
     }, 2000);
 }
 

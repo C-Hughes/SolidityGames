@@ -62,6 +62,33 @@ a:hover {
   cursor: pointer;
 }
 
+#transactionInfo{
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/* Scroll bar */
+/* width */
+#transactionInfo::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+#transactionInfo::-webkit-scrollbar-track {
+  background: #2A2B31;
+}
+
+/* Handle */
+#transactionInfo::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+#transactionInfo::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 #leftSidebar{
   position: fixed;
   top:0;
