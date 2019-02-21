@@ -1,0 +1,174 @@
+<div class="w3-container w3-margin w3-card-4 header">
+    <br>
+    <h2>Beat This Level</h2>
+    <p>Correctly guess the number 10 times in a row to win.</p>
+    <button id="hintButton" class="w3-button w3-amber" onclick="getHint();">Get Hint (3)</button>
+    <div id="HintText" style="display: none;"></div>
+</div>
+
+<div class="w3-panel w3-card-4 header w3-margin">
+    <h4>Randomness.sol</h4>
+    <div id="deployedContractAddress" class="w3-margin"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></div>
+    <div id="transactionInfo" class="w3-margin secondary"></div>
+    <div id="userErrors" class="w3-text-red w3-margin"></div>
+    <div id="contractInterface"></div>
+
+    <pre><code class="Javascript Tomorrow">
+pragma solidity 0.5.4;
+
+contract Randomness {
+
+    uint256 public wins;
+
+    constructor() public {
+        wins = 0;
+    }
+
+    function generateRandom() public view returns(uint) {
+        uint blockNum = block.number - 1;
+        uint randomNumber = uint(blockhash(blockNum)) % 10 + 1;
+        return randomNumber;
+    }
+
+    function guessNumber(uint8 _guess) public returns(bool) {
+        require(_guess <= 10);
+
+        if (_guess == generateRandom()) {
+            wins ++;
+            return true;
+        } else {
+            wins = 0;
+            return false;
+        }
+    }
+}
+</code></pre>
+</div>
+<script>
+hljs.initHighlightingOnLoad();
+
+var abi = [{"constant":true,"inputs":[],"name":"generateRandom","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"wins","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_guess","type":"uint8"}],"name":"guessNumber","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}];
+var randomnessContract = web3.eth.contract(abi);
+var randomnessInstance;
+
+function deployContract() {
+    var randomness = randomnessContract.new(
+            {
+                from: web3.eth.accounts[0],
+                data: '0x608060405234801561001057600080fd5b5060008081905550610196806100276000396000f3fe608060405234801561001057600080fd5b506004361061005e576000357c01000000000000000000000000000000000000000000000000000000009004806302e4af011461006357806324de908d1461008157806394707dab1461009f575b600080fd5b61006b6100e8565b6040518082815260200191505060405180910390f35b610089610112565b6040518082815260200191505060405180910390f35b6100ce600480360360208110156100b557600080fd5b81019080803560ff169060200190929190505050610118565b604051808215151515815260200191505060405180910390f35b60008060014303905060006001600a83406001900481151561010657fe5b06019050809250505090565b60005481565b6000600a8260ff161115151561012d57600080fd5b6101356100e8565b8260ff16141561015957600080815480929190600101919050555060019050610165565b60008081905550600090505b91905056fea165627a7a72305820c8dd41a87e513e8220afdd30ac9be579fd353256d0ca7cec8755a0d1acde55410029',
+                gas: '4700000',
+            }, function (e, contract) {
+                console.log(e, contract);
+                transactionPending(contract);
+                if (typeof contract.address !== 'undefined') {
+                    console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+                    //Add dApp Address to Local Storage
+                    localStorage.setItem("randomnessAddr", contract.address);
+                    getInstance();
+                    document.getElementById('transactionInfo').innerHTML = "";
+                    updateUI();
+                }
+            })
+}
+
+function transactionPending(contract){
+    var Tx = contract.transactionHash;
+    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
+}
+
+function updateUI(){
+    //Display dApp UI
+    var x = document.getElementById("contractInterface");
+    x.innerHTML = '<div class="w3-bar">\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <button onclick="checkWins();" class="w3-button w3-blue">View Wins</button>\n' +
+            '    </div>\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <div id="checkWins"></div>\n' +
+            '    </div>\n' +
+            '    <div class="w3-bar">\n' +
+            '      <div class="w3-bar-item">\n' +
+            '        <button onclick="generateRandom();" class="w3-button w3-blue">Generate Random</button>\n' +
+            '      </div>\n' +
+            '      <div class="w3-bar-item">\n' +
+            '        <div id="generateRandom"></div>\n' +
+            '      </div>\n' +
+            '  <div class="w3-bar">\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <button onclick="guessNumber();" class="w3-button w3-red">guessNumber()</button>\n' +
+            '    </div>\n' +
+            '    <div class="w3-bar-item">\n' +
+            '      <input id="guessInput" class="w3-input w3-border" placeholder="Guess (1-10)" style="width:300px" type="text">\n' +
+            '    </div>\n' +
+            '  </div>';
+
+    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+randomnessInstance.address+"'>" + randomnessInstance.address + "</a>" +
+            " <i id='removeBtn' title='Remove Contract' class=\"far fa-trash-alt w3-text-red\" onclick='removeContract(\"randomnessAddr\");'></i>";
+}
+//If the contract has already been deployed, get instance from localstorage variable
+function getInstance(){
+    var randomnessAddr = localStorage.getItem("randomnessAddr");
+    randomnessInstance = randomnessContract.at(randomnessAddr);
+    console.log(randomnessInstance);
+}
+
+function checkWins(){
+    var checkWins = document.getElementById('checkWins');
+    checkWins.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
+    randomnessInstance.wins.call(function(error, result){
+        checkWins.innerHTML = result + ' Wins';
+        if(result >= 10){
+            localStorage.setItem("randomnessComplete", "true");
+            completedStatus();
+        }
+    });
+}
+
+function generateRandom(){
+    var generateRandom = document.getElementById('generateRandom');
+    generateRandom.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
+    randomnessInstance.generateRandom.call(function(error, result){
+        generateRandom.innerHTML = result;
+    });
+}
+
+//send transaction to addToPot()
+function guessNumber(){
+    var guessInput = document.getElementById("guessInput").value;
+    if(guessInput < 0 || guessInput > 10){
+        document.getElementById('userErrors').innerHTML = "Guess must be between 1 & 10";
+        document.getElementById('guessInput').classList.add("w3-border-red");
+    } else {
+        randomnessInstance.guessNumber(guessInput, {gas: 212720}, function(error, result){
+            if (!error) {
+                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i><a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>"+ result +" Pending... (This can take a minute)</a></div>";
+                getTransaction(result);
+            } else {
+                document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
+            }});
+    }
+}
+
+var Level = 1;
+function getHint(){
+
+    var hintText = document.getElementById('HintText');
+    hintText.style.display = "block";
+    hintText.innerHTML = "";
+
+    if(Level == "1"){
+        hintText.innerHTML = "<p>Before Solidity v0.4.23, a function with the same name as the contract is the constructor function. This code is executed exactly once, when the contract is initially deployed. </p>";
+        document.getElementById('hintButton').innerHTML = "Hint (1/2)";
+        Level = 2;
+    } else if (Level == "2"){
+        hintText.innerHTML = "<p>Before Solidity v0.4.23, a function with the same name as the contract is the constructor function. This code is executed exactly once, when the contract is initially deployed. </p><p>In Solidity, function and variable names are case sensitive.</p>";
+        document.getElementById('hintButton').innerHTML = "Hint (2/2)";
+    }
+}
+
+//Check LocalStorage to see if the contract has been deployed.
+if (localStorage.getItem("randomnessAddr")){
+    getInstance();
+    updateUI();
+}
+</script>

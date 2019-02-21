@@ -87,7 +87,7 @@ function getTransaction(hash){
         web3.eth.getTransactionReceipt(hash, function(err, data) {
             if(data){
                 clearInterval(transactionInterval);
-                document.getElementById(hash).innerHTML = "<i class='fas fa-check w3-text-green'></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+hash+"'>" + hash + "</a>";
+                document.getElementById(hash).innerHTML = "<i class='fas fa-check w3-text-green'></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+hash+"'>" + hash + "</a>";
             }
         });
     }, 2000);

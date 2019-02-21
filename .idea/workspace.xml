@@ -4,9 +4,9 @@
     <list default="true" id="d88a775f-34bf-4f30-8ae2-28a3fb0bb27d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/public/javascripts/scripts.js" afterPath="$PROJECT_DIR$/public/javascripts/scripts.js" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/layout.hbs" afterPath="$PROJECT_DIR$/views/layouts/layout.hbs" />
-      <change beforePath="$PROJECT_DIR$/views/partials/header.hbs" afterPath="$PROJECT_DIR$/views/partials/header.hbs" />
+      <change beforePath="$PROJECT_DIR$/public/javascripts/web3.js" afterPath="$PROJECT_DIR$/public/javascripts/web3.js" />
+      <change beforePath="$PROJECT_DIR$/views/games/randomness.hbs" afterPath="$PROJECT_DIR$/views/games/randomness.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/games/warmUp.hbs" afterPath="$PROJECT_DIR$/views/games/warmUp.hbs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,18 +20,18 @@
       <file leaf-file-name="web3.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/web3.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="87" column="21" lean-forward="false" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
+            <state relative-caret-position="314">
+              <caret line="89" column="102" lean-forward="true" selection-start-line="89" selection-start-column="102" selection-end-line="89" selection-end-column="102" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/scripts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="785">
-              <caret line="162" column="68" lean-forward="true" selection-start-line="162" selection-start-column="68" selection-end-line="162" selection-end-column="68" />
+            <state relative-caret-position="810">
+              <caret line="115" column="75" lean-forward="false" selection-start-line="115" selection-start-column="75" selection-end-line="115" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -40,9 +40,36 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="60" column="30" lean-forward="false" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+            <state relative-caret-position="575">
+              <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simpleDAO.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/games/simpleDAO.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="567">
+              <caret line="199" column="70" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="242" selection-end-column="9" />
+              <folding>
+                <marker date="1550691932712" expanded="true" signature="7429:7440" ph="..." />
+                <marker date="1550691932712" expanded="true" signature="8034:8045" ph="..." />
+                <marker date="1550691932712" expanded="true" signature="8499:8510" ph="..." />
+                <marker date="1550691932712" expanded="true" signature="8942:8953" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="randomness.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/games/randomness.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1025">
+              <caret line="149" column="1" lean-forward="true" selection-start-line="149" selection-start-column="1" selection-end-line="149" selection-end-column="1" />
+              <folding>
+                <marker date="1550767165781" expanded="true" signature="5343:5354" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,13 +84,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="warmUp.hbs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="warmUp.hbs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" column="56" lean-forward="false" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+            <state relative-caret-position="650">
+              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding>
                 <element signature="e#299#306#1#HTML" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -74,16 +102,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-8">
               <caret line="175" column="26" lean-forward="true" selection-start-line="175" selection-start-column="26" selection-end-line="175" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="keepingSecrets.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/games/keepingSecrets.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="105" column="304" lean-forward="true" selection-start-line="105" selection-start-column="304" selection-end-line="105" selection-end-column="304" />
               <folding />
             </state>
           </provider>
@@ -140,17 +158,18 @@
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/pages/welcome.hbs" />
         <option value="$PROJECT_DIR$/views/partials/sidebar.hbs" />
-        <option value="$PROJECT_DIR$/public/javascripts/web3.js" />
         <option value="$PROJECT_DIR$/views/games/rubixi.hbs" />
         <option value="$PROJECT_DIR$/views/games/simpleDAO.hbs" />
         <option value="$PROJECT_DIR$/views/games/keepingSecrets.hbs" />
         <option value="$PROJECT_DIR$/views/games/odometer.hbs" />
-        <option value="$PROJECT_DIR$/views/games/warmUp.hbs" />
         <option value="$PROJECT_DIR$/public/stylesheets/smallStyle.css" />
         <option value="$PROJECT_DIR$/views/layouts/layout.hbs" />
         <option value="$PROJECT_DIR$/views/partials/header.hbs" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/public/javascripts/web3.js" />
+        <option value="$PROJECT_DIR$/views/games/randomness.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/scripts.js" />
+        <option value="$PROJECT_DIR$/views/games/warmUp.hbs" />
       </list>
     </option>
   </component>
@@ -167,8 +186,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
-    <option name="width" value="1940" />
+    <option name="x" value="-4" />
+    <option name="width" value="1934" />
     <option name="height" value="2110" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -331,18 +350,18 @@
       <workItem from="1550066124604" duration="21772000" />
       <workItem from="1550157626132" duration="63000" />
       <workItem from="1550313454748" duration="13840000" />
-      <workItem from="1550671560041" duration="22439000" />
+      <workItem from="1550671560041" duration="29378000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203430000" />
+    <option name="totallyTimeSpent" value="210369000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="0" width="1940" height="2110" extended-state="0" />
+    <frame x="-4" y="0" width="1934" height="2110" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19588745" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19652551" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -545,13 +564,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/pages/surveyold.hbs" />
-    <entry file="file://$PROJECT_DIR$/views/games/randomness.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/games/forcedPayments.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1675">
@@ -643,19 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/simpleDAO.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="178" column="267" lean-forward="false" selection-start-line="178" selection-start-column="267" selection-end-line="178" selection-end-column="267" />
-          <folding>
-            <marker date="1550691932712" expanded="true" signature="7429:7440" ph="..." />
-            <marker date="1550691932712" expanded="true" signature="8034:8045" ph="..." />
-            <marker date="1550691932712" expanded="true" signature="8499:8510" ph="..." />
-            <marker date="1550691932712" expanded="true" signature="8942:8953" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/games/keepingSecrets.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
@@ -669,24 +668,6 @@
         <state relative-caret-position="-8">
           <caret line="175" column="26" lean-forward="true" selection-start-line="175" selection-start-column="26" selection-end-line="175" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/web3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="87" column="21" lean-forward="false" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="56" lean-forward="false" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
-          <folding>
-            <element signature="e#299#306#1#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -726,17 +707,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="60" column="30" lean-forward="false" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+        <state relative-caret-position="575">
+          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/simpleDAO.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="199" column="70" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="242" selection-end-column="9" />
+          <folding>
+            <marker date="1550691932712" expanded="true" signature="7429:7440" ph="..." />
+            <marker date="1550691932712" expanded="true" signature="8034:8045" ph="..." />
+            <marker date="1550691932712" expanded="true" signature="8499:8510" ph="..." />
+            <marker date="1550691932712" expanded="true" signature="8942:8953" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/web3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="89" column="102" lean-forward="true" selection-start-line="89" selection-start-column="102" selection-end-line="89" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/randomness.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1025">
+          <caret line="149" column="1" lean-forward="true" selection-start-line="149" selection-start-column="1" selection-end-line="149" selection-end-column="1" />
+          <folding>
+            <marker date="1550767165781" expanded="true" signature="5343:5354" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="785">
-          <caret line="162" column="68" lean-forward="true" selection-start-line="162" selection-start-column="68" selection-end-line="162" selection-end-column="68" />
+        <state relative-caret-position="810">
+          <caret line="115" column="75" lean-forward="false" selection-start-line="115" selection-start-column="75" selection-end-line="115" selection-end-column="75" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="e#299#306#1#HTML" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

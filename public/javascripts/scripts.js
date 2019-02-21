@@ -111,6 +111,10 @@ function completedStatus(){
         document.getElementById("simpleDAOBtn").classList.add("completed");
         document.getElementById("simpleDAOBtn").innerHTML = "7. simpleDAO <i class=\"fas fa-check\"></i>";
     }
+    if (localStorage.getItem("randomnessComplete")){
+        document.getElementById("randomnessBtn").classList.add("completed");
+        document.getElementById("randomnessBtn").innerHTML = "8. Randomness <i class=\"fas fa-check\"></i>";
+    }
 }
 
 function acceptConsent(){
