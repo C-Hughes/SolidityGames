@@ -50,6 +50,17 @@ a:hover {
   margin: 50px 0px 0px 200px;
 }
 
+@media only screen and (max-width: 768px) {
+  #mainBody {margin: 50px 0px 0px 0px;}
+  #leftSidebar {display: none;}
+  #smallMenuBtn {display: block;}
+}
+
+@media only screen and (min-width: 768px) {
+  #smallMenuBtn {display: none;}
+  #leftSidebar {display: block;}
+}
+
 #mainBody button{
   width:200px;
 }
@@ -96,7 +107,6 @@ a:hover {
   width: 200px;
   height: 100vh;
   overflow-y: auto;
-  display: block;
   z-index: 0;
 }
 

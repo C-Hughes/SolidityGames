@@ -1,9 +1,9 @@
-function toggleElement(id) {
-    var x = document.getElementById(id);
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
+function toggleElement(param) {
+    var x = document.getElementById(param);
+    if (x.style.display == 'block') {
+        x.style.display = 'none';
     } else {
-        x.className = x.className.replace(" w3-show", "");
+        x.style.display = 'block';
     }
 }
 
@@ -149,3 +149,15 @@ if(path.substr(path.length - 1) == "/"){
     path = path.substring(0, path.length - 1);
 }
 $("a[href*='" + path + "']").addClass("current").removeClass("completed");
+
+function showMenu(x) {
+    if (x.matches) { // If media query matches
+        document.getElementById('leftSidebar').style.display = 'block';
+    } else {
+        document.getElementById('leftSidebar').style.display = 'none';
+    }
+}
+
+var x = window.matchMedia("(min-width: 768px)")
+showMenu(x) // Call listener function at run time
+x.addListener(showMenu) // Attach listener function on state changes
