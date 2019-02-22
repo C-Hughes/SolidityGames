@@ -137,6 +137,7 @@ function showSurvey(){
 
     survey.className = survey.className.replace(" w3-hide", " w3-show");
     surveyConsent.className += " w3-hide";
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
 
 //Set local storage if not initialised

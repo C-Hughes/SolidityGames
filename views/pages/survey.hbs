@@ -90,28 +90,26 @@
             </select>
 
             <label class="statement">Have you heard of Ethereum before today?</label>
-            <ul class='likert'>
-                <li>
-                    <input type="radio" name="likert" value="strong_agree">
-                    <label>Yes</label>
-                </li>
-                <li>
-                    <input type="radio" name="likert" value="strong_agree">
-                    <label>No</label>
-                </li>
-            </ul>
+            <div class="w3-container w3-cell">
+                <input type="radio" name="likert" value="strong_agree">
+                <label>Yes</label>
+            </div>
+
+            <div class="w3-container w3-cell">
+                <input type="radio" name="likert" value="strong_agree">
+                <label>No</label>
+            </div>
 
             <label class="statement">Have you heard of Solidity before today?</label>
-            <ul class='likert'>
-                <li>
-                    <input type="radio" name="likert" value="strong_agree">
-                    <label>Yes</label>
-                </li>
-                <li>
-                    <input type="radio" name="likert" value="strong_agree">
-                    <label>No</label>
-                </li>
-            </ul>
+            <div class="w3-container w3-cell">
+                <input type="radio" name="likert" value="strong_agree">
+                <label>Yes</label>
+            </div>
+
+            <div class="w3-container w3-cell">
+                <input type="radio" name="likert" value="strong_agree">
+                <label>No</label>
+            </div>
 
 
             <br>
@@ -322,9 +320,13 @@
             <label class="statement">Any other feedback?</label>
             <textarea rows="4" cols="75"></textarea>
 
-            <div class="buttons">
-                <button class="clear">Clear</button>
-                <button class="submit">Submit</button>
+            <br>
+            <br>
+            <div class="w3-right">
+                <div class="w3-bar">
+                    <button class="w3-button w3-grey">Clear</button>
+                    <button class="w3-button w3-green">Submit</button>
+                </div>
             </div>
         </form>
     </div>

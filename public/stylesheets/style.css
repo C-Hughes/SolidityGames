@@ -200,10 +200,6 @@ form .buttons button {
   border: 0;
   border-radius: 3px;
 }
-form .buttons .clear {background-color: #e9e9e9;}
-form .buttons .submit {background-color: #67ab49;}
-form .buttons .clear:hover {background-color: #ccc;}
-form .buttons .submit:hover {background-color: #14892c;}
 
 form .likertSelect {
   margin-left:5%;
