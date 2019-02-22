@@ -61,11 +61,11 @@ a:hover {
   #leftSidebar {display: block;}
 }
 
-#mainBody button{
+#contractInterface button{
   width:200px;
 }
 
-#mainBody input{
+#contractInterface input{
   width:150px;
 }
 
@@ -144,7 +144,6 @@ a:hover {
 
 /* Survey CSS */
 
-
 h1.likert-header {
   padding-left:4.25%;
   margin:20px 0 0;
@@ -181,19 +180,11 @@ form .likert li {
   text-align:center;
   vertical-align: top;
 }
-
-form .likertSelect {
-  margin-left:5%;
-  width:20%;
-  display:block;
-  min-width: 130px;
-}
-
 form .likert li input[type=radio] {
   display:block;
   position:relative;
   top:0;
-  left:10%;
+  left:50%;
   margin-left:-6px;
 
 }
@@ -209,8 +200,14 @@ form .buttons button {
   border: 0;
   border-radius: 3px;
 }
-form .buttons .clear {background-color: white;}
+form .buttons .clear {background-color: #e9e9e9;}
 form .buttons .submit {background-color: #67ab49;}
 form .buttons .clear:hover {background-color: #ccc;}
 form .buttons .submit:hover {background-color: #14892c;}
 
+form .likertSelect {
+  margin-left:5%;
+  width:20%;
+  display:block;
+  min-width: 200px;
+}
