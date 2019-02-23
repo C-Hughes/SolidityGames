@@ -55,59 +55,61 @@
 <div id="survey" class="w3-panel w3-padding header w3-card w3-hide">
     <div class="wrap">
         <h1 class="likert-header">Feedback Survey</h1>
-        <form action="">
-            <label class="statement">What gender do you identify with?</label>
-            <select class="w3-select likertSelect" name="option">
+        <form action="/survey" method="post">
+            <label class="statement">What gender do you identify as?</label>
+            <select class="w3-select likertSelect" name="Gender">
                 <option value="" disabled selected>Select Gender</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Other</option>
-                <option value="4">Prefer not to say</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+                <option value="notSay">Prefer not to say</option>
             </select>
 
             <label class="statement">What is your nationality</label>
-            <select class="w3-select likertSelect" name="option">
+            <select class="w3-select likertSelect" name="Nationality">
                 <option value="" disabled selected>Select Nationality</option>
-                <option value="1">Prefer not to say</option>
-                <option value="2">UK</option>
-                <option value="3">USA</option>
-                <option value="4">...</option>
+                <option value="notSay">Prefer not to say</option>
+                <option value="uk">UK</option>
+                <option value="usa">USA</option>
+                <option value="other">...</option>
             </select>
 
             <label class="statement">What did you study at university?</label>
-            <input class="w3-input w3-border likertSelect" type="text">
+            <input class="w3-input w3-border likertSelect" type="text" name="University">
 
             <label class="statement">What is your occupation?</label>
-            <input class="w3-input w3-border likertSelect" type="text">
+            <input class="w3-input w3-border likertSelect" type="text" name="Occupation">
 
             <label class="statement">What is your programming experience level?</label>
-            <select class="w3-select likertSelect" name="option">
+            <select class="w3-select likertSelect" name="ProgramingExp">
                 <option value="" disabled selected>Select Experience</option>
-                <option value="2">None</option>
-                <option value="3">Beginner</option>
-                <option value="4">Intermediate</option>
-                <option value="5">Advanced</option>
+                <option value="none">None</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
             </select>
+
+            <label class="statement">What programming languages do you have experience with?</label>
+            <input class="w3-input w3-border likertSelect" type="text" name="ProgramingLang">
 
             <label class="statement">Have you heard of Ethereum before today?</label>
             <div class="w3-container w3-cell">
-                <input type="radio" name="likert" value="strong_agree">
+                <input type="radio" value="yes" name="Ethereum">
                 <label>Yes</label>
             </div>
-
             <div class="w3-container w3-cell">
-                <input type="radio" name="likert" value="strong_agree">
+                <input type="radio"  value="no" name="Ethereum">
                 <label>No</label>
             </div>
 
+
             <label class="statement">Have you heard of Solidity before today?</label>
             <div class="w3-container w3-cell">
-                <input type="radio" name="likert" value="strong_agree">
+                <input type="radio" value="yes" name="Solidity">
                 <label>Yes</label>
             </div>
-
             <div class="w3-container w3-cell">
-                <input type="radio" name="likert" value="strong_agree">
+                <input type="radio" value="no" name="Solidity">
                 <label>No</label>
             </div>
 
@@ -118,27 +120,27 @@
             <label class="statement">What was your first impression of the overall website?</label>
             <ul class='likert'>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="OverallImpression" value="1">
                     <label>Bad</label>
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="OverallImpression" value="2">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="OverallImpression" value="3">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="OverallImpression" value="4">
                     <label>Average</label>
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="OverallImpression" value="5">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="disagree">
+                    <input type="radio" name="OverallImpression" value="6">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="OverallImpression" value="7">
                     <label>Excellent</label>
                 </li>
             </ul>
@@ -146,27 +148,27 @@
             <label class="statement">The website is easy to navigate</label>
             <ul class='likert'>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Navigate" value="1">
                     <label>Strongly disagree</label>
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Navigate" value="2">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Navigate" value="3">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Navigate" value="4">
                     <label>Neutral</label>
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Navigate" value="5">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="disagree">
+                    <input type="radio" name="Navigate" value="6">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Navigate" value="7">
                     <label>Strongly agree</label>
                 </li>
             </ul>
@@ -174,27 +176,27 @@
             <label class="statement">The instructions are easy to follow?</label>
             <ul class='likert'>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Instructions" value="1">
                     <label>Strongly disagree</label>
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Instructions" value="2">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Instructions" value="3">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Instructions" value="4">
                     <label>Neutral</label>
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Instructions" value="5">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="disagree">
+                    <input type="radio" name="Instructions" value="6">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Instructions" value="7">
                     <label>Strongly agree</label>
                 </li>
             </ul>
@@ -202,27 +204,27 @@
             <label class="statement">The security challenges are easy to understand?</label>
             <ul class='likert'>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Understand" value="1">
                     <label>Strongly disagree</label>
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Understand" value="2">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Understand" value="3">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Understand" value="4">
                     <label>Neutral</label>
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Understand" value="5">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="disagree">
+                    <input type="radio" name="Understand" value="6">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Understand" value="7">
                     <label>Strongly agree</label>
                 </li>
             </ul>
@@ -230,55 +232,55 @@
             <label class="statement">The security challenges were easy to interact with?</label>
             <ul class='likert'>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Interact" value="1">
                     <label>Strongly disagree</label>
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Interact" value="2">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Interact" value="3">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Interact" value="4">
                     <label>Neutral</label>
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Interact" value="5">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="disagree">
+                    <input type="radio" name="Interact" value="6">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Interact" value="7">
                     <label>Strongly agree</label>
                 </li>
             </ul>
 
-            <label class="statement">The website provided sufficient help for the challenges?</label>
+            <label class="statement">Sufficient help was provided for the challenges?</label>
             <ul class='likert'>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Help" value="1">
                     <label>Strongly disagree</label>
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Help" value="2">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Help" value="3">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Help" value="4">
                     <label>Neutral</label>
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Help" value="5">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="disagree">
+                    <input type="radio" name="Help" value="6">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="Help" value="7">
                     <label>Strongly agree</label>
                 </li>
             </ul>
@@ -286,48 +288,90 @@
             <label class="statement">The website did a good job at teaching about smart contract vulnerabilities?</label>
             <ul class='likert'>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="TeachingAbility" value="1">
                     <label>Strongly disagree</label>
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="TeachingAbility" value="2">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="TeachingAbility" value="3">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="TeachingAbility" value="4">
                     <label>Neutral</label>
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="TeachingAbility" value="5">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="disagree">
+                    <input type="radio" name="TeachingAbility" value="6">
                 </li>
                 <li>
-                    <input type="radio" name="likert" value="strong_agree">
+                    <input type="radio" name="TeachingAbility" value="7">
+                    <label>Strongly agree</label>
+                </li>
+            </ul>
+
+            <label class="statement">The website has increased my interest in Ethereum & Smart Contracts?</label>
+            <ul class='likert'>
+                <li>
+                    <input type="radio" name="ImprovedInterest" value="1">
+                    <label>Strongly disagree</label>
+                </li>
+                <li>
+                    <input type="radio" name="ImprovedInterest" value="2">
+                </li>
+                <li>
+                    <input type="radio" name="ImprovedInterest" value="3">
+                </li>
+                <li>
+                    <input type="radio" name="ImprovedInterest" value="4">
+                    <label>Neutral</label>
+                </li>
+                <li>
+                    <input type="radio" name="ImprovedInterest" value="5">
+                </li>
+                <li>
+                    <input type="radio" name="ImprovedInterest" value="6">
+                </li>
+                <li>
+                    <input type="radio" name="ImprovedInterest" value="7">
                     <label>Strongly agree</label>
                 </li>
             </ul>
 
             <label class="statement">How could the challenges be improved?</label>
-            <textarea rows="4" cols="75"></textarea>
+            <textarea rows="4" cols="75" name="ChallengesImproved"></textarea>
 
             <label class="statement">How could the overall website be improved?</label>
-            <textarea rows="4" cols="75"></textarea>
+            <textarea rows="4" cols="75" name="OverallImproved"></textarea>
 
             <label class="statement">Any other feedback?</label>
-            <textarea rows="4" cols="75"></textarea>
+            <textarea rows="4" cols="75" name="OtherFeedback"></textarea>
 
             <br>
             <br>
+
+            <input id="LocalStorage" type="text" name="LocalStorage" style="display: none;">
+
             <div class="w3-right">
                 <div class="w3-bar">
                     <button class="w3-button w3-grey">Clear</button>
-                    <button class="w3-button w3-green">Submit</button>
+                    <button type="submit" class="w3-button w3-green">Submit</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
+<script>
+window.onload = function(){
+    var dump = "";
+    for (var i = 0; i < localStorage.length; i++){
+        // do something with localStorage.getItem(localStorage.key(i));
+        dump += localStorage.key(i) + " = " + localStorage.getItem(localStorage.key(i)) + " | ";
+    }
+    document.getElementById("LocalStorage").value = dump;
+}
+</script>
