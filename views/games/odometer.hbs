@@ -1,3 +1,20 @@
+<div id="levelCompleteModal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+        <header class="w3-container w3-indigo">
+        <span onclick="document.getElementById('levelCompleteModal').style.display='none'"
+              class="w3-button w3-display-topright">&times;</span>
+            <h2>Congratulations!</h2>
+        </header>
+        <div class="w3-container header">
+            <p>You completed Odometer!</p>
+            <p>You are now ready to move onto the next level</p>
+        </div>
+        <footer class="w3-container w3-padding w3-indigo">
+            <a href="/survey" class="w3-button w3-left w3-amber">I've Had Enough</a><a href="/games/keepingSecrets" class="w3-button w3-right w3-green">Next Level</a>
+        </footer>
+    </div>
+</div>
+
 <div class="w3-container w3-margin w3-card-4 header">
     <div class="w3-cell-row">
         <div class="w3-cell w3-cell-bottom">
@@ -195,6 +212,7 @@ function claimOwnership(){
             if (!error) {
                 document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i>Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
                 getTransaction(result);
+                document.getElementById('levelCompleteModal').style.display='block';
             } else {
                 document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
             }});
