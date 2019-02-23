@@ -11,10 +11,9 @@ function toggleElement(param) {
 function toggleDayNight(changeTo){
 
     if (changeTo == "day"){
-        //Set Colours
         var primaryDay = "#F5F6FA";
-        var secondaryDay = "#FFFFFF";
-        var headerDay = "#F5F5F5";
+        var secondaryDay = "#F5F5F5";
+        var headerDay = "#FFFFFF";
         var textColorDay = "#172130";
 
         //Change theme to day colours
