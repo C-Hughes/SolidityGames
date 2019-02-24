@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d88a775f-34bf-4f30-8ae2-28a3fb0bb27d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/views/index.hbs" afterPath="$PROJECT_DIR$/views/index.hbs" />
-      <change beforePath="$PROJECT_DIR$/views/pages/survey.hbs" afterPath="$PROJECT_DIR$/views/pages/survey.hbs" />
-      <change beforePath="$PROJECT_DIR$/views/pages/welcome.hbs" afterPath="$PROJECT_DIR$/views/pages/welcome.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/games/odometer.hbs" afterPath="$PROJECT_DIR$/views/games/odometer.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/games/rubixi.hbs" afterPath="$PROJECT_DIR$/views/games/rubixi.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/games/warmUp.hbs" afterPath="$PROJECT_DIR$/views/games/warmUp.hbs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -73,7 +73,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="welcome.hbs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="welcome.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/pages/welcome.hbs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1125">
@@ -83,33 +83,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="randomness.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/games/randomness.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="150" column="80" lean-forward="false" selection-start-line="150" selection-start-column="80" selection-end-line="150" selection-end-column="80" />
-              <folding>
-                <marker date="1550960820310" expanded="true" signature="6371:6382" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="warmUp.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
-              <caret line="203" column="12" lean-forward="true" selection-start-line="203" selection-start-column="12" selection-end-line="203" selection-end-column="80" />
+            <state relative-caret-position="1033">
+              <caret line="231" column="39" lean-forward="false" selection-start-line="231" selection-start-column="39" selection-end-line="231" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="odometer.hbs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="odometer.hbs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="1050">
+              <caret line="261" column="255" lean-forward="false" selection-start-line="261" selection-start-column="255" selection-end-line="261" selection-end-column="255" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rubixi.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/games/rubixi.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1033">
+              <caret line="289" column="42" lean-forward="true" selection-start-line="289" selection-start-column="42" selection-end-line="289" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -156,9 +154,6 @@
         <option value="$PROJECT_DIR$/models/survey.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/public/javascripts/scripts.js" />
-        <option value="$PROJECT_DIR$/views/games/warmUp.hbs" />
-        <option value="$PROJECT_DIR$/views/games/rubixi.hbs" />
-        <option value="$PROJECT_DIR$/views/games/odometer.hbs" />
         <option value="$PROJECT_DIR$/views/games/randomness.hbs" />
         <option value="$PROJECT_DIR$/views/games/simpleDAO.hbs" />
         <option value="$PROJECT_DIR$/views/games/forcedPayments.hbs" />
@@ -167,6 +162,9 @@
         <option value="$PROJECT_DIR$/views/index.hbs" />
         <option value="$PROJECT_DIR$/views/pages/survey.hbs" />
         <option value="$PROJECT_DIR$/views/pages/welcome.hbs" />
+        <option value="$PROJECT_DIR$/views/games/warmUp.hbs" />
+        <option value="$PROJECT_DIR$/views/games/rubixi.hbs" />
+        <option value="$PROJECT_DIR$/views/games/odometer.hbs" />
       </list>
     </option>
   </component>
@@ -347,12 +345,12 @@
       <workItem from="1550066124604" duration="21772000" />
       <workItem from="1550157626132" duration="63000" />
       <workItem from="1550313454748" duration="13840000" />
-      <workItem from="1550671560041" duration="47969000" />
+      <workItem from="1550671560041" duration="50392000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="228960000" />
+    <option name="totallyTimeSpent" value="231383000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-10" y="0" width="1940" height="2110" extended-state="0" />
@@ -663,30 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/rubixi.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="203" column="12" lean-forward="true" selection-start-line="203" selection-start-column="12" selection-end-line="203" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/games/randomness.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
@@ -756,6 +730,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1125">
           <caret line="45" column="1" lean-forward="true" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1033">
+          <caret line="231" column="39" lean-forward="false" selection-start-line="231" selection-start-column="39" selection-end-line="231" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/rubixi.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1033">
+          <caret line="289" column="42" lean-forward="true" selection-start-line="289" selection-start-column="42" selection-end-line="289" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="261" column="255" lean-forward="false" selection-start-line="261" selection-start-column="255" selection-end-line="261" selection-end-column="255" />
           <folding />
         </state>
       </provider>

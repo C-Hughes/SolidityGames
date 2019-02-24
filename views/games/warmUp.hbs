@@ -34,7 +34,7 @@
     <h3>Beat This Level</h3>
     <p>To beat this level, claim ownership of the contract</p>
 
-    <button id="hintButton" class="w3-button w3-amber w3-margin" onclick="getHint();">Get Hint (3)</button>
+    <button id="hintButton" class="w3-button w3-amber w3-margin" onclick="getHint();">Get Hint (2)</button>
     <div id="HintText" style="display: none;">HintText</div>
 </div>
 
@@ -216,20 +216,21 @@ var Level = 1;
 function getHint(){
 
     var hintText = document.getElementById('HintText');
+    var hintBtn = document.getElementById('hintButton');
     hintText.style.display = "block";
-    hintText.innerHTML = "";
 
     if(Level == "1"){
-        hintText.innerHTML = "<p>To claim ownership of the contract you must own more than 1 octodecillion tokens. This is too much to buy. </p><p>The name of this contract is 'Odometer'. What happens when an analog odometer goes over it's maximum value?</p>";
+        hintText.innerHTML = "<p>Look at the different functions to understand what the contract does.</p><p>msg.value is the amount of Ether you send in a transaction. msg.sender is the sender of the transaction.</p>";
         Level = 2;
-        document.getElementById('hintButton').innerHTML = "Hint (1/3)";
+        hintBtn.innerHTML = "Hint (1/2)";
     } else if (Level == "2"){
-        hintText.innerHTML = "<p>To claim ownership of the contract you must own more than 1 octodecillion tokens. This is too much to buy. </p><p>The name of this contract is 'Odometer'. What happens when an analog odometer goes over it's maximum value?</p>\n<p>The tokens variable is stored as an unsigned integer (uint). This variable is similar to an odometer, as it can only be a positive value.</p>";
+        hintText.innerHTML += "<p>Your contributions must be greater than 0 to claim ownership.</p><p></p>";
         Level = 3;
-        document.getElementById('hintButton').innerHTML = "Hint (2/3)";
-    } else {
-        hintText.innerHTML = "<p>To claim ownership of the contract you must own more than 1 octodecillion tokens. This is too much to buy. </p><p>The name of this contract is 'Odometer'. What happens when an analog odometer goes over it's maximum value?</p>\n<p>The tokens variable is stored as an unsigned integer (uint). This variable is similar to an odometer, as it can only be a positive value.</p>\n<p>Since the token variable can only be positive, it is possible to sell more than you have, as the value will always be greater than 0. This will cause the variable to underflow and give you the maximum amount of tokens.</p>";
-        document.getElementById('hintButton').innerHTML = "Hint (3/3)";
+        hintBtn.innerHTML = "Tell me how to do it";
+    } else if (Level == "3"){
+        hintText.innerHTML += "<p>Call the addToPot function with a message value greater than 0. Then call the claimOwnership variable with a message value greater than 0.</p>";
+        hintBtn.innerHTML = "Hints (2/2)";
+        hintBtn.style.display = "none";
     }
 }
 

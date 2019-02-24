@@ -29,7 +29,7 @@
 
     <h3>Beat This Level</h3>
     <p>To beat this level, become the creator of the contract</p>
-    <button id="hintButton" class="w3-button w3-amber w3-margin" onclick="getHint();">Get Hint (2)</button>
+    <button id="hintButton" class="w3-button w3-amber w3-margin" onclick="getHint();">Get Hint (3)</button>
     <div id="HintText" style="display: none;">HintText</div>
 </div>
 
@@ -269,16 +269,25 @@ var Level = 1;
 function getHint(){
 
     var hintText = document.getElementById('HintText');
+    var hintBtn = document.getElementById('hintButton');
     hintText.style.display = "block";
-    hintText.innerHTML = "";
 
     if(Level == "1"){
-        hintText.innerHTML = "<p>Before Solidity v0.4.23, a function with the same name as the contract is the constructor function. This code is executed exactly once, when the contract is initially deployed. </p>";
-        document.getElementById('hintButton').innerHTML = "Hint (1/2)";
+        hintText.innerHTML = "<p>Before Solidity v0.4.23, a function with the same name as the contracts name is the constructor function. This code is executed exactly once, when the contract is initially deployed. </p>";
+        hintBtn.innerHTML = "Hint (1/3)";
         Level = 2;
     } else if (Level == "2"){
-        hintText.innerHTML = "<p>Before Solidity v0.4.23, a function with the same name as the contract is the constructor function. This code is executed exactly once, when the contract is initially deployed. </p><p>In Solidity, function and variable names are case sensitive.</p>";
-        document.getElementById('hintButton').innerHTML = "Hint (2/2)";
+        hintText.innerHTML += "<p>In Solidity, function and variable names are case sensitive.</p>";
+        hintBtn.innerHTML = "Hint (2/3)";
+        Level = 3;
+    } else if (Level == "3"){
+        hintText.innerHTML += "<p>Look at the constructors name.</p>";
+        hintBtn.innerHTML = "Tell me how to do it";
+        Level = 4;
+    } else if (Level == "4"){
+        hintText.innerHTML += "<p>The contracts name is Rubixi, however the constructor function name is rubixi. This allows the constructor to be called more than once like any other function. Call rubixi() to become the creator.</p>";
+        hintBtn.style.display = "none";
+        hintBtn.innerHTML = "Hints (3/3)";
     }
 }
 
