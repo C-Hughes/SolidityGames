@@ -29,8 +29,9 @@
 
     <h3>Beat This Level</h3>
     <p>To beat this level, make the contract have a balance greater than 0</p>
+    <p>You will need to create and deploy your own smart contract to beat this level. Use <a href="https://remix.ethereum.org">Remix</a> to do this.</p>
 
-    <button id="hintButton" class="w3-button w3-amber w3-margin" onclick="getHint();">Hint (3)</button>
+    <button id="hintButton" class="w3-button w3-amber w3-margin" onclick="getHint();">Get Hint (2)</button>
     <div id="HintText" style="display: none;"></div>
 </div>
 
@@ -119,19 +120,19 @@ var Level = 1;
 function getHint(){
 
     var hintText = document.getElementById('HintText');
+    var hintBtn = document.getElementById('hintButton');
     hintText.style.display = "block";
-    hintText.innerHTML = "";
 
     if(Level == "1"){
-        hintText.innerHTML = "<p>For a contract to receive ether a function must be marked as 'payable'. However there is one other way...</p>";
-        document.getElementById('hintButton').innerHTML = "Hint (1/3)";
+        hintText.innerHTML = "<p>For a contract to receive Ether a function must be marked as 'payable'. However there is one other way...</p>";
+        hintBtn.innerHTML = "Hint (1/2)";
         Level = 2;
     } else if (Level == "2"){
-        hintText.innerHTML = "<p>For a contract to receive ether a function must be marked as 'payable'. However there is one other way...</p><p>Look into the self destruct function.</p>";
-        document.getElementById('hintButton').innerHTML = "Hint (2/3)";
+        hintText.innerHTML += "<p>Look into the self destruct function.</p>";
+        hintBtn.innerHTML = "Tell me how to do it";
         Level = 3;
     } else if (Level == "3"){
-        hintText.innerHTML = "<pre><code class=\"Javascript Tomorrow\">\n" +
+        hintText.innerHTML += "<pre><code class=\"Javascript Tomorrow\">" +
                 "pragma solidity ^0.5.3;\n" +
                 "\n" +
                 "contract forcedPaymentsAnswer {\n" +
@@ -144,11 +145,11 @@ function getHint(){
                 "\n" +
                 "}" +
                 "</code></pre>";
-        document.getElementById('hintButton').innerHTML = "Hint (3/3)";
+        hintBtn.innerHTML = "Hint (2/2)";
+        hintBtn.style.display = "none";
         document.querySelectorAll('pre code').forEach((block) => {
             hljs.highlightBlock(block);
-    });
-        document.getElementById('hintButton').innerHTML = "Hint (3/3)";
+        });
     }
 }
 
