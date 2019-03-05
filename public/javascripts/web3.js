@@ -39,6 +39,7 @@ function getBalance() {
     }
 }
 
+
 function getNetwork() {
     document.getElementById("etherNetwork").style.color = "Red";
     var network = "Not Connected";
