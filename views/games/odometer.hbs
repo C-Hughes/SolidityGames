@@ -37,7 +37,7 @@
 <div class="w3-panel w3-card-4 header w3-margin">
     <h4>Odometer.sol</h4>
     <div id="deployedContractAddress" class="w3-margin"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></div>
-    <div id="transactionInfo" class="w3-margin"></div>
+    <div id="transactionInfo" class="w3-margin secondary"></div>
     <div id="userErrors" class="w3-text-red w3-margin"></div>
     <div id="contractInterface"></div>
 
@@ -104,7 +104,7 @@ function deployContract() {
 
 function transactionPending(contract){
     var Tx = contract.transactionHash;
-    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
+    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
 }
 
 function updateUI(){
@@ -116,7 +116,7 @@ function updateUI(){
             '      <button class="w3-button w3-red" onclick="buyTokens();">buyTokens()</button>\n' +
             '    </div>\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <input id="buyTokensInput" onclick="clearErrors();" placeholder="100" class="w3-input w3-border" type="text">\n' +
+            '      <input id="buyTokensInput" onclick="clearErrors();" placeholder="Amount" class="w3-input w3-border" type="text">\n' +
             '    </div>\n' +
             '  </div>\n' +
             '<div class="w3-bar">\n' +
@@ -124,7 +124,7 @@ function updateUI(){
             '      <button class="w3-button w3-red" onclick="sellTokens();">sellTokens()</button>\n' +
             '    </div>\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <input id="sellTokensInput" onclick="clearErrors();" placeholder="100" class="w3-input w3-border" type="text">\n' +
+            '      <input id="sellTokensInput" onclick="clearErrors();" placeholder="Amount" class="w3-input w3-border" type="text">\n' +
             '    </div>\n' +
             '  </div>\n' +
             '  <div class="w3-bar">\n' +
@@ -173,7 +173,7 @@ function buyTokens(){
         amountToBuy = web3.toWei(amountToBuy, 'wei');
         odometerInstance.buyTokens({value: amountToBuy, gas: 212720}, function(error, result){
             if (!error) {
-                document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>  Pending... (This can take a minute)</div>";
+                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>  Pending... (This can take a minute)</div>";
                 getTransaction(result);
             } else {
                 document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
@@ -192,7 +192,7 @@ function sellTokens(){
         amountToSell = web3.toWei(amountToSell, 'wei');
         odometerInstance.sellTokens(amountToSell, {gas: 212720}, function(error, result){
             if (!error) {
-                document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>  Pending... (This can take a minute)</div>";
+                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>  Pending... (This can take a minute)</div>";
                 getTransaction(result);
             } else {
                 document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
@@ -210,9 +210,8 @@ function claimOwnership(){
         claimOwnershipAmount = web3.toWei(claimOwnershipAmount, 'szabo');
         odometerInstance.claimOwnership({value: claimOwnershipAmount, gas: 212720}, function(error, result){
             if (!error) {
-                document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i>Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
+                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
                 getTransaction(result);
-                document.getElementById('levelCompleteModal').style.display='block';
             } else {
                 document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
             }});
@@ -235,6 +234,8 @@ function viewOwner(){
         if(result == web3.eth.accounts[0]){
             localStorage.setItem("odometerComplete", "true");
             completedStatus();
+            clearInterval(updateInfo);
+            document.getElementById('levelCompleteModal').style.display='block';
         }
     });
 }
@@ -276,5 +277,12 @@ if (localStorage.getItem("odometerAddr")){
     //Add Contract to web3.eth.contract
     getInstance();
     updateUI();
+    viewOwner();
+    viewTokens();
+    //Call every 10 seconds.
+    var updateInfo = setInterval(function() {
+        viewOwner();
+        viewTokens();
+    }, 10000);
 }
 </script>

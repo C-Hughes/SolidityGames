@@ -36,7 +36,7 @@
 <div class="w3-panel w3-card-4 header w3-margin">
     <h4>Rubixi.sol</h4>
     <div id="deployedContractAddress" class="w3-margin"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></div>
-    <div id="transactionInfo" class="w3-margin"></div>
+    <div id="transactionInfo" class="w3-margin secondary"></div>
     <div id="userErrors" class="w3-text-red w3-margin"></div>
     <div id="contractInterface"></div>
 
@@ -126,7 +126,7 @@ function updateUI(){
             '      <button onclick="buyIn();" class="w3-button w3-red">buyIn()</button>\n' +
             '    </div>\n' +
             '    <div class="w3-bar-item">\n' +
-            '      <input id="buyInInput" class="w3-input w3-border" placeholder="amount" type="text">\n' +
+            '      <input id="buyInInput" class="w3-input w3-border" placeholder="Amount" type="text">\n' +
             '    </div>\n' +
             '  </div>\n' +
             '  <div class="w3-bar">\n' +
@@ -178,7 +178,7 @@ function getInstance(){
 function rubixi(){
     rubixiInstance.rubixi(function(error, result){
         if (!error) {
-            document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i> Transaction - <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a></div>";
+            document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
             getTransaction(result);
         } else {
             document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
@@ -195,7 +195,7 @@ function buyIn(){
         amountToAdd = web3.toWei(amountToAdd, 'szabo');
         rubixiInstance.buyIn({value: amountToAdd, gas: 212720}, function(error, result){
             if (!error) {
-                document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a></div>";
+                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
                 getTransaction(result);
             } else {
                 document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
@@ -208,7 +208,7 @@ function transferBalance(){
     var address = document.getElementById("transferBalanceInput").value;
     rubixiInstance.transferBalance(address, {gas: 212720}, function(error, result){
         if (!error) {
-            document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a></div>";
+            document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
             getTransaction(result);
         } else {
             document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
@@ -219,7 +219,7 @@ function transferBalance(){
 function sellBalance(){
     rubixiInstance.sellBalance({gas: 212720}, function(error, result){
         if (!error) {
-            document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a></div>";
+            document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
             getTransaction(result);
         } else {
             document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
@@ -230,7 +230,7 @@ function sellBalance(){
 function collectAll(){
     rubixiInstance.collectAll({gas: 212720}, function(error, result){
         if (!error) {
-            document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a></div>";
+            document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
             getTransaction(result);
         } else {
             document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
@@ -255,6 +255,7 @@ function viewCreator(){
             localStorage.setItem("rubixiComplete", "true");
             completedStatus();
             document.getElementById('levelCompleteModal').style.display='block';
+            clearInterval(updateInfo);
         }
     });
 }
@@ -296,5 +297,12 @@ if (localStorage.getItem("rubixiAddr")){
     //Add Contract to web3.eth.contract
     getInstance();
     updateUI();
+    viewCreator();
+    viewBalance();
+    //Call every 10 seconds.
+    var updateInfo = setInterval(function() {
+        viewCreator();
+        viewBalance();
+    }, 10000);
 }
 </script>
