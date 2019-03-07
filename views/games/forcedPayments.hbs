@@ -40,7 +40,16 @@
     <div id="deployedContractAddress" class="w3-margin"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></div>
     <div id="transactionInfo" class="w3-margin"></div>
     <div id="userErrors" class="w3-text-red w3-margin"></div>
-    <div id="contractInterface"></div>
+    <div id="contractInterface" style="display: none;">
+        <div class="w3-bar">
+            <div class="w3-bar-item">
+                <button onclick="checkBalance();" class="w3-button w3-blue">View Contract Balance</button>
+            </div>
+            <div class="w3-bar-item">
+                <div id="checkBalance"></div>
+            </div>
+        </div>
+    </div>
 
     <pre><code class="typescript Tomorrow">
 pragma solidity ^0.5.3;
@@ -83,16 +92,7 @@ function transactionPending(contract){
 }
 
 function updateUI(){
-
-    var x = document.getElementById("contractInterface");
-    x.innerHTML = '<div class="w3-bar">\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <button onclick="checkBalance();" class="w3-button w3-blue">View Contract Balance</button>\n' +
-            '    </div>\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <div id="checkBalance"></div>\n' +
-            '    </div>\n';
-
+    document.getElementById("contractInterface").style.display="block";
     document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+forcedPaymentsInstance.address+"'>" + forcedPaymentsInstance.address + "</a>" +
     " <i id='removeBtn' title='Remove Contract' class=\"far fa-trash-alt w3-text-red\" onclick='removeContract(\"forcedPaymentsAddr\");'></i>";
 }
