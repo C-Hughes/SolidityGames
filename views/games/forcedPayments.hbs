@@ -112,6 +112,7 @@ function checkBalance(){
             localStorage.setItem("forcedPaymentsComplete", "true");
             completedStatus();
             document.getElementById('levelCompleteModal').style.display='block';
+            clearInterval(updateInfo);
         }
     }));
 }
@@ -158,5 +159,10 @@ if (localStorage.getItem("forcedPaymentsAddr")){
     //Add Contract to web3.eth.contract
     getInstance();
     updateUI();
+    checkBalance();
+    //Call every 10 seconds.
+    var updateInfo = setInterval(function() {
+        checkBalance();
+    }, 10000);
 }
 </script>

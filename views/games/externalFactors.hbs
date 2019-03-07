@@ -121,6 +121,7 @@ function viewOwner(){
             localStorage.setItem("externalFactorsComplete", "true");
             completedStatus();
             document.getElementById('levelCompleteModal').style.display='block';
+            clearInterval(updateInfo);
         }
     });
 }
@@ -171,5 +172,10 @@ if (localStorage.getItem("externalFactorsAddr")){
     //Add Contract to web3.eth.contract
     getInstance();
     updateUI();
+    viewOwner();
+    //Call every 10 seconds.
+    var updateInfo = setInterval(function() {
+        viewOwner();
+    }, 10000);
 }
 </script>
