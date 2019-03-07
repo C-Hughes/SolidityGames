@@ -38,7 +38,7 @@
 <div class="w3-panel w3-card-4 header w3-margin">
     <h4>simpleDAO.sol</h4>
     <div id="deployedContractAddress" class="w3-margin"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></div>
-    <div id="transactionInfo" class="w3-margin"></div>
+    <div id="transactionInfo" class="w3-margin secondary"></div>
     <div id="userErrors" class="w3-text-red w3-margin"></div>
     <div id="contractInterface"></div>
 
@@ -179,6 +179,7 @@ function checkBalance(){
             localStorage.setItem("simpleDAOComplete", "true");
             completedStatus();
             document.getElementById('levelCompleteModal').style.display='block';
+            clearInterval(updateInfo);
         }
     });
 }
@@ -202,30 +203,6 @@ function checkCredit(){
     });
 }
 
-function donate(){
-    var address = document.getElementById("transferBalanceInput").value;
-    simpleDAOInstance.donate(address, {gas: 212720}, function(error, result){
-        if (!error) {
-            document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a></div>";
-            getTransaction(result);
-        } else {
-            document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
-        }
-    });
-}
-
-function withdraw(){
-    var amount = document.getElementById("withdrawInput").value;
-    simpleDAOInstance.withdraw(amount,{gas: 212720}, function(error, result){
-        if (!error) {
-            document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a></div>";
-            getTransaction(result);
-        } else {
-            document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
-        }
-    });
-}
-
 function buyCredit(){
     var amountToAdd = document.getElementById("buyCreditInput").value;
     if(amountToAdd <= 0){
@@ -235,13 +212,38 @@ function buyCredit(){
         amountToAdd = web3.toWei(amountToAdd, 'ether');
         simpleDAOInstance.buyCredit({value: amountToAdd, gas: 212720}, function(error, result){
             if (!error) {
-                document.getElementById('transactionInfo').innerHTML += "<div id=\"+result+\"><i class=\"fas fa-spinner w3-spin\"></i> Transaction: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a></div>";
+                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
                 getTransaction(result);
             } else {
                 document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
             }
         });
     }
+}
+
+function donate(){
+    var address = document.getElementById("transferBalanceInput").value;
+    simpleDAOInstance.donate(address, {gas: 212720}, function(error, result){
+        if (!error) {
+            document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
+            getTransaction(result);
+        } else {
+            document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
+        }
+    });
+}
+
+function withdraw(){
+    var amount = document.getElementById("withdrawInput").value;
+    amount = web3.toWei(amount, 'ether');
+    simpleDAOInstance.withdraw(amount,{gas: 212720}, function(error, result){
+        if (!error) {
+            document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
+            getTransaction(result);
+        } else {
+            document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
+        }
+    });
 }
 
 var Level = 1;
@@ -294,8 +296,12 @@ if (localStorage.getItem("simpleDAOAddr")){
     //Add Contract to web3.eth.contract
     getInstance();
     updateUI();
-
-    //checkBalance();
-    //checkCredit();
+    checkMyCredit();
+    checkBalance();
+    //Call every 10 seconds.
+    var updateInfo = setInterval(function() {
+        checkMyCredit();
+        checkBalance();
+    }, 10000);
 }
 </script>

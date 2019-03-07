@@ -16,6 +16,11 @@ a:hover {
   font-size: 12px;
 }
 
+.btnSize {
+  width:150px;
+  margin: 25px 0px 25px 0px;
+}
+
 .primary{
   background-color: #1A1B1F;
   color: #D2D7D3;
