@@ -51,6 +51,11 @@ a:hover {
   z-index:1;
 }
 
+#lowFundsWarning{
+  position: static;
+  margin: 50px 0px -50px 200px;
+}
+
 #mainBody{
   margin: 50px 0px 0px 200px;
 }

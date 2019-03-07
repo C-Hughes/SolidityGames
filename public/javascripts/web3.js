@@ -23,7 +23,6 @@ window.addEventListener('load', async () => {
 });
 
 function getBalance() {
-    var wei, balance;
     try {
         web3.eth.getAccounts(function(err, accounts) {
             web3.eth.getBalance(accounts[0], function(error, wei) {
@@ -31,6 +30,9 @@ function getBalance() {
                     web3.eth.defaultAccount = accounts[0];
                     var balance = web3.fromWei(wei, 'ether').toFixed(3);
                     document.getElementById("etherBalance").innerHTML = "Ξ " + balance;
+                    if(balance < 0.1){
+                        document.getElementById('lowFundsWarning').style.display="block";
+                    }
                 }
             })
         });
