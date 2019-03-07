@@ -29,6 +29,11 @@
     <p>This is the first level of the security challenges.</p>
     <p>This level designed for you to get familiar with MetaMask and interacting with the Ethereum blockchain.</p>
     <p>This level does not contain any security vulnerabilities.</p>
+
+    <ul>
+        <li>Clicking blue buttons will read information from the contract</li>
+        <li>Clicking red buttons will call the functions of the contract</li>
+    </ul>
     <hr>
 
     <h3>Beat This Level</h3>
@@ -139,6 +144,7 @@ function transactionPending(contract){
 
 function updateUI(){
     //Display dApp UI
+    refreshInfo();
     document.getElementById("contractInterface").style.display = "block";
     document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https:// "+window.network+".etherscan.io/address/"+warmUpInstance.address+"'>" + warmUpInstance.address + "</a>" +
             " <i id='removeBtn' title='Remove Contract' class=\"far fa-trash-alt w3-text-red\" onclick='removeContract(\"warmUpAddr\");'></i>";
@@ -235,6 +241,15 @@ function getHint(){
     }
 }
 
+var updateInfo;
+function refreshInfo(){
+    //Call every 10 seconds.
+    updateInfo = setInterval(function() {
+        viewOwner();
+        viewContributions();
+    }, 10000);
+}
+
 //Check LocalStorage to see if the contract has been deployed.
 if (localStorage.getItem("warmUpAddr")){
     //Add Contract to web3.eth.contract
@@ -242,10 +257,5 @@ if (localStorage.getItem("warmUpAddr")){
     updateUI();
     viewOwner();
     viewContributions();
-    //Call every 10 seconds.
-    var updateInfo = setInterval(function() {
-        viewOwner();
-        viewContributions();
-    }, 10000);
 }
 </script>

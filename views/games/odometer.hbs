@@ -149,7 +149,7 @@ function transactionPending(contract){
 }
 
 function updateUI(){
-
+    refreshInfo();
     //Display dApp UI
     document.getElementById("contractInterface").style.display="block";
     document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+odometerInstance.address+"'>" + odometerInstance.address + "</a>" +
@@ -271,6 +271,15 @@ function clearErrors(){
     document.getElementById('claimOwnershipInput').classList.remove("w3-border-red");
 }
 
+var updateInfo;
+function refreshInfo(){
+    //Call every 10 seconds.
+    updateInfo = setInterval(function() {
+        viewOwner();
+        viewTokens();
+    }, 10000);
+}
+
 //Check LocalStorage to see if the contract has been deployed.
 if (localStorage.getItem("odometerAddr")){
     //Add Contract to web3.eth.contract
@@ -278,10 +287,5 @@ if (localStorage.getItem("odometerAddr")){
     updateUI();
     viewOwner();
     viewTokens();
-    //Call every 10 seconds.
-    var updateInfo = setInterval(function() {
-        viewOwner();
-        viewTokens();
-    }, 10000);
 }
 </script>

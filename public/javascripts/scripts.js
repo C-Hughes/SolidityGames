@@ -70,7 +70,6 @@ function scrollToLocation(id){
     window.location.hash = id;
 }
 
-
 function completedStatus(){
     //Check if any challanges have been completed
     if (localStorage.getItem("warmUpComplete")){

@@ -131,6 +131,7 @@ function transactionPending(contract){
 }
 
 function updateUI(){
+    refreshInfo();
     //Display dApp UI
     document.getElementById("contractInterface").style.display = "block";
     document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+randomnessInstance.address+"'>" + randomnessInstance.address + "</a>" +
@@ -221,9 +222,20 @@ function getHint(){
     }
 }
 
+var updateInfo;
+function refreshInfo(){
+    //Call every 10 seconds.
+    updateInfo = setInterval(function() {
+        checkWins();
+        generateRandom();
+    }, 10000);
+}
+
 //Check LocalStorage to see if the contract has been deployed.
 if (localStorage.getItem("randomnessAddr")){
     getInstance();
     updateUI();
+    checkWins();
+    generateRandom();
 }
 </script>

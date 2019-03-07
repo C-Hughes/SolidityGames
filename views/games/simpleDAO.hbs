@@ -160,6 +160,7 @@ function transactionPending(contract){
 }
 
 function updateUI(){
+    refreshInfo();
     //Display dApp UI
     document.getElementById("contractInterface").style.display="block";
     document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+simpleDAOInstance.address+"'>" + simpleDAOInstance.address + "</a>" +
@@ -294,6 +295,15 @@ function getHint(){
     }
 }
 
+var updateInfo;
+function refreshInfo(){
+    //Call every 10 seconds.
+    updateInfo = setInterval(function() {
+        checkMyCredit();
+        checkBalance();
+    }, 10000);
+}
+
 //Check LocalStorage to see if the contract has been deployed.
 if (localStorage.getItem("simpleDAOAddr")){
     //Add Contract to web3.eth.contract
@@ -301,10 +311,5 @@ if (localStorage.getItem("simpleDAOAddr")){
     updateUI();
     checkMyCredit();
     checkBalance();
-    //Call every 10 seconds.
-    var updateInfo = setInterval(function() {
-        checkMyCredit();
-        checkBalance();
-    }, 10000);
 }
 </script>
