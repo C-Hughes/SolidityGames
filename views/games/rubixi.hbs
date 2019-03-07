@@ -38,7 +38,55 @@
     <div id="deployedContractAddress" class="w3-margin"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></div>
     <div id="transactionInfo" class="w3-margin secondary"></div>
     <div id="userErrors" class="w3-text-red w3-margin"></div>
-    <div id="contractInterface"></div>
+    <div id="contractInterface" style="display: none;">
+        <div class="w3-bar">
+            <div class="w3-bar-item">
+                <button onclick="viewBalance();" class="w3-button w3-blue">viewBalance()</button>
+            </div>
+            <div class="w3-bar-item">
+                <div id="viewBalance"></div>
+            </div>
+        </div>
+        <div class="w3-bar">
+            <div class="w3-bar-item">
+                <button onclick="viewCreator()" class="w3-button w3-blue">creator</button>
+            </div>
+            <div class="w3-bar-item">
+                <div id="viewCreator"></div>
+            </div>
+        </div>
+        <div class="w3-bar">
+            <div class="w3-bar-item">
+                <button class="w3-button w3-red" onclick="rubixi();">rubixi()</button>
+            </div>
+        </div>
+        <div class="w3-bar">
+            <div class="w3-bar-item">
+                <button onclick="buyIn();" class="w3-button w3-red">buyIn()</button>
+            </div>
+            <div class="w3-bar-item">
+                <input id="buyInInput" class="w3-input w3-border" placeholder="Amount" type="text">
+            </div>
+        </div>
+        <div class="w3-bar">
+            <div class="w3-bar-item">
+                <button onclick="transferBalance();" class="w3-button w3-red">transferBalance()</button>
+            </div>
+            <div class="w3-bar-item">
+                <input id="transferBalanceInput" class="w3-input w3-border" placeholder="Address" type="text">
+            </div>
+        </div>
+        <div class="w3-bar">
+            <div class="w3-bar-item">
+                <button onclick="sellBalance();" class="w3-button w3-red">sellBalance()</button>
+            </div>
+        </div>
+        <div class="w3-bar">
+            <div class="w3-bar-item">
+                <button onclick="collectAll();" class="w3-button w3-red">collectAll()</button>
+            </div>
+        </div>
+    </div>
 
     <pre><code class="typescript Tomorrow">
 pragma solidity ^0.4.22;
@@ -113,58 +161,8 @@ function transactionPending(contract){
 }
 
 function updateUI(){
-
     //Display dApp UI
-    var x = document.getElementById("contractInterface");
-    x.innerHTML = '<div class="w3-bar">\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <button class="w3-button w3-red" onclick="rubixi();">rubixi()</button>\n' +
-            '    </div>\n' +
-            '  </div>\n' +
-            '  <div class="w3-bar">\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <button onclick="buyIn();" class="w3-button w3-red">buyIn()</button>\n' +
-            '    </div>\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <input id="buyInInput" class="w3-input w3-border" placeholder="Amount" type="text">\n' +
-            '    </div>\n' +
-            '  </div>\n' +
-            '  <div class="w3-bar">\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <button onclick="transferBalance();" class="w3-button w3-red">transferBalance()</button>\n' +
-            '    </div>\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <input id="transferBalanceInput" class="w3-input w3-border" placeholder="Address" type="text">\n' +
-            '    </div>\n' +
-            '  </div>\n' +
-            '  <div class="w3-bar">\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <button onclick="sellBalance();" class="w3-button w3-red">sellBalance()</button>\n' +
-            '    </div>\n' +
-            '  </div>\n' +
-            '  <div class="w3-bar">\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <button onclick="collectAll();" class="w3-button w3-red">collectAll()</button>\n' +
-            '    </div>\n' +
-            '  </div>\n' +
-            '  <div class="w3-bar">\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <button onclick="viewBalance();" class="w3-button w3-blue">viewBalance()</button>\n' +
-            '    </div>\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <div id="viewBalance"></div>\n' +
-            '    </div>\n' +
-            '    <div id="contractCreator" class="w3-bar-item"></div>\n' +
-            '  </div>\n' +
-            '  <div class="w3-bar">\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <button onclick="viewCreator()" class="w3-button w3-blue">creator</button>\n' +
-            '    </div>\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <div id="viewCreator"></div>\n' +
-            '    </div>\n' +
-            '    <div id="contractOwner" class="w3-bar-item"></div>\n' +
-            '  </div>';
+    document.getElementById("contractInterface").style.display="block";
     document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+rubixiInstance.address+"'>" + rubixiInstance.address + "</a>" +
     " <i id='removeBtn' title='Remove Contract' class=\"far fa-trash-alt w3-text-red\" onclick='removeContract(\"rubixiAddr\");'></i>";
 }

@@ -43,7 +43,41 @@
     <div id="deployedContractAddress" class="w3-margin"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></div>
     <div id="transactionInfo" class="w3-margin secondary"></div>
     <div id="userErrors" class="w3-text-red w3-margin"></div>
-    <div id="contractInterface"></div>
+    <div id="contractInterface" style="display: none;">
+        <div class="w3-bar">
+            <div class="w3-bar-item">
+                <button onclick="viewContributions();" class="w3-button w3-blue">viewContribution()</button>
+            </div>
+            <div class="w3-bar-item">
+                <div id="viewContributions"></div>
+            </div>
+            <div id="contractOwner" class="w3-bar-item"></div>
+        </div>
+        <div class="w3-bar">
+            <div class="w3-bar-item">
+                <button onclick="viewOwner()" class="w3-button w3-blue">owner</button>
+            </div>
+            <div class="w3-bar-item">
+                <div id="viewOwner"></div>
+            </div>
+        </div>
+        <div class="w3-bar">
+            <div class="w3-bar-item">
+                <button class="w3-button w3-red" onclick="addToPot();">addToPot()</button>
+            </div>
+            <div class="w3-bar-item">
+                <input id="addToPotInput" onclick="clearErrors();" placeholder="Amount" class="w3-input w3-border" type="text">
+            </div>
+        </div>
+        <div class="w3-bar">
+            <div class="w3-bar-item">
+                <button onclick="claimOwnership();" class="w3-button w3-red">claimOwnership()</button>
+            </div>
+            <div class="w3-bar-item">
+                <input id="claimOwnershipInput" class="w3-input w3-border" placeholder="Message Value" type="text">
+            </div>
+        </div>
+    </div>
 
 <pre><code class="typescript Tomorrow">
 pragma solidity ^0.5.2;
@@ -104,42 +138,8 @@ function transactionPending(contract){
 }
 
 function updateUI(){
-
     //Display dApp UI
-    var x = document.getElementById("contractInterface");
-    x.innerHTML = '<div class="w3-bar">\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <button class="w3-button w3-red" onclick="addToPot();">addToPot()</button>\n' +
-            '    </div>\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <input id="addToPotInput" onclick="clearErrors();" placeholder="Amount" class="w3-input w3-border" type="text">\n' +
-            '    </div>\n' +
-            '  </div>\n' +
-            '  <div class="w3-bar">\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <button onclick="claimOwnership();" class="w3-button w3-red">claimOwnership()</button>\n' +
-            '    </div>\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <input id="claimOwnershipInput" class="w3-input w3-border" placeholder="Message Value" type="text">\n' +
-            '    </div>\n' +
-            '  </div>\n' +
-            '  <div class="w3-bar">\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <button onclick="viewContributions();" class="w3-button w3-blue">viewContribution()</button>\n' +
-            '    </div>\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <div id="viewContributions"></div>\n' +
-            '    </div>\n' +
-            '    <div id="contractOwner" class="w3-bar-item"></div>\n' +
-            '  </div>\n' +
-            '  <div class="w3-bar">\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <button onclick="viewOwner()" class="w3-button w3-blue">owner</button>\n' +
-            '    </div>\n' +
-            '    <div class="w3-bar-item">\n' +
-            '      <div id="viewOwner"></div>\n' +
-            '    </div>\n' +
-            '  </div>';
+    document.getElementById("contractInterface").style.display = "block";
     document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https:// "+window.network+".etherscan.io/address/"+warmUpInstance.address+"'>" + warmUpInstance.address + "</a>" +
             " <i id='removeBtn' title='Remove Contract' class=\"far fa-trash-alt w3-text-red\" onclick='removeContract(\"warmUpAddr\");'></i>";
 }
