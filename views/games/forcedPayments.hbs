@@ -68,33 +68,33 @@ var forcedPaymentsInstance;
 
 function deployContract() {
     var forcedPayments = forcedPaymentsContract.new(
-            {
-                from: web3.eth.accounts[0],
-                data: '0x6080604052348015600f57600080fd5b50603580601d6000396000f3fe6080604052600080fdfea165627a7a723058205965b236e1465e1f72c5feebdb9cd5e1fadc986360c30c74f7aed47415c337f60029',
-                gas: '4700000'
-            }, function (e, contract) {
-                console.log(e, contract);
-                transactionPending(contract);
-                if (typeof contract.address !== 'undefined') {
-                    console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
-                    //Add dApp Address to Local Storage
-                    localStorage.setItem("forcedPaymentsAddr", contract.address);
-                    getInstance();
-                    document.getElementById('transactionInfo').innerHTML = "";
-                    updateUI();
-                }
-            })
+    {
+        from: web3.eth.accounts[0],
+        data: '0x6080604052348015600f57600080fd5b50603580601d6000396000f3fe6080604052600080fdfea165627a7a723058205965b236e1465e1f72c5feebdb9cd5e1fadc986360c30c74f7aed47415c337f60029',
+        gas: '4700000'
+    }, function (e, contract) {
+        console.log(e, contract);
+        transactionPending(contract);
+        if (typeof contract.address !== 'undefined') {
+            console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+            //Add dApp Address to Local Storage
+            localStorage.setItem("forcedPaymentsAddr", contract.address);
+            getInstance();
+            document.getElementById('transactionInfo').innerHTML = "";
+            updateUI();
+        }
+    })
 }
 
 function transactionPending(contract){
     var Tx = contract.transactionHash;
-    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
+    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
 }
 
 function updateUI(){
     refreshInfo();
     document.getElementById("contractInterface").style.display="block";
-    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+forcedPaymentsInstance.address+"'>" + forcedPaymentsInstance.address + "</a>" +
+    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/address/"+forcedPaymentsInstance.address+"'>" + forcedPaymentsInstance.address + "</a>" +
     " <i id='removeBtn' title='Remove Contract' class=\"far fa-trash-alt w3-text-red\" onclick='removeContract(\"forcedPaymentsAddr\");'></i>";
 }
 //If the contract has already been deployed, get instance from localstorage variable

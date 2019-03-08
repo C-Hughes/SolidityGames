@@ -4,8 +4,14 @@
     <list default="true" id="d88a775f-34bf-4f30-8ae2-28a3fb0bb27d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/public/javascripts/web3.js" afterPath="$PROJECT_DIR$/public/javascripts/web3.js" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" />
-      <change beforePath="$PROJECT_DIR$/views/partials/header.hbs" afterPath="$PROJECT_DIR$/views/partials/header.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/games/externalFactors.hbs" afterPath="$PROJECT_DIR$/views/games/externalFactors.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/games/forcedPayments.hbs" afterPath="$PROJECT_DIR$/views/games/forcedPayments.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/games/keepingSecrets.hbs" afterPath="$PROJECT_DIR$/views/games/keepingSecrets.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/games/odometer.hbs" afterPath="$PROJECT_DIR$/views/games/odometer.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/games/randomness.hbs" afterPath="$PROJECT_DIR$/views/games/randomness.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/games/rubixi.hbs" afterPath="$PROJECT_DIR$/views/games/rubixi.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/games/simpleDAO.hbs" afterPath="$PROJECT_DIR$/views/games/simpleDAO.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/games/warmUp.hbs" afterPath="$PROJECT_DIR$/views/games/warmUp.hbs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,11 +25,9 @@
       <file leaf-file-name="externalFactors.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/games/externalFactors.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1233">
-              <caret line="184" column="16" lean-forward="false" selection-start-line="184" selection-start-column="16" selection-end-line="184" selection-end-column="16" />
-              <folding>
-                <element signature="n#style#0;n#div#3;n#div#2;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="683">
+              <caret line="78" column="54" lean-forward="false" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -31,11 +35,9 @@
       <file leaf-file-name="forcedPayments.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/games/forcedPayments.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="908">
-              <caret line="157" column="0" lean-forward="false" selection-start-line="157" selection-start-column="0" selection-end-line="163" selection-end-column="1" />
-              <folding>
-                <element signature="n#style#0;n#div#3;n#div#2;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="1090">
+              <caret line="118" column="1" lean-forward="true" selection-start-line="118" selection-start-column="1" selection-end-line="118" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -43,37 +45,18 @@
       <file leaf-file-name="simpleDAO.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/games/simpleDAO.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
-              <caret line="297" column="0" lean-forward="false" selection-start-line="297" selection-start-column="0" selection-end-line="304" selection-end-column="1" />
-              <folding>
-                <element signature="n#style#0;n#div#3;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#1;n#div#2;n#div#3;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#1;n#div#3;n#div#3;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#1;n#div#4;n#div#3;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#1;n#div#5;n#div#3;n#div#2;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="808">
+              <caret line="253" column="19" lean-forward="true" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="randomness.hbs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="randomness.hbs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/games/randomness.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="843">
-              <caret line="220" column="11" lean-forward="true" selection-start-line="220" selection-start-column="11" selection-end-line="220" selection-end-column="11" />
-              <folding>
-                <element signature="n#style#0;n#div#3;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#1;n#div#3;n#div#0;n#div#3;n#div#2;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="survey.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/pages/survey.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1179">
-              <caret line="306" column="84" lean-forward="false" selection-start-line="306" selection-start-column="20" selection-end-line="306" selection-end-column="84" />
+            <state relative-caret-position="1233">
+              <caret line="238" column="21" lean-forward="true" selection-start-line="238" selection-start-column="21" selection-end-line="238" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -82,50 +65,58 @@
       <file leaf-file-name="web3.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/web3.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="715">
-              <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="64" />
+            <state relative-caret-position="1025">
+              <caret line="74" column="26" lean-forward="false" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/partials/header.hbs">
+      <file leaf-file-name="warmUp.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
-              <caret line="53" column="17" lean-forward="true" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+            <state relative-caret-position="2708">
+              <caret line="214" column="0" lean-forward="true" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="metaMask.hbs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="odometer.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="640">
+              <caret line="242" column="0" lean-forward="true" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rubixi.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/games/rubixi.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="758">
+              <caret line="231" column="186" lean-forward="true" selection-start-line="231" selection-start-column="186" selection-end-line="231" selection-end-column="186" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="metaMask.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/info/metaMask.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="30" column="84" lean-forward="false" selection-start-line="30" selection-start-column="84" selection-end-line="30" selection-end-column="84" />
+            <state relative-caret-position="800">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/layouts/layout.hbs">
+      <file leaf-file-name="keepingSecrets.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/games/keepingSecrets.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="20" column="44" lean-forward="false" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+            <state relative-caret-position="358">
+              <caret line="155" column="1" lean-forward="true" selection-start-line="155" selection-start-column="1" selection-end-line="155" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -160,6 +151,11 @@
         <option value="$PROJECT_DIR$/views/pages/welcome.hbs" />
         <option value="$PROJECT_DIR$/views/pages/survey.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/scripts.js" />
+        <option value="$PROJECT_DIR$/views/layouts/layout.hbs" />
+        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/views/partials/header.hbs" />
+        <option value="$PROJECT_DIR$/views/info/metaMask.hbs" />
+        <option value="$PROJECT_DIR$/public/javascripts/web3.js" />
         <option value="$PROJECT_DIR$/views/games/warmUp.hbs" />
         <option value="$PROJECT_DIR$/views/games/rubixi.hbs" />
         <option value="$PROJECT_DIR$/views/games/odometer.hbs" />
@@ -168,11 +164,6 @@
         <option value="$PROJECT_DIR$/views/games/forcedPayments.hbs" />
         <option value="$PROJECT_DIR$/views/games/simpleDAO.hbs" />
         <option value="$PROJECT_DIR$/views/games/randomness.hbs" />
-        <option value="$PROJECT_DIR$/views/layouts/layout.hbs" />
-        <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
-        <option value="$PROJECT_DIR$/public/javascripts/web3.js" />
-        <option value="$PROJECT_DIR$/views/partials/header.hbs" />
-        <option value="$PROJECT_DIR$/views/info/metaMask.hbs" />
       </list>
     </option>
   </component>
@@ -189,8 +180,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-10" />
-    <option name="width" value="1940" />
+    <option name="width" value="1930" />
     <option name="height" value="2110" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -361,18 +351,18 @@
       <workItem from="1550313454748" duration="13840000" />
       <workItem from="1550671560041" duration="51869000" />
       <workItem from="1551034631608" duration="5389000" />
-      <workItem from="1551698286399" duration="30697000" />
+      <workItem from="1551698286399" duration="32887000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="268946000" />
+    <option name="totallyTimeSpent" value="271136000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="0" width="1940" height="2110" extended-state="0" />
+    <frame x="0" y="0" width="1930" height="2110" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20238096" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20348205" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -625,104 +615,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/rubixi.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="163" column="18" lean-forward="false" selection-start-line="163" selection-start-column="18" selection-end-line="163" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="146" column="4" lean-forward="false" selection-start-line="146" selection-start-column="4" selection-end-line="146" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="983">
-          <caret line="278" column="21" lean-forward="true" selection-start-line="278" selection-start-column="21" selection-end-line="278" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/keepingSecrets.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="933">
-          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="184" selection-end-column="1" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/externalFactors.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1233">
-          <caret line="184" column="16" lean-forward="false" selection-start-line="184" selection-start-column="16" selection-end-line="184" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/forcedPayments.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="908">
-          <caret line="157" column="0" lean-forward="false" selection-start-line="157" selection-start-column="0" selection-end-line="163" selection-end-column="1" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/simpleDAO.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="297" column="0" lean-forward="false" selection-start-line="297" selection-start-column="0" selection-end-line="304" selection-end-column="1" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#div#2;n#div#3;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#div#3;n#div#3;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#div#4;n#div#3;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#div#5;n#div#3;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/randomness.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="843">
-          <caret line="220" column="11" lean-forward="true" selection-start-line="220" selection-start-column="11" selection-end-line="220" selection-end-column="11" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#div#3;n#div#0;n#div#3;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/layouts/layout.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="20" column="44" lean-forward="false" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/web3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="715">
-          <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="64" />
           <folding />
         </state>
       </provider>
@@ -755,8 +651,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/info/metaMask.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="30" column="84" lean-forward="false" selection-start-line="30" selection-start-column="84" selection-end-line="30" selection-end-column="84" />
+        <state relative-caret-position="800">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/web3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1025">
+          <caret line="74" column="26" lean-forward="false" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/rubixi.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="758">
+          <caret line="231" column="186" lean-forward="true" selection-start-line="231" selection-start-column="186" selection-end-line="231" selection-end-column="186" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/odometer.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="242" column="0" lean-forward="true" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/keepingSecrets.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="155" column="1" lean-forward="true" selection-start-line="155" selection-start-column="1" selection-end-line="155" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2708">
+          <caret line="214" column="0" lean-forward="true" selection-start-line="214" selection-start-column="0" selection-end-line="214" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/externalFactors.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="683">
+          <caret line="78" column="54" lean-forward="false" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/forcedPayments.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1090">
+          <caret line="118" column="1" lean-forward="true" selection-start-line="118" selection-start-column="1" selection-end-line="118" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/simpleDAO.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="808">
+          <caret line="253" column="19" lean-forward="true" selection-start-line="253" selection-start-column="19" selection-end-line="253" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/randomness.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1233">
+          <caret line="238" column="21" lean-forward="true" selection-start-line="238" selection-start-column="21" selection-end-line="238" selection-end-column="21" />
           <folding />
         </state>
       </provider>

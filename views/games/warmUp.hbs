@@ -139,14 +139,14 @@ function deployContract() {
 
 function transactionPending(contract){
     var Tx = contract.transactionHash;
-    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
+    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
 }
 
 function updateUI(){
     //Display dApp UI
     refreshInfo();
     document.getElementById("contractInterface").style.display = "block";
-    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https:// "+window.network+".etherscan.io/address/"+warmUpInstance.address+"'>" + warmUpInstance.address + "</a>" +
+    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/address/"+warmUpInstance.address+"'>" + warmUpInstance.address + "</a>" +
             " <i id='removeBtn' title='Remove Contract' class=\"far fa-trash-alt w3-text-red\" onclick='removeContract(\"warmUpAddr\");'></i>";
 }
 //If the contract has already been deployed, get instance from localstorage variable
@@ -166,7 +166,7 @@ function addToPot(){
         amountToAdd = web3.toWei(amountToAdd, 'szabo');
         warmUpInstance.addToPot({value: amountToAdd, gas: 212720}, function(error, result){
         if (!error) {
-            document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>  Pending... (This can take a minute)</div>";
+            document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a>  Pending... (This can take a minute)</div>";
             getTransaction(result);
         } else {
             document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
@@ -183,7 +183,7 @@ function claimOwnership(){
         claimOwnershipAmount = web3.toWei(claimOwnershipAmount, 'szabo');
         warmUpInstance.claimOwnership({value: claimOwnershipAmount, gas: 212720}, function(error, result){
             if (!error) {
-                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
+                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
                 getTransaction(result);
             } else {
                 document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
@@ -221,7 +221,6 @@ function clearErrors(){
 
 var Level = 1;
 function getHint(){
-
     var hintText = document.getElementById('HintText');
     var hintBtn = document.getElementById('hintButton');
     hintText.style.display = "block";
@@ -252,7 +251,6 @@ function refreshInfo(){
 
 //Check LocalStorage to see if the contract has been deployed.
 if (localStorage.getItem("warmUpAddr")){
-    //Add Contract to web3.eth.contract
     getInstance();
     updateUI();
     viewOwner();

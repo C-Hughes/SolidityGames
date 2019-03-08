@@ -41,7 +41,7 @@ function getBalance() {
     }
 }
 
-
+var networkURL = "";
 function getNetwork() {
     document.getElementById("etherNetwork").style.color = "Red";
     var network = "Not Connected";
@@ -56,19 +56,23 @@ function getNetwork() {
                 break
             case "2":
                 network = "Deprecated Morden Network";
+                networkURL = "morden";
                 document.getElementById("etherNetwork").style.color = "Red";
                 console.log('This is the deprecated Morden test network.')
                 break
             case "3":
                 network = "Ropsten Network";
+                networkURL = "ropsten";
                 console.log('This is the ropsten test network.')
                 break
             case "4":
                 network = "Rinkeby Network";
+                networkURL = "rinkeby";
                 console.log('This is the Rinkeby test network.')
                 break
             case "42":
                 network = "Kovan Network";
+                networkURL = "kovan";
                 console.log('This is the Kovan test network.')
                 break
             default:

@@ -135,35 +135,35 @@ var simpleDAOInstance;
 
 function deployContract() {
     var simpleDAO = simpleDAOContract.new(
-            {
-                from: web3.eth.accounts[0],
-                data: '0x60806040526104b6806100136000396000f3fe608060405260043610610066576000357c010000000000000000000000000000000000000000000000000000000090048062362a951461006857806320ef3042146100b95780632e1a7d4d1461011e5780638e4e6f0614610159578063d5d44d8014610163575b005b34801561007457600080fd5b506100b76004803603602081101561008b57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101c8565b005b3480156100c557600080fd5b50610108600480360360208110156100dc57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102df565b6040518082815260200191505060405180910390f35b34801561012a57600080fd5b506101576004803603602081101561014157600080fd5b8101908080359060200190929190505050610327565b005b610161610424565b005b34801561016f57600080fd5b506101b26004803603602081101561018657600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610472565b6040518082815260200191505060405180910390f35b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020546000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020546000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254039250508190555050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020549050919050565b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054101515610421573373ffffffffffffffffffffffffffffffffffffffff168160405180600001905060006040518083038185875af1925050503d80600081146103cc576040519150601f19603f3d011682016040523d82523d6000602084013e6103d1565b606091505b505050806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825403925050819055505b50565b346000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540192505081905550565b6000602052806000526040600020600091509050548156fea165627a7a723058205f526ac942e04d60ba5f223fe9636c622c94b44c0435a786b5b2f8269541f5cc0029',
-                gas: '4700000',
-                value: 100000000000000000
-            }, function (e, contract) {
-                console.log(e, contract);
-                transactionPending(contract);
-                if (typeof contract.address !== 'undefined') {
-                    console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
-                    //Add dApp Address to Local Storage
-                    localStorage.setItem("simpleDAOAddr", contract.address);
-                    getInstance();
-                    document.getElementById('transactionInfo').innerHTML = "";
-                    updateUI();
-                }
-            })
+    {
+        from: web3.eth.accounts[0],
+        data: '0x60806040526104b6806100136000396000f3fe608060405260043610610066576000357c010000000000000000000000000000000000000000000000000000000090048062362a951461006857806320ef3042146100b95780632e1a7d4d1461011e5780638e4e6f0614610159578063d5d44d8014610163575b005b34801561007457600080fd5b506100b76004803603602081101561008b57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506101c8565b005b3480156100c557600080fd5b50610108600480360360208110156100dc57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102df565b6040518082815260200191505060405180910390f35b34801561012a57600080fd5b506101576004803603602081101561014157600080fd5b8101908080359060200190929190505050610327565b005b610161610424565b005b34801561016f57600080fd5b506101b26004803603602081101561018657600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610472565b6040518082815260200191505060405180910390f35b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020546000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020546000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254039250508190555050565b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020549050919050565b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054101515610421573373ffffffffffffffffffffffffffffffffffffffff168160405180600001905060006040518083038185875af1925050503d80600081146103cc576040519150601f19603f3d011682016040523d82523d6000602084013e6103d1565b606091505b505050806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825403925050819055505b50565b346000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282540192505081905550565b6000602052806000526040600020600091509050548156fea165627a7a723058205f526ac942e04d60ba5f223fe9636c622c94b44c0435a786b5b2f8269541f5cc0029',
+        gas: '4700000',
+        value: 100000000000000000
+    }, function (e, contract) {
+        console.log(e, contract);
+        transactionPending(contract);
+        if (typeof contract.address !== 'undefined') {
+            console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+            //Add dApp Address to Local Storage
+            localStorage.setItem("simpleDAOAddr", contract.address);
+            getInstance();
+            document.getElementById('transactionInfo').innerHTML = "";
+            updateUI();
+        }
+    })
 }
 
 function transactionPending(contract){
     var Tx = contract.transactionHash;
-    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
+    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
 }
 
 function updateUI(){
     refreshInfo();
     //Display dApp UI
     document.getElementById("contractInterface").style.display="block";
-    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+simpleDAOInstance.address+"'>" + simpleDAOInstance.address + "</a>" +
+    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/address/"+simpleDAOInstance.address+"'>" + simpleDAOInstance.address + "</a>" +
     " <i id='removeBtn' title='Remove Contract' class=\"far fa-trash-alt w3-text-red\" onclick='removeContract(\"simpleDAOAddr\");'></i>";
 }
 //If the contract has already been deployed, get instance from localstorage variable
@@ -216,7 +216,7 @@ function buyCredit(){
         amountToAdd = web3.toWei(amountToAdd, 'ether');
         simpleDAOInstance.buyCredit({value: amountToAdd, gas: 212720}, function(error, result){
             if (!error) {
-                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
+                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
                 getTransaction(result);
             } else {
                 document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
@@ -229,7 +229,7 @@ function donate(){
     var address = document.getElementById("transferBalanceInput").value;
     simpleDAOInstance.donate(address, {gas: 212720}, function(error, result){
         if (!error) {
-            document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
+            document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
             getTransaction(result);
         } else {
             document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
@@ -242,7 +242,7 @@ function withdraw(){
     amount = web3.toWei(amount, 'ether');
     simpleDAOInstance.withdraw(amount,{gas: 212720}, function(error, result){
         if (!error) {
-            document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
+            document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
             getTransaction(result);
         } else {
             document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'

@@ -131,7 +131,6 @@ function deployContract() {
     }, function (e, contract){
         console.log(e, contract);
         transactionPending(contract);
-
         if (typeof contract.address !== 'undefined') {
             console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
             //Add dApp Address to Local Storage
@@ -145,14 +144,14 @@ function deployContract() {
 
 function transactionPending(contract){
     var Tx = contract.transactionHash;
-    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
+    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
 }
 
 function updateUI(){
     refreshInfo();
     //Display dApp UI
     document.getElementById("contractInterface").style.display="block";
-    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/address/"+odometerInstance.address+"'>" + odometerInstance.address + "</a>" +
+    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/address/"+odometerInstance.address+"'>" + odometerInstance.address + "</a>" +
     " <i id='removeBtn' title='Remove Contract' class=\"far fa-trash-alt w3-text-red\" onclick='removeContract(\"odometerAddr\");'></i>";
 }
 //If the contract has already been deployed, get instance from localstorage variable
@@ -172,7 +171,7 @@ function buyTokens(){
         amountToBuy = web3.toWei(amountToBuy, 'wei');
         odometerInstance.buyTokens({value: amountToBuy, gas: 212720}, function(error, result){
             if (!error) {
-                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>  Pending... (This can take a minute)</div>";
+                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a>  Pending... (This can take a minute)</div>";
                 getTransaction(result);
             } else {
                 document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
@@ -191,7 +190,7 @@ function sellTokens(){
         amountToSell = web3.toWei(amountToSell, 'wei');
         odometerInstance.sellTokens(amountToSell, {gas: 212720}, function(error, result){
             if (!error) {
-                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a>  Pending... (This can take a minute)</div>";
+                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a>  Pending... (This can take a minute)</div>";
                 getTransaction(result);
             } else {
                 document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
@@ -209,7 +208,7 @@ function claimOwnership(){
         claimOwnershipAmount = web3.toWei(claimOwnershipAmount, 'szabo');
         odometerInstance.claimOwnership({value: claimOwnershipAmount, gas: 212720}, function(error, result){
             if (!error) {
-                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://ropsten.etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
+                document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
                 getTransaction(result);
             } else {
                 document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
