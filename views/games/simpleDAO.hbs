@@ -51,7 +51,7 @@
         </div>
         <div class="w3-bar">
             <div class="w3-bar-item">
-                <button onclick="checkMyCredit();" class="w3-button w3-blue">View My Credit</button>
+                <button onclick="viewMyCredit();" class="w3-button w3-blue">View My Credit</button>
             </div>
             <div class="w3-bar-item">
                 <div id="viewMyCredit"></div>
@@ -59,10 +59,10 @@
         </div>
         <div class="w3-bar">
             <div class="w3-bar-item">
-                <button onclick="checkCredit();" class="w3-button w3-blue">View Credit</button>
+                <button onclick="viewCredit();" class="w3-button w3-blue">View Credit</button>
             </div>
             <div class="w3-bar-item">
-                <input id="viewCreditInput" class="w3-input w3-border" placeholder="Address" style="width:300px" type="text">
+                <input id="viewCreditInput" onclick="clearErrors();" class="w3-input w3-border" placeholder="Address" style="width:300px" type="text">
             </div>
             <div class="w3-bar-item">
                 <div id="viewCredit"></div>
@@ -73,7 +73,7 @@
                 <button onclick="buyCredit();" class="w3-button w3-red">buyCredit()</button>
             </div>
             <div class="w3-bar-item">
-                <input id="buyCreditInput" class="w3-input w3-border" placeholder="Amount to Buy (Ether)" style="width:300px" type="text">
+                <input id="buyCreditInput" onclick="clearErrors();" class="w3-input w3-border" placeholder="Amount to Buy (Ether)" style="width:300px" type="text">
             </div>
         </div>
         <div class="w3-bar">
@@ -81,7 +81,7 @@
                 <button onclick="donate();" class="w3-button w3-red">donate()</button>
             </div>
             <div class="w3-bar-item">
-                <input id="transferBalanceInput" class="w3-input w3-border" placeholder="To Address" style="width:300px" type="text">
+                <input id="donateInput" onclick="clearErrors();" class="w3-input w3-border" placeholder="To Address" style="width:300px" type="text">
             </div>
         </div>
         <div class="w3-bar">
@@ -89,7 +89,7 @@
                 <button onclick="withdraw();" class="w3-button w3-red">withdraw()</button>
             </div>
             <div class="w3-bar-item">
-                <input id="withdrawInput" class="w3-input w3-border" placeholder="Amount to Withdraw" style="width:300px" type="text">
+                <input id="withdrawInput" onclick="clearErrors();"  class="w3-input w3-border" placeholder="Amount to Withdraw" style="width:300px" type="text">
             </div>
         </div>
     </div>
@@ -184,7 +184,7 @@ function checkBalance(){
     });
 }
 
-function checkMyCredit(){
+function viewMyCredit(){
     var viewCredit = document.getElementById('viewMyCredit');
     viewCredit.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
     simpleDAOInstance.viewCredit.call(web3.eth.accounts[0], function(error, result){
@@ -193,19 +193,24 @@ function checkMyCredit(){
     });
 }
 
-function checkCredit(){
+function viewCredit(){
     var viewCredit = document.getElementById('viewCredit');
     var input = document.getElementById('viewCreditInput').value;
-    viewCredit.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
-    simpleDAOInstance.viewCredit.call(input, function(error, result){
-        result = result/1000000000000000000;
-        viewCredit.innerHTML = result + ' Ether';
-    });
+    if(input.length != 42){
+        document.getElementById('userErrors').innerHTML = "Input must be an address";
+        document.getElementById('viewCreditInput').classList.add("w3-border-red");
+    } else {
+        viewCredit.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
+        simpleDAOInstance.viewCredit.call(input, function(error, result){
+            result = result/1000000000000000000;
+            viewCredit.innerHTML = result + ' Ether';
+        });
+    }
 }
 
 function buyCredit(){
     var amountToAdd = document.getElementById("buyCreditInput").value;
-    if(amountToAdd <= 0){
+    if(amountToAdd < 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('buyCreditInput').classList.add("w3-border-red");
     } else {
@@ -222,28 +227,46 @@ function buyCredit(){
 }
 
 function donate(){
-    var address = document.getElementById("transferBalanceInput").value;
-    simpleDAOInstance.donate(address, {gas: 212720}, function(error, result){
-        if (!error) {
-            document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
-            getTransaction(result);
-        } else {
-            document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
-        }
-    });
+    var address = document.getElementById("donateInput").value;
+    if(address.length != 42){
+        document.getElementById('userErrors').innerHTML = "Input must be an address";
+        document.getElementById('donateInput').classList.add("w3-border-red");
+    } else {
+        simpleDAOInstance.donate(address, {gas: 212720}, function (error, result) {
+            if (!error) {
+                document.getElementById('transactionInfo').innerHTML += "<div id=" + result + "><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://" + networkURL + ".etherscan.io/tx/" + result + "'>" + result + "</a> Pending... (This can take a minute)</div>";
+                getTransaction(result);
+            } else {
+                document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
+            }
+        });
+    }
 }
 
 function withdraw(){
     var amount = document.getElementById("withdrawInput").value;
-    amount = web3.toWei(amount, 'ether');
-    simpleDAOInstance.withdraw(amount,{gas: 212720}, function(error, result){
-        if (!error) {
-            document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
-            getTransaction(result);
-        } else {
-            document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
-        }
-    });
+    if(amount.length != 42){
+        document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
+        document.getElementById('withdrawInput').classList.add("w3-border-red");
+    } else {
+        amount = web3.toWei(amount, 'ether');
+        simpleDAOInstance.withdraw(amount, {gas: 212720}, function (error, result) {
+            if (!error) {
+                document.getElementById('transactionInfo').innerHTML += "<div id=" + result + "><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://" + networkURL + ".etherscan.io/tx/" + result + "'>" + result + "</a> Pending... (This can take a minute)</div>";
+                getTransaction(result);
+            } else {
+                document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
+            }
+        });
+    }
+}
+
+function clearErrors(){
+    document.getElementById('userErrors').innerHTML = "";
+    document.getElementById('viewCreditInput').classList.remove("w3-border-red");
+    document.getElementById('buyCreditInput').classList.remove("w3-border-red");
+    document.getElementById('donateInput').classList.remove("w3-border-red");
+    document.getElementById('withdrawInput').classList.remove("w3-border-red");
 }
 
 var Level = 1;
