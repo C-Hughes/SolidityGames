@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d88a775f-34bf-4f30-8ae2-28a3fb0bb27d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/views/games/warmUp.hbs" afterPath="$PROJECT_DIR$/views/games/warmUp.hbs" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change beforePath="$PROJECT_DIR$/views/partials/sidebar.hbs" afterPath="$PROJECT_DIR$/views/partials/sidebar.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/resources/realExamples.hbs" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,16 +46,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="survey.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/pages/survey.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="754">
-              <caret line="289" column="82" lean-forward="false" selection-start-line="289" selection-start-column="82" selection-end-line="289" selection-end-column="82" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="randomness.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/games/randomness.hbs">
           <provider selected="true" editor-type-id="text-editor">
@@ -62,16 +54,6 @@
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#1;n#div#3;n#div#0;n#div#3;n#div#2;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1237">
-              <caret line="221" column="17" lean-forward="false" selection-start-line="221" selection-start-column="17" selection-end-line="221" selection-end-column="17" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -96,11 +78,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="warmUp.hbs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="warmUp.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="34" column="67" lean-forward="false" selection-start-line="34" selection-start-column="67" selection-end-line="34" selection-end-column="67" />
+            <state relative-caret-position="975">
+              <caret line="39" column="42" lean-forward="true" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebar.hbs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/partials/sidebar.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="700">
+              <caret line="28" column="79" lean-forward="false" selection-start-line="28" selection-start-column="79" selection-end-line="28" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -135,12 +137,9 @@
         <option value="$PROJECT_DIR$/public/stylesheets/smallStyle.css" />
         <option value="$PROJECT_DIR$/views/info/smartContracts.hbs" />
         <option value="$PROJECT_DIR$/views/resources/vulnerabilities.hbs" />
-        <option value="$PROJECT_DIR$/views/resources/realExamples.hbs" />
         <option value="$PROJECT_DIR$/views/resources/securityTools.hbs" />
         <option value="$PROJECT_DIR$/models/survey.js" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/views/partials/sidebar.hbs" />
         <option value="$PROJECT_DIR$/views/index.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/scripts.js" />
         <option value="$PROJECT_DIR$/views/partials/header.hbs" />
@@ -158,6 +157,9 @@
         <option value="$PROJECT_DIR$/views/games/simpleDAO.hbs" />
         <option value="$PROJECT_DIR$/views/games/randomness.hbs" />
         <option value="$PROJECT_DIR$/views/games/warmUp.hbs" />
+        <option value="$PROJECT_DIR$/views/resources/realExamples.hbs" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/views/partials/sidebar.hbs" />
       </list>
     </option>
   </component>
@@ -345,12 +347,12 @@
       <workItem from="1550313454748" duration="13840000" />
       <workItem from="1550671560041" duration="51869000" />
       <workItem from="1551034631608" duration="5389000" />
-      <workItem from="1551698286399" duration="39426000" />
+      <workItem from="1551698286399" duration="40818000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="277675000" />
+    <option name="totallyTimeSpent" value="279067000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1930" height="2110" extended-state="0" />
@@ -365,7 +367,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20209974" sideWeight="0.90750813" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20209974" sideWeight="0.90750813" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -548,13 +550,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/resources/realExamples.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="25" lean-forward="false" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/survey.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
@@ -562,25 +557,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="49" column="58" lean-forward="false" selection-start-line="49" selection-start-column="58" selection-end-line="49" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/sidebar.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="50" lean-forward="false" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -719,10 +699,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/resources/realExamples.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="34" column="67" lean-forward="false" selection-start-line="34" selection-start-column="67" selection-end-line="34" selection-end-column="67" />
+        <state relative-caret-position="975">
+          <caret line="39" column="42" lean-forward="true" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/sidebar.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="28" column="79" lean-forward="false" selection-start-line="28" selection-start-column="79" selection-end-line="28" selection-end-column="79" />
           <folding />
         </state>
       </provider>

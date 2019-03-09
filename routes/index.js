@@ -38,8 +38,8 @@ router.get('/vulnerabilities', function(req, res, next) {
     res.render('resources/vulnerabilities', { title: 'Solidity Games' });
 });
 
-router.get('/realexamples', function(req, res, next) {
-    res.render('resources/realExamples', { title: 'Solidity Games' });
+router.get('/incidents', function(req, res, next) {
+    res.render('resources/incidents', { title: 'Solidity Games' });
 });
 
 router.get('/securitytools', function(req, res, next) {
