@@ -13,11 +13,7 @@
 
             <label class="statement">What is your nationality?</label>
             <select class="w3-select likertSelect" name="Nationality">
-                <option value="" disabled selected>Select Nationality</option>
-                <option value="notSay">Prefer not to say</option>
-                <option value="uk">UK</option>
-                <option value="usa">USA</option>
-                <option value="other">...</option>
+                {{> surveyNationality}}
             </select>
 
             <label class="statement">What did you study at university?</label>
