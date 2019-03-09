@@ -38,7 +38,7 @@
 <div class="w3-panel w3-card-4 header w3-margin">
     <h4>ExternalFactors.sol</h4>
     <div id="deployedContractAddress" class="w3-margin"><button id="deployButton" onclick="deployContract();" class="w3-button w3-orange w3-margin">Deploy</button></div>
-    <div id="transactionInfo" class="w3-margin"></div>
+    <div id="transactionInfo" class="w3-margin secondary"></div>
     <div id="userErrors" class="w3-text-red w3-margin"></div>
     <div id="contractInterface" style="display: none;">
         <div class="w3-bar">
@@ -79,10 +79,11 @@ function deployContract() {
     var externalFactors = externalFactorsContract.new({
         from: web3.eth.accounts[0],
         data: '0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610175806100606000396000f3fe608060405234801561001057600080fd5b5060043610610053576000357c0100000000000000000000000000000000000000000000000000000000900480634e71e0c8146100585780638da5cb5b14610062575b600080fd5b6100606100ac565b005b61006a610124565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3373ffffffffffffffffffffffffffffffffffffffff163273ffffffffffffffffffffffffffffffffffffffff1614151561012257336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea165627a7a72305820379c289c3f370d1e7e50feb780ae3d2669614d61efff038f3bb8b9bbef1b147d0029',
-        gas: '4700000'
+        gas: '4700000',
+        gasPrice: 21000000000
     }, function (e, contract) {
         console.log(e, contract);
-        transactionPending(contract);
+        document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+contract.transactionHash+"'>" + contract.transactionHash + "</a>  Pending... (This can take a minute)";
         if (typeof contract.address !== 'undefined') {
             console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
             //Add dApp Address to Local Storage
@@ -92,11 +93,6 @@ function deployContract() {
             updateUI();
         }
     })
-}
-
-function transactionPending(contract){
-    var Tx = contract.transactionHash;
-    document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> Transaction <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+Tx+"'>" + Tx + "</a>  Pending... (This can take a minute)";
 }
 
 function updateUI(){
