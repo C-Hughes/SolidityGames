@@ -1,3 +1,4 @@
+require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -15,7 +16,7 @@ var gamesRouter = require('./routes/games');
 var app = express();
 
 // Connect to the database
-mongoose.connect('mongodb://localhost:27017/SolidityGames', { useNewUrlParser: true }, function (err) {
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true }, function (err) {
     if (err) {
         console.log("connection error:", err);
     } else {
@@ -39,7 +40,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
-    secret: 'SecretSession3258947',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
