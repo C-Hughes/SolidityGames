@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d88a775f-34bf-4f30-8ae2-28a3fb0bb27d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/views/games/simpleDAO.hbs" afterPath="$PROJECT_DIR$/views/games/simpleDAO.hbs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +26,8 @@
       <file leaf-file-name="simpleDAO.hbs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/games/simpleDAO.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1363">
-              <caret line="330" column="19" lean-forward="true" selection-start-line="330" selection-start-column="19" selection-end-line="330" selection-end-column="19" />
+            <state relative-caret-position="1113">
+              <caret line="320" column="20" lean-forward="false" selection-start-line="320" selection-start-column="20" selection-end-line="320" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -347,12 +346,12 @@
       <workItem from="1550313454748" duration="13840000" />
       <workItem from="1550671560041" duration="51869000" />
       <workItem from="1551034631608" duration="5389000" />
-      <workItem from="1551698286399" duration="44658000" />
+      <workItem from="1551698286399" duration="44824000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282907000" />
+    <option name="totallyTimeSpent" value="283073000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-10" y="0" width="1940" height="2110" extended-state="0" />
@@ -729,8 +728,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/games/simpleDAO.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1363">
-          <caret line="330" column="19" lean-forward="true" selection-start-line="330" selection-start-column="19" selection-end-line="330" selection-end-column="19" />
+        <state relative-caret-position="1113">
+          <caret line="320" column="20" lean-forward="false" selection-start-line="320" selection-start-column="20" selection-end-line="320" selection-end-column="20" />
           <folding />
         </state>
       </provider>
