@@ -7,6 +7,7 @@ window.addEventListener('load', async () => {
             await ethereum.enable();
             // Acccounts now exposed
             console.log('MetaMask Connected');
+            BalanceInterval();
             getBalance();
             getNetwork();
             //web3.eth.sendTransaction({/* ... */});
@@ -108,7 +109,10 @@ function removeContract(contractLevel){
     }
 }
 
-//Every 30 seconds update balance
-var accountInterval = setInterval(function() {
-    getBalance();
-}, 30000);
+function BalanceInterval(){
+    //Every 30 seconds update balance
+    setInterval(function() {
+        getBalance();
+    }, 30000);
+}
+
