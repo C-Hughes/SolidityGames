@@ -106,29 +106,6 @@ function completedStatus(){
     }
 }
 
-function acceptConsent(){
-    // Get the checkbox
-    var checkBox = document.getElementById("surveyCheck");
-    // Get the output text
-    var btn = document.getElementById("continueBtn");
-
-    // If the checkbox is checked, display the output text
-    if (checkBox.checked == true){
-        btn.style.display = "block";
-    } else {
-        btn.style.display = "none";
-    }
-}
-
-function showSurvey(){
-    var surveyConsent = document.getElementById("surveyConsent");
-    var survey = document.getElementById("survey");
-
-    survey.className = survey.className.replace(" w3-hide", " w3-show");
-    surveyConsent.className += " w3-hide";
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
-}
-
 //Set local storage if not initialised
 if (!localStorage.getItem("theme")){
     localStorage.setItem("theme", "night");
