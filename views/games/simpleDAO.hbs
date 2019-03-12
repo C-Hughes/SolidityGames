@@ -195,7 +195,7 @@ function viewMyCredit(){
 
 function viewCredit(){
     var viewCredit = document.getElementById('viewCredit');
-    var input = document.getElementById('viewCreditInput').value;
+    var input = removeSpace(document.getElementById('viewCreditInput').value);
     if(input.length != 42){
         document.getElementById('userErrors').innerHTML = "Input must be an address";
         document.getElementById('viewCreditInput').classList.add("w3-border-red");
@@ -209,7 +209,7 @@ function viewCredit(){
 }
 
 function buyCredit(){
-    var amountToAdd = document.getElementById("buyCreditInput").value;
+    var amountToAdd = removeSpace(document.getElementById("buyCreditInput").value);
     if(amountToAdd < 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('buyCreditInput').classList.add("w3-border-red");
@@ -227,7 +227,7 @@ function buyCredit(){
 }
 
 function donate(){
-    var address = document.getElementById("donateInput").value;
+    var address = removeSpace(document.getElementById("donateInput").value);
     if(address.length != 42){
         document.getElementById('userErrors').innerHTML = "Input must be an address";
         document.getElementById('donateInput').classList.add("w3-border-red");
@@ -244,8 +244,8 @@ function donate(){
 }
 
 function withdraw(){
-    var amount = document.getElementById("withdrawInput").value;
-    if(amount.length != 42){
+    var amount = removeSpace(document.getElementById("withdrawInput").value);
+    if(amount <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('withdrawInput').classList.add("w3-border-red");
     } else {

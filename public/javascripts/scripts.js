@@ -66,6 +66,12 @@ function toggleDayNight(changeTo){
     }
 };
 
+//Removed blank space from string
+function removeSpace(str){
+    str = str.replace(/\s/g, '');
+    return str;
+}
+
 function scrollToLocation(id){
     window.location.hash = id;
 }
@@ -137,4 +143,3 @@ function showMenu(x) {
 var x = window.matchMedia("(min-width: 768px)")
 showMenu(x) // Call listener function at run time
 x.addListener(showMenu) // Attach listener function on state changes
-showCurrentLevel();

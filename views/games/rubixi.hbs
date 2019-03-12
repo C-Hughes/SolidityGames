@@ -181,7 +181,7 @@ function rubixi(){
 }
 
 function buyIn(){
-    var amountToAdd = document.getElementById("buyInInput").value;
+    var amountToAdd = removeSpace(document.getElementById("buyInInput").value);
     if(amountToAdd < 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('buyInInput').classList.add("w3-border-red");
@@ -199,7 +199,7 @@ function buyIn(){
 }
 
 function transferBalance(){
-    var address = document.getElementById("transferBalanceInput").value;
+    var address = removeSpace(document.getElementById("transferBalanceInput").value);
     if(address.length != 42){
         document.getElementById('userErrors').innerHTML = "Input must be an address";
         document.getElementById('transferBalanceInput').classList.add("w3-border-red");
