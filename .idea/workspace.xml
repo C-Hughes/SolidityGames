@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d88a775f-34bf-4f30-8ae2-28a3fb0bb27d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/views/games/odometer.hbs" afterPath="$PROJECT_DIR$/views/games/odometer.hbs" />
-      <change beforePath="$PROJECT_DIR$/views/games/rubixi.hbs" afterPath="$PROJECT_DIR$/views/games/rubixi.hbs" />
-      <change beforePath="$PROJECT_DIR$/views/games/simpleDAO.hbs" afterPath="$PROJECT_DIR$/views/games/simpleDAO.hbs" />
-      <change beforePath="$PROJECT_DIR$/views/games/warmUp.hbs" afterPath="$PROJECT_DIR$/views/games/warmUp.hbs" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/views/games/keepingSecrets.hbs" afterPath="$PROJECT_DIR$/views/games/keepingSecrets.hbs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,7 +54,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="simpleDAO.hbs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="simpleDAO.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/games/simpleDAO.hbs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1012">
@@ -106,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="keepingSecrets.hbs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="keepingSecrets.hbs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/games/keepingSecrets.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="138" column="84" lean-forward="true" selection-start-line="138" selection-start-column="84" selection-end-line="138" selection-end-column="84" />
+            <state relative-caret-position="462">
+              <caret line="97" column="8" lean-forward="false" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -155,12 +153,12 @@
         <option value="$PROJECT_DIR$/views/pages/survey.hbs" />
         <option value="$PROJECT_DIR$/public/javascripts/web3.js" />
         <option value="$PROJECT_DIR$/public/javascripts/scripts.js" />
-        <option value="$PROJECT_DIR$/views/games/keepingSecrets.hbs" />
         <option value="$PROJECT_DIR$/views/games/randomness.hbs" />
         <option value="$PROJECT_DIR$/views/games/warmUp.hbs" />
         <option value="$PROJECT_DIR$/views/games/rubixi.hbs" />
         <option value="$PROJECT_DIR$/views/games/odometer.hbs" />
         <option value="$PROJECT_DIR$/views/games/simpleDAO.hbs" />
+        <option value="$PROJECT_DIR$/views/games/keepingSecrets.hbs" />
       </list>
     </option>
   </component>
@@ -349,12 +347,12 @@
       <workItem from="1550313454748" duration="13840000" />
       <workItem from="1550671560041" duration="51869000" />
       <workItem from="1551034631608" duration="5389000" />
-      <workItem from="1551698286399" duration="51386000" />
+      <workItem from="1551698286399" duration="51764000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="289635000" />
+    <option name="totallyTimeSpent" value="290013000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="1" width="1930" height="2109" extended-state="0" />
@@ -669,14 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/games/keepingSecrets.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="138" column="84" lean-forward="true" selection-start-line="138" selection-start-column="84" selection-end-line="138" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/games/randomness.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="758">
@@ -729,6 +719,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1012">
           <caret line="91" column="123" lean-forward="false" selection-start-line="91" selection-start-column="123" selection-end-line="91" selection-end-column="123" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/games/keepingSecrets.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="97" column="8" lean-forward="false" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
           <folding />
         </state>
       </provider>
