@@ -104,6 +104,7 @@ function completedStatus(){
         document.getElementById("randomnessBtn").classList.add("completed");
         document.getElementById("randomnessBtn").innerHTML = "8. Randomness <i class=\"fas fa-check\"></i>";
     }
+    showCurrentLevel();
 }
 
 //Set local storage if not initialised
@@ -115,12 +116,16 @@ if (!localStorage.getItem("theme")){
     completedStatus();
 }
 
-var path = window.location.pathname;
-if(path.substr(path.length - 1) == "/"){
-    path = path.substring(0, path.length - 1);
+//Highlight which level you are currently on.
+function showCurrentLevel(){
+    var path = window.location.pathname;
+    if(path.substr(path.length - 1) == "/"){
+        path = path.substring(0, path.length - 1);
+    }
+    $("a[href*='" + path + "']").addClass("current").removeClass("completed");
 }
-$("a[href*='" + path + "']").addClass("current").removeClass("completed");
 
+//Show menu if in RESOURCE section
 function showMenu(x) {
     if (x.matches) { // If media query matches
         document.getElementById('leftSidebar').style.display = 'block';
@@ -132,3 +137,4 @@ function showMenu(x) {
 var x = window.matchMedia("(min-width: 768px)")
 showMenu(x) // Call listener function at run time
 x.addListener(showMenu) // Attach listener function on state changes
+showCurrentLevel();
