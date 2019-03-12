@@ -17,7 +17,7 @@ function toggleDayNight(changeTo){
         var textColorDay = "#172130";
 
         //Change theme to day colours
-        document.getElementById("dayNightBtn").innerHTML = '<button class="w3-right w3-bar-item w3-button" title="Night Mode" onclick="toggleDayNight(\'night\')"><i class="fas fa-moon" aria-hidden="true"></i></button>';
+        document.getElementById("dayNightBtn").innerHTML = '<button class="w3-right w3-bar-item w3-button" title="Night Mode" onclick="toggleDayNight(\'night\')"><i class="fas fa-moon w3-test-indigo" aria-hidden="true"></i></button>';
 
         var elements = document.getElementsByClassName("primary");
         for (var i = 0; i < elements.length; i++) {
