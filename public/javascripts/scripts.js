@@ -44,7 +44,7 @@ function toggleDayNight(changeTo){
         var headerNight = "#2A2B31";
         var textColorNight = "#bebebe";
 
-        document.getElementById("dayNightBtn").innerHTML = '<button title="Day Mode" class="w3-right w3-bar-item w3-button" onclick="toggleDayNight(\'day\')"><i class="fas fa-sun" aria-hidden="true"></i></button>';
+        document.getElementById("dayNightBtn").innerHTML = '<button title="Day Mode" class="w3-right w3-bar-item w3-button" onclick="toggleDayNight(\'day\')"><i class="fas fa-sun w3-text-yellow" aria-hidden="true"></i></button>';
 
         var elements = document.getElementsByClassName("primary");
         for (var i = 0; i < elements.length; i++) {
