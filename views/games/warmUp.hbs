@@ -119,6 +119,7 @@ var warmUpContract = web3.eth.contract(abi);
 var warmUpInstance;
 
 function deployContract() {
+
     var warmUp = warmUpContract.new(
         {
         from: web3.eth.accounts[0],
@@ -127,7 +128,8 @@ function deployContract() {
         gasPrice: 21000000000
     }, function (e, contract) {
         console.log(e, contract);
-                document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+contract.transactionHash+"'>" + contract.transactionHash + "</a>  Pending... (This can take a minute)";
+        document.getElementById('transactionInfo').innerHTML = "<i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+contract.transactionHash+"'>" + contract.transactionHash + "</a>  Pending... (This can take a minute)";
+        document.getElementById('deployedContractAddress').innerHTML = "<p>Deploying... Please do not close this page.</p>";
         if (typeof contract.address !== 'undefined') {
             console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
             //Add dApp Address to Local Storage
