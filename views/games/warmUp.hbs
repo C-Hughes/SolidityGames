@@ -141,10 +141,11 @@ function deployContract() {
 
 function updateUI(){
     //Display dApp UI
-    refreshInfo();
     document.getElementById("contractInterface").style.display = "block";
     document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/address/"+warmUpInstance.address+"'>" + warmUpInstance.address + "</a>" +
-            " <i id='removeBtn' title='Remove Contract' class=\"far fa-trash-alt w3-text-red\" onclick='removeContract(\"warmUpAddr\");'></i>";
+    " <i id='copyBtn' title='Copy Address' class='far fa-copy w3-text-blue' onclick='copyAddress(warmUpInstance.address);'></i>" +
+    " <i id='removeBtn' title='Remove Contract' class='far fa-trash-alt w3-text-red' onclick='removeContract(\"warmUpAddr\");'></i>";
+    refreshInfo();
 }
 //If the contract has already been deployed, get instance from localstorage variable
 function getInstance(){
@@ -247,10 +248,13 @@ function refreshInfo(){
 }
 
 //Check LocalStorage to see if the contract has been deployed.
-if (localStorage.getItem("warmUpAddr")){
-    getInstance();
-    updateUI();
-    viewOwner();
-    viewContributions();
+window.onload = function(){
+    if (localStorage.getItem("warmUpAddr")){
+        getInstance();
+        viewOwner();
+        viewContributions();
+        updateUI();
+    }
 }
+
 </script>

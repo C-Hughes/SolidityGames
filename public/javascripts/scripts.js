@@ -140,6 +140,15 @@ function showMenu(x) {
     }
 }
 
+//Copy to clipboard
+function copyAddress(text) {
+    navigator.clipboard.writeText(text).then(function() {
+        console.log('Async: Copying to clipboard was successful!');
+    }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+    });
+}
+
 var x = window.matchMedia("(min-width: 768px)")
 showMenu(x) // Call listener function at run time
 x.addListener(showMenu) // Attach listener function on state changes

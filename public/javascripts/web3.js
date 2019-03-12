@@ -1,21 +1,21 @@
 window.addEventListener('load', async () => {
     // Modern dapp browsers...
     if (window.ethereum) {
-        window.web3 = new Web3(ethereum);
-        try {
-            // Request account access if needed
-            await ethereum.enable();
-            // Acccounts now exposed
-            console.log('MetaMask Connected');
-            BalanceInterval();
-            getBalance();
-            getNetwork();
-            //web3.eth.sendTransaction({/* ... */});
-        } catch (error) {
-            // User denied account access...
-            console.log('Access Denied');
-        }
-    } else {
+    window.web3 = new Web3(ethereum);
+    try {
+        // Request account access if needed
+        await ethereum.enable();
+        // Acccounts now exposed
+        getNetwork();
+        getBalance();
+        BalanceInterval();
+        console.log('MetaMask Connected');
+        //web3.eth.sendTransaction({/* ... */});
+    } catch (error) {
+        // User denied account access...
+        console.log('Access Denied');
+    }
+} else {
     //Non-dapp browsers
     console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
     document.getElementById("etherNetwork").style.color = "Red";
@@ -115,4 +115,3 @@ function BalanceInterval(){
         getBalance();
     }, 30000);
 }
-
