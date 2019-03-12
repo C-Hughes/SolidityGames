@@ -164,7 +164,7 @@ function generateRandom(){
 //send transaction to addToPot()
 function guessNumber(){
     var guessInput = removeSpace(document.getElementById("guessNumberInput").value);
-    if(guessInput < 0 || guessInput > 10){
+    if(guessInput <= 0 || guessInput > 10){
         document.getElementById('userErrors').innerHTML = "Guess must be between 1 and 10";
         document.getElementById('guessNumberInput').classList.add("w3-border-red");
     } else {

@@ -185,7 +185,7 @@ function viewOwner(){
 //send transaction to buy some tokens
 function buyTokens(){
     var amountToBuy = removeSpace(document.getElementById("buyTokensInput").value);
-    if(amountToBuy < 0){
+    if(amountToBuy <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('buyTokensInput').classList.add("w3-border-red");
     } else {
@@ -204,7 +204,7 @@ function buyTokens(){
 //send transaction to buy some tokens
 function sellTokens(){
     var amountToSell = removeSpace(document.getElementById("sellTokensInput").value);
-    if(amountToSell < 0){
+    if(amountToSell <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('sellTokensInput').classList.add("w3-border-red");
     } else {
@@ -222,7 +222,7 @@ function sellTokens(){
 
 function claimOwnership(){
     var claimOwnershipAmount = removeSpace(document.getElementById("claimOwnershipInput").value);
-    if(claimOwnershipAmount < 0){
+    if(claimOwnershipAmount <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('claimOwnershipInput').classList.add("w3-border-red");
     } else {

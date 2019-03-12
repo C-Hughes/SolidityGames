@@ -210,7 +210,7 @@ function viewCredit(){
 
 function buyCredit(){
     var amountToAdd = removeSpace(document.getElementById("buyCreditInput").value);
-    if(amountToAdd < 0){
+    if(amountToAdd <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('buyCreditInput').classList.add("w3-border-red");
     } else {

@@ -156,7 +156,7 @@ function getInstance(){
 //send transaction to addToPot()
 function addToPot(){
     var amountToAdd = removeSpace(document.getElementById("addToPotInput").value);
-    if(amountToAdd < 0){
+    if(amountToAdd <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('addToPotInput').classList.add("w3-border-red");
     } else {
@@ -173,7 +173,7 @@ function addToPot(){
 
 function claimOwnership(){
     var claimOwnershipAmount = removeSpace(document.getElementById("claimOwnershipInput").value);
-    if(claimOwnershipAmount < 0){
+    if(claimOwnershipAmount <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('claimOwnershipInput').classList.add("w3-border-red");
     } else {
