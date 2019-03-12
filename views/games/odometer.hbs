@@ -273,11 +273,11 @@ function clearErrors(){
 
 var updateInfo;
 function refreshInfo(){
-    //Call every 10 seconds.
+    //Call every x seconds.
     updateInfo = setInterval(function() {
         viewOwner();
         viewTokens();
-    }, 10000);
+    }, 3000);
 }
 
 //Check LocalStorage to see if the contract has been deployed.

@@ -153,10 +153,10 @@ function getHint(){
 
 var updateInfo;
 function refreshInfo(){
-    //Call every 10 seconds.
+    //Call every x seconds.
     updateInfo = setInterval(function() {
         checkBalance();
-    }, 10000);
+    }, 3000);
 }
 
 //Check LocalStorage to see if the contract has been deployed.
