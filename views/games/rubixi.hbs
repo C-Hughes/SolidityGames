@@ -184,7 +184,10 @@ function rubixi(){
 
 function buyIn(){
     var amountToAdd = removeSpace(document.getElementById("buyInInput").value);
-    if(amountToAdd <= 0){
+    if(isNaN(amountToAdd)){
+        document.getElementById('userErrors').innerHTML = "Value must be a number";
+        document.getElementById('buyInInput').classList.add("w3-border-red");
+    } else if(amountToAdd <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('buyInInput').classList.add("w3-border-red");
     } else {

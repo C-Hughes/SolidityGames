@@ -27,13 +27,13 @@
 
     <hr>
     <h3>Instructions</h3>
-    <p>This is the first level of the security challenges.</p>
     <p>This level designed for you to get familiar with MetaMask and interacting with the Ethereum blockchain.</p>
     <p>This level does not contain any security vulnerabilities.</p>
 
     <ul>
         <li>Clicking blue buttons will read information from the contract</li>
         <li>Clicking red buttons will call the contract's functions</li>
+        <li>You can send more than one transaction at a time</li>
     </ul>
     <hr>
 
@@ -159,7 +159,10 @@ function getInstance(){
 //send transaction to addToPot()
 function addToPot(){
     var amountToAdd = removeSpace(document.getElementById("addToPotInput").value);
-    if(amountToAdd <= 0){
+    if(isNaN(amountToAdd)){
+        document.getElementById('userErrors').innerHTML = "Value must be a number";
+        document.getElementById('addToPotInput').classList.add("w3-border-red");
+    } else if(amountToAdd <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('addToPotInput').classList.add("w3-border-red");
     } else {
@@ -176,7 +179,10 @@ function addToPot(){
 
 function claimOwnership(){
     var claimOwnershipAmount = removeSpace(document.getElementById("claimOwnershipInput").value);
-    if(claimOwnershipAmount <= 0){
+    if(isNaN(claimOwnershipAmount)){
+        document.getElementById('userErrors').innerHTML = "Value must be a number";
+        document.getElementById('claimOwnershipInput').classList.add("w3-border-red");
+    } else if(claimOwnershipAmount <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('claimOwnershipInput').classList.add("w3-border-red");
     } else {

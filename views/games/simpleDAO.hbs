@@ -212,7 +212,10 @@ function viewCredit(){
 
 function buyCredit(){
     var amountToAdd = removeSpace(document.getElementById("buyCreditInput").value);
-    if(amountToAdd <= 0){
+    if(isNaN(amountToAdd)){
+        document.getElementById('userErrors').innerHTML = "Value must be a number";
+        document.getElementById('buyCreditInput').classList.add("w3-border-red");
+    } else if(amountToAdd <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('buyCreditInput').classList.add("w3-border-red");
     } else {
@@ -247,7 +250,10 @@ function donate(){
 
 function withdraw(){
     var amount = removeSpace(document.getElementById("withdrawInput").value);
-    if(amount <= 0){
+    if(isNaN(amount)){
+        document.getElementById('userErrors').innerHTML = "Value must be a number";
+        document.getElementById('withdrawInput').classList.add("w3-border-red");
+    } else if(amount <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('withdrawInput').classList.add("w3-border-red");
     } else {

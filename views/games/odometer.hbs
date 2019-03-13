@@ -187,7 +187,10 @@ function viewOwner(){
 //send transaction to buy some tokens
 function buyTokens(){
     var amountToBuy = removeSpace(document.getElementById("buyTokensInput").value);
-    if(amountToBuy <= 0){
+    if(isNaN(amountToBuy)){
+        document.getElementById('userErrors').innerHTML = "Value must be a number";
+        document.getElementById('buyTokensInput').classList.add("w3-border-red");
+    } else if(amountToBuy <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('buyTokensInput').classList.add("w3-border-red");
     } else {
@@ -206,7 +209,10 @@ function buyTokens(){
 //send transaction to buy some tokens
 function sellTokens(){
     var amountToSell = removeSpace(document.getElementById("sellTokensInput").value);
-    if(amountToSell <= 0){
+    if(isNaN(amountToSell)){
+        document.getElementById('userErrors').innerHTML = "Value must be a number";
+        document.getElementById('sellTokensInput').classList.add("w3-border-red");
+    } else if(amountToSell <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('sellTokensInput').classList.add("w3-border-red");
     } else {
@@ -224,7 +230,10 @@ function sellTokens(){
 
 function claimOwnership(){
     var claimOwnershipAmount = removeSpace(document.getElementById("claimOwnershipInput").value);
-    if(claimOwnershipAmount <= 0){
+    if(isNaN(claimOwnershipAmount)){
+        document.getElementById('userErrors').innerHTML = "Value must be a number";
+        document.getElementById('claimOwnershipInput').classList.add("w3-border-red");
+    } else if(claimOwnershipAmount <= 0){
         document.getElementById('userErrors').innerHTML = "Value must be greater than 0";
         document.getElementById('claimOwnershipInput').classList.add("w3-border-red");
     } else {
