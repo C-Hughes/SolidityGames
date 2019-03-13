@@ -127,10 +127,12 @@ function getHint(){
         hintText.innerHTML = "<p>For a contract to receive Ether a function must be marked as 'payable'. However there is one other way...</p>";
         hintBtn.innerHTML = "Hint (1/2)";
         Level = 2;
+        localStorage.setItem("forcedPaymentsHints", "1");
     } else if (Level == "2"){
         hintText.innerHTML += "<p>Look into the self destruct function.</p>";
         hintBtn.innerHTML = "Tell me how to do it";
         Level = 3;
+        localStorage.setItem("forcedPaymentsHints", "2");
     } else if (Level == "3"){
         hintText.innerHTML += "<pre><code class=\"Javascript Tomorrow\">" +
                 "pragma solidity ^0.5.3;\n" +
@@ -150,6 +152,7 @@ function getHint(){
         document.querySelectorAll('pre code').forEach((block) => {
             hljs.highlightBlock(block);
         });
+        localStorage.setItem("forcedPaymentsHints", "3");
     }
 }
 

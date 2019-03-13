@@ -199,10 +199,12 @@ function getHint(){
         hintText.innerHTML = "<p>The blockchain does not provide any cryptographically secure source of randomness.</p>";
         hintBtn.innerHTML = "Hint (1/2)";
         Level = 2;
+        localStorage.setItem("randomnessHints", "1");
     } else if (Level == "2"){
         hintText.innerHTML += "<p>To exploit bad randomness an attacker could create a smart contract that generates numbers in the same way and submits entries where it would win.</p>";
         hintBtn.innerHTML = "Tell me how to do it";
         Level = 3;
+        localStorage.setItem("randomnessHints", "2");
     } else if (Level == "3"){
         hintText.innerHTML += "<pre><code class=\"Javascript Tomorrow\">" +
                 "pragma solidity 0.5.4;\n" +
@@ -225,6 +227,7 @@ function getHint(){
         document.querySelectorAll('pre code').forEach((block) => {
             hljs.highlightBlock(block);
         });
+        localStorage.setItem("randomnessHints", "3");
     }
 }
 

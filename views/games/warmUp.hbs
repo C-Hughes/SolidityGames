@@ -235,14 +235,17 @@ function getHint(){
         hintText.innerHTML = "<p>Look at the different functions to understand what the contract does.</p><p>msg.value is the amount of Ether you send in a transaction. msg.sender is the sender of the transaction.</p>";
         Level = 2;
         hintBtn.innerHTML = "Hint (1/2)";
+        localStorage.setItem("warmUpHints", "1");
     } else if (Level == "2"){
         hintText.innerHTML += "<p>Your contributions must be greater than 0 to claim ownership.</p><p></p>";
         Level = 3;
         hintBtn.innerHTML = "Tell me how to do it";
+        localStorage.setItem("warmUpHints", "2");
     } else if (Level == "3"){
         hintText.innerHTML += "<p>Call the addToPot function with a message value greater than 0. Then call the claimOwnership variable with a message value greater than 0.</p>";
         hintBtn.innerHTML = "Hints (2/2)";
         hintBtn.style.display = "none";
+        localStorage.setItem("warmUpHints", "3");
     }
 }
 
