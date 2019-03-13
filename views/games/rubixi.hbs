@@ -148,7 +148,7 @@ function deployContract() {
             if (typeof contract.address !== 'undefined') {
                 console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
                 //Add dApp Address to Local Storage
-                localStorage.setItem("rubixiAddr", contract.address);
+                localStorage.setItem("rubixiAddr", web3.toChecksumAddress(contract.address));
                 getInstance();
                 document.getElementById('transactionInfo').innerHTML = "";
                 updateUI();

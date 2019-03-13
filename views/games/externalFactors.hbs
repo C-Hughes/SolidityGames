@@ -88,7 +88,7 @@ function deployContract() {
         if (typeof contract.address !== 'undefined') {
             console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
             //Add dApp Address to Local Storage
-            localStorage.setItem("externalFactorsAddr", contract.address);
+            localStorage.setItem("externalFactorsAddr", web3.toChecksumAddress(contract.address));
             getInstance();
             document.getElementById('transactionInfo').innerHTML = "";
             updateUI();
