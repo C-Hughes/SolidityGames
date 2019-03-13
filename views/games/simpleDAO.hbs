@@ -160,6 +160,7 @@ function updateUI(){
     //Display dApp UI
     document.getElementById("contractInterface").style.display="block";
     document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/address/"+simpleDAOInstance.address+"'>" + simpleDAOInstance.address + "</a>" +
+    " <i id='copyBtn' title='Copy Address' class='far fa-copy w3-text-blue' onclick='copyAddress(simpleDAOInstance.address);'></i>" +
     " <i id='removeBtn' title='Remove Contract' class=\"far fa-trash-alt w3-text-red\" onclick='removeContract(\"simpleDAOAddr\");'></i>";
 }
 //If the contract has already been deployed, get instance from localstorage variable

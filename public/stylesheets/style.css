@@ -83,6 +83,10 @@ a:hover {
   cursor: pointer;
 }
 
+#copyBtn{
+  cursor: pointer;
+}
+
 #transactionInfo{
   max-height: 150px;
   overflow-y: auto;
