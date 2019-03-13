@@ -82,12 +82,11 @@ function getNetwork() {
                 console.log('This is an unknown network.')
             }
             document.getElementById("etherNetwork").innerHTML = network;
-
+            localStorage.setItem("networkURL", networkURL);
         })
     } catch (err) {
         console.log(err);
     }
-    document.getElementById("etherNetwork").innerHTML = network;
 }
 
 function getTransaction(hash){

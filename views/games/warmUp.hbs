@@ -144,7 +144,7 @@ function deployContract() {
 function updateUI(){
     //Display dApp UI
     document.getElementById("contractInterface").style.display = "block";
-    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/address/"+warmUpInstance.address+"'>" + warmUpInstance.address + "</a>" +
+    document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+ localStorage.getItem('networkURL') +".etherscan.io/address/"+warmUpInstance.address+"'>" + warmUpInstance.address + "</a>" +
     " <i id='copyBtn' title='Copy Address' class='far fa-copy w3-text-blue' onclick='copyAddress(warmUpInstance.address);'></i>" +
     " <i id='removeBtn' title='Remove Contract' class='far fa-trash-alt w3-text-red' onclick='removeContract(\"warmUpAddr\");'></i>";
     refreshInfo();
