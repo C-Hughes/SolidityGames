@@ -177,7 +177,7 @@ function rubixi(){
             document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
             getTransaction(result);
         } else {
-            document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
+            console.log(error);
         }
     });
 }
@@ -197,7 +197,7 @@ function buyIn(){
                 document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
                 getTransaction(result);
             } else {
-                document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
+                console.log(error);
             }
         });
     }
@@ -214,7 +214,7 @@ function transferBalance(){
                 document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
                 getTransaction(result);
             } else {
-                document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
+                console.log(error);
             }
         });
     }
@@ -226,7 +226,7 @@ function sellBalance(){
             document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
             getTransaction(result);
         } else {
-            document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
+            console.log(error);
         }
     });
 }
@@ -237,7 +237,7 @@ function collectAll(){
             document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
             getTransaction(result);
         } else {
-            document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
+            console.log(error);
         }
     });
 }

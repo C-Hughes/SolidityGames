@@ -225,7 +225,7 @@ function buyCredit(){
                 document.getElementById('transactionInfo').innerHTML += "<div id="+result+"><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+result+"'>" + result + "</a> Pending... (This can take a minute)</div>";
                 getTransaction(result);
             } else {
-                document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
+                console.log(error);
             }
         });
     }
@@ -242,7 +242,7 @@ function donate(){
                 document.getElementById('transactionInfo').innerHTML += "<div id=" + result + "><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://" + networkURL + ".etherscan.io/tx/" + result + "'>" + result + "</a> Pending... (This can take a minute)</div>";
                 getTransaction(result);
             } else {
-                document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
+                console.log(error);
             }
         });
     }
@@ -263,7 +263,7 @@ function withdraw(){
                 document.getElementById('transactionInfo').innerHTML += "<div id=" + result + "><i class=\"fas fa-spinner w3-spin\"></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://" + networkURL + ".etherscan.io/tx/" + result + "'>" + result + "</a> Pending... (This can take a minute)</div>";
                 getTransaction(result);
             } else {
-                document.getElementById('transactionInfo').innerHTML += '<pre>' + error + '</pre>'
+                console.log(error);
             }
         });
     }
