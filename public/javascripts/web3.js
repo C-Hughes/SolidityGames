@@ -19,7 +19,7 @@ window.addEventListener('load', async () => {
     //Non-dapp browsers
     console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
     document.getElementById("etherNetwork").style.color = "Red";
-    document.getElementById("etherNetwork").innerHTML = "Please install MetaMask";
+    document.getElementById("etherNetwork").innerHTML = "<a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://metamask.io/\">Please install MetaMask</a>";
 }
 });
 
