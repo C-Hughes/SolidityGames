@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d88a775f-34bf-4f30-8ae2-28a3fb0bb27d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/views/error.hbs" afterPath="$PROJECT_DIR$/views/error.hbs" />
+      <change beforePath="$PROJECT_DIR$/views/partials/sidebar.hbs" afterPath="$PROJECT_DIR$/views/partials/sidebar.hbs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,7 +34,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="error.hbs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="error.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/error.hbs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="25">
@@ -54,21 +54,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="warmUp.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/games/warmUp.hbs">
+      <file leaf-file-name="survey.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/pages/survey.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="174" column="31" lean-forward="false" selection-start-line="174" selection-start-column="31" selection-end-line="174" selection-end-column="31" />
+            <state relative-caret-position="659">
+              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="randomness.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/games/randomness.hbs">
+      <file leaf-file-name="sidebar.hbs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/partials/sidebar.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="913">
-              <caret line="180" column="16" lean-forward="true" selection-start-line="180" selection-start-column="16" selection-end-line="180" selection-end-column="35" />
+            <state relative-caret-position="125">
+              <caret line="5" column="56" lean-forward="false" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scripts.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/scripts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1687">
+              <caret line="142" column="19" lean-forward="true" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -89,16 +99,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1307">
               <caret line="202" column="35" lean-forward="false" selection-start-line="202" selection-start-column="35" selection-end-line="202" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rubixi.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/games/rubixi.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="671">
-              <caret line="239" column="31" lean-forward="false" selection-start-line="239" selection-start-column="31" selection-end-line="239" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -142,7 +142,6 @@
         <option value="$PROJECT_DIR$/views/pages/welcome.hbs" />
         <option value="$PROJECT_DIR$/views/resources/realExamples.hbs" />
         <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/views/partials/sidebar.hbs" />
         <option value="$PROJECT_DIR$/views/resources/incidents.hbs" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/.env" />
@@ -160,6 +159,7 @@
         <option value="$PROJECT_DIR$/views/games/keepingSecrets.hbs" />
         <option value="$PROJECT_DIR$/views/games/forcedPayments.hbs" />
         <option value="$PROJECT_DIR$/views/error.hbs" />
+        <option value="$PROJECT_DIR$/views/partials/sidebar.hbs" />
       </list>
     </option>
   </component>
@@ -348,12 +348,12 @@
       <workItem from="1550313454748" duration="13840000" />
       <workItem from="1550671560041" duration="51869000" />
       <workItem from="1551034631608" duration="5389000" />
-      <workItem from="1551698286399" duration="59514000" />
+      <workItem from="1551698286399" duration="59668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="297763000" />
+    <option name="totallyTimeSpent" value="297917000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-10" y="0" width="1940" height="2110" extended-state="0" />
@@ -597,26 +597,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/partials/sidebar.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="28" column="79" lean-forward="false" selection-start-line="28" selection-start-column="79" selection-end-line="28" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partials/surveyNationality.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="14" column="48" lean-forward="true" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/pages/survey.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
-          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -633,14 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="23" column="3" lean-forward="false" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/scripts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1162">
-          <caret line="142" column="19" lean-forward="true" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -729,6 +705,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="1" column="25" lean-forward="false" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/pages/survey.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="659">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1687">
+          <caret line="142" column="19" lean-forward="true" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/sidebar.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="56" lean-forward="false" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
           <folding />
         </state>
       </provider>
