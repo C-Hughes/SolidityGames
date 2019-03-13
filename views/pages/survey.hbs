@@ -22,17 +22,36 @@
             <label class="statement">What is your occupation?</label>
             <input class="w3-input w3-border likertSelect" type="text" name="Occupation">
 
-            <label class="statement">What is your programming experience level?</label>
-            <select class="w3-select likertSelect" name="ProgramingExp">
-                <option value="" disabled selected>Select Experience</option>
-                <option value="none">None</option>
-                <option value="beginner">Beginner</option>
-                <option value="intermediate">Intermediate</option>
-                <option value="advanced">Advanced</option>
-            </select>
-
-            <label class="statement">What programming languages do you have experience with?</label>
+            <label class="statement">Which programming languages do you have experience with? (Java, c++, etc.)</label>
             <input class="w3-input w3-border likertSelect" type="text" name="ProgramingLang">
+
+            <label class="statement">What is your programming experience level?</label>
+            <ul class='likert'>
+                <li>
+                    <input type="radio" name="ProgramingExp" value="1">
+                    <label>None</label>
+                </li>
+                <li>
+                    <input type="radio" name="ProgramingExp" value="2">
+                </li>
+                <li>
+                    <input type="radio" name="ProgramingExp" value="3">
+                </li>
+                <li>
+                    <input type="radio" name="ProgramingExp" value="4">
+                    <label>Intermediate</label>
+                </li>
+                <li>
+                    <input type="radio" name="ProgramingExp" value="5">
+                </li>
+                <li>
+                    <input type="radio" name="ProgramingExp" value="6">
+                </li>
+                <li>
+                    <input type="radio" name="ProgramingExp" value="7">
+                    <label>Expert</label>
+                </li>
+            </ul>
 
             <label class="statement">Have you heard of Ethereum before today?</label>
             <div class="surveyMargin">
