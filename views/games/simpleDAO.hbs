@@ -296,11 +296,9 @@ function getHint(){
         localStorage.setItem("simpleDAOHints", "2");
     } else if (Level == "3"){
         hintText.innerHTML += "<pre><code class=\"Javascript Tomorrow\">" +
-                "pragma solidity ^0.5.4;\n" +
-                "\n" +
                 "contract SimpleDAO {\n" +
-                "  mapping(address => uint) public balances;\n" +
-                "  function withdraw(uint _amount) public {}\n" +
+                "    mapping(address => uint) public balances;\n" +
+                "    function withdraw(uint _amount) public {}\n" +
                 "}\n" +
                 "\n" +
                 "contract Attacker {\n" +

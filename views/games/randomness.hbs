@@ -207,12 +207,6 @@ function getHint(){
         localStorage.setItem("randomnessHints", "2");
     } else if (Level == "3"){
         hintText.innerHTML += "<pre><code class=\"Javascript Tomorrow\">" +
-                "pragma solidity 0.5.4;\n" +
-                "\n" +
-                "contract Randomness {\n" +
-                "    function guessNumber(uint8 guess) public payable returns(bool) {}\n" +
-                "}\n" +
-                "\n" +
                 "contract winRandomness {\n" +
                 "    Randomness public original = Randomness(**Deployed Contract Address**);\n" +
                 "\n" +
@@ -220,6 +214,9 @@ function getHint(){
                 "        uint winningNumber = uint(blockhash(block.number - 1)) % 10 + 1;\n" +
                 "        return original.guessNumber(uint8(winningNumber));\n" +
                 "    }\n" +
+                "}\n" +
+                "contract Randomness {\n" +
+                "    function guessNumber(uint8 guess) public payable returns(bool) {}\n" +
                 "}\n" +
                 "</code></pre>";
         hintBtn.innerHTML = "Hint (2/2)";

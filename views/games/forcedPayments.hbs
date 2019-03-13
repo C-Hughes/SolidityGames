@@ -135,8 +135,6 @@ function getHint(){
         localStorage.setItem("forcedPaymentsHints", "2");
     } else if (Level == "3"){
         hintText.innerHTML += "<pre><code class=\"Javascript Tomorrow\">" +
-                "pragma solidity ^0.5.3;\n" +
-                "\n" +
                 "contract forcedPaymentsAnswer {\n" +
                 "\n" +
                 "    constructor() public payable {}\n" +
@@ -144,7 +142,6 @@ function getHint(){
                 "    function kill() public{\n" +
                 "        selfdestruct(**Deployed Contract Address**);\n" +
                 "    }\n" +
-                "\n" +
                 "}" +
                 "</code></pre>";
         hintBtn.innerHTML = "Hint (2/2)";

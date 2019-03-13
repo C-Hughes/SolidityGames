@@ -144,12 +144,6 @@ function getHint(){
         localStorage.setItem("externalFactorsHints", "2");
     } else if (Level == "3"){
         hintText.innerHTML += "<pre><code class=\"Javascript Tomorrow\">" +
-                "pragma solidity ^0.5.2;\n" +
-                "\n" +
-                "contract externalFactors {\n" +
-                "    function claimOwnership() external {}\n" +
-                "}\n" +
-                "\n" +
                 "contract completeEF {\n" +
                 "    externalFactors EF = externalFactors(**Deployed Contract Address**);\n" +
                 "    \n" +
@@ -159,6 +153,10 @@ function getHint(){
                 "        EF.claimOwnership();\n" +
                 "    }\n" +
                 "}" +
+                "\n" +
+                "contract externalFactors {\n" +
+                "    function claimOwnership() external {}\n" +
+                "}\n" +
                 "</code></pre>";
         hintBtn.innerHTML = "Hint (2/2)";
         hintBtn.style.display = "none";
