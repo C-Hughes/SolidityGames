@@ -313,7 +313,8 @@ function getHint(){
                 "        }\n" +
                 "    }   \n" +
                 "}"+
-                "</code></pre>";
+                "</code></pre>" +
+                "<p>Once the attacker contract has been deployed, donate 0.1 ether to it's address. Then call the fallback function to exploit simpleDAO.</p>";
         hintBtn.innerHTML = "Hint (2/2)";
         hintBtn.style.display = "none";
         document.querySelectorAll('pre code').forEach((block) => {

@@ -137,13 +137,14 @@ function getHint(){
         hintText.innerHTML += "<pre><code class=\"Javascript Tomorrow\">" +
                 "contract forcedPaymentsAnswer {\n" +
                 "\n" +
-                "    constructor() public payable {}\n" +
+                "    constructor() public payable {require(msg.value > 0);}\n" +
                 "    \n" +
                 "    function kill() public{\n" +
                 "        selfdestruct(**Deployed Contract Address**);\n" +
                 "    }\n" +
                 "}" +
-                "</code></pre>";
+                "</code></pre>" +
+                "<p>Make sure to send a message value greater than 0 when deploying the contract.</p>";
         hintBtn.innerHTML = "Hint (2/2)";
         hintBtn.style.display = "none";
         document.querySelectorAll('pre code').forEach((block) => {

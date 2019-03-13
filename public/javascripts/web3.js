@@ -95,6 +95,7 @@ function getTransaction(hash){
             if(data){
                 clearInterval(transactionInterval);
                 document.getElementById(hash).innerHTML = "<i class='fas fa-check w3-text-green'></i> <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+networkURL+".etherscan.io/tx/"+hash+"'>" + hash + "</a>";
+                console.log(data);
             }
         });
     }, 2000);

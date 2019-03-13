@@ -218,7 +218,8 @@ function getHint(){
                 "contract Randomness {\n" +
                 "    function guessNumber(uint8 guess) public payable returns(bool) {}\n" +
                 "}\n" +
-                "</code></pre>";
+                "</code></pre>" +
+                "<p>Make sure you deploy the winRandomness contract.</p>";
         hintBtn.innerHTML = "Hint (2/2)";
         hintBtn.style.display = "none";
         document.querySelectorAll('pre code').forEach((block) => {
