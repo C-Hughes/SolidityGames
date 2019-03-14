@@ -27,7 +27,20 @@
 
     <hr>
 
-    <h3>Beat This Level</h3>
+    <div class="w3-cell-row">
+        <div class="w3-cell w3-cell-bottom">
+            <h3>Beat This Level</h3>
+        </div>
+        <div class="w3-cell w3-cell-middle" style="text-align: right">
+            <button id="levelFeedbackBtn" onclick="submitLvlFeedback();" class="w3-button w3-indigo w3-right">Submit level feedback</button>
+        </div>
+    </div>
+    <div id="levelFeedback" style="display:none;">
+        <form action="/games/externalFactors" method="post">
+            <textarea style="width:100%;" rows="4" name="levelFeedback"></textarea>
+            <button type="submit" class="w3-button w3-green">Submit</button>
+        </form>
+    </div>
     <p>To beat this level, become the owner of the contract</p>
     <p>You will need to create and deploy your own smart contract to beat this level. Use <a target="_blank" rel="noopener noreferrer" href="https://remix.ethereum.org">Remix</a> to do this.</p>
 
