@@ -24,6 +24,7 @@
             Difficulty: <span class="w3-tag w3-light-green">2/10</span>
         </div>
     </div>
+    <button id="levelWonBtn" onclick="document.getElementById('levelCompleteModal').style.display='block';" style="display:none;" class="w3-button w3-green">View Winning Message</button>
 
     <hr>
 
@@ -172,6 +173,9 @@ function deployContract() {
 
 function updateUI(){
     refreshInfo();
+    if (localStorage.getItem("rubixiComplete")) {
+        document.getElementById('levelWonBtn').style.display = 'block';
+    }
     //Display dApp UI
     document.getElementById("contractInterface").style.display="block";
     document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+ localStorage.getItem('networkURL') +".etherscan.io/address/"+rubixiInstance.address+"'>" + rubixiInstance.address + "</a>" +
@@ -258,7 +262,6 @@ function collectAll(){
 
 function viewBalance(){
     var viewBalance = document.getElementById('viewBalance');
-    viewBalance.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
     rubixiInstance.viewBalance.call(function(error, result){
         viewBalance.innerHTML = result + ' wei';
     });
@@ -266,13 +269,15 @@ function viewBalance(){
 
 function viewCreator(){
     var viewCreator = document.getElementById('viewCreator');
-    viewCreator.innerHTML = '<i class="fas fa-spinner w3-spin"></i>';
     rubixiInstance.creator.call(function(error, result){
         viewCreator.innerHTML = result;
         if(result == web3.eth.accounts[0]){
+            if (!localStorage.getItem("rubixiComplete")){
+                document.getElementById('levelCompleteModal').style.display='block';
+                document.getElementById('levelWonBtn').style.display = 'block';
+            }
             localStorage.setItem("rubixiComplete", "true");
             completedStatus();
-            document.getElementById('levelCompleteModal').style.display='block';
             clearInterval(updateInfo);
         }
     });
