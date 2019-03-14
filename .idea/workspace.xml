@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d88a775f-34bf-4f30-8ae2-28a3fb0bb27d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/views/index.hbs" afterPath="$PROJECT_DIR$/views/index.hbs" />
-      <change beforePath="$PROJECT_DIR$/views/partials/sidebar.hbs" afterPath="$PROJECT_DIR$/views/partials/sidebar.hbs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -128,8 +126,8 @@
       <file leaf-file-name="index.hbs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/index.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="37" lean-forward="false" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+            <state relative-caret-position="200">
+              <caret line="8" column="185" lean-forward="false" selection-start-line="8" selection-start-column="185" selection-end-line="8" selection-end-column="185" />
               <folding />
             </state>
           </provider>
@@ -365,12 +363,12 @@
       <workItem from="1550671560041" duration="51869000" />
       <workItem from="1551034631608" duration="5389000" />
       <workItem from="1551698286399" duration="63356000" />
-      <workItem from="1552481688357" duration="18947000" />
+      <workItem from="1552481688357" duration="19143000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="320552000" />
+    <option name="totallyTimeSpent" value="320748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-10" y="0" width="1940" height="2110" extended-state="0" />
@@ -766,8 +764,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="37" lean-forward="false" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+        <state relative-caret-position="200">
+          <caret line="8" column="185" lean-forward="false" selection-start-line="8" selection-start-column="185" selection-end-line="8" selection-end-column="185" />
           <folding />
         </state>
       </provider>
