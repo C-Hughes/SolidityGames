@@ -7,7 +7,8 @@
         </header>
         <div class="w3-container header">
             <p>You completed Odometer!</p>
-            <p>You are now ready to move onto the next level</p>
+            <p>This level highlights the integer underflow vulnerability. Numbers stored in the uint variable type have a range of 0 to 2^256-1. An underflow occurs when there is an attempt to change the value to something less than 0. An overflow would occur when there is an attempt to represent a number larger than 2^256-1.</p>
+            <p>The <a href="https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol">Safe Math Library</a> is a set of functions designed to help mitigate the risk of arithmetic under/overflows.</p>
         </div>
         <footer class="w3-container w3-padding w3-indigo">
             <a href="/survey" class="w3-button w3-left w3-amber">I've Had Enough</a><a href="/games/keepingSecrets" class="w3-button w3-right w3-green">Next Level</a>

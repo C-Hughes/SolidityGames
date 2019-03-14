@@ -7,7 +7,9 @@
         </header>
         <div class="w3-container header">
             <p>You completed ExternalFactors!</p>
-            <p>You are now ready to move onto the next level</p>
+            <p>This level highlights the difference between Tx.origin and msg.sender.</p>
+            <p>Tx.origin should not be used for authentication. If a contract that uses tx.origin for authorisation calls another contract, it is possible that the seconds contract can forge authentication to the first contract.</p>
+            <p><a href="https://solidity.readthedocs.io/en/v0.5.6/security-considerations.html#tx-origin">Click here for more information.</a></p>
         </div>
         <footer class="w3-container w3-padding w3-indigo">
             <a href="/survey" class="w3-button w3-left w3-amber">I've Had Enough</a><a href="/games/forcedPayments" class="w3-button w3-right w3-green">Next Level</a>
