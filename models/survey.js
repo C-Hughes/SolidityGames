@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var schema = new Schema({
+    Session: {type: String, required: false},
     Gender: {type: String, required: false},
     Nationality: {type: String, required: false},
     University: {type: String, required: false},

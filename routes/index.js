@@ -51,7 +51,8 @@ router.get('/survey', function(req, res, next) {
 });
 
 router.post('/survey', function (req, res, next) {
-    var Survey = new survey({
+    var query = { Session: req.sessionID};
+    var update = {
         Gender: req.body.Gender,
         Nationality: req.body.Nationality,
         University: req.body.University,
@@ -72,14 +73,15 @@ router.post('/survey', function (req, res, next) {
         OverallImproved: req.body.OverallImproved,
         OtherFeedback: req.body.OtherFeedback,
         LocalStorage: req.body.LocalStorage
-    });
-    Survey.save(function (err, result) {
+    };
+    var options = {upsert: true, new: true, setDefaultsOnInsert: true};
+    survey.findOneAndUpdate(query, update, options, function(err, doc){
         if(err){
+            console.log("Something wrong when updating data!");
             res.redirect('/survey');
         } else {
             res.redirect('/');
         }
-
     });
 });
 
