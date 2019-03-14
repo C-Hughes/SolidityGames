@@ -7,7 +7,9 @@
         </header>
         <div class="w3-container header">
             <p>You completed Rubixi!</p>
-            <p>You are now ready to move onto the next level</p>
+            <p>This level is based on the real Rubixi contract deployed to <a href="https://etherscan.io/address/0xe82719202e5965Cf5D9B6673B7503a3b92DE20be#code">0xe82719202e5965Cf5D9B6673B7503a3b92DE20be</a>.</p>
+            <p>Rubixi is a copy of another contract called DynamicPyramid, just with its name changed. However, the developers forgot to change the name of the constructor function. This meant that there was a function called DynamicPyramid() that could be called by anyone, which would set the message sender as the creator. This meant they could withdraw any Ether in the contract.</p>
+            <p>In this case the constructor doesn't work because it is not capitalised like the contracts name. Function and variable names are case sensitive so be careful!</p>
         </div>
         <footer class="w3-container w3-padding w3-indigo">
             <a href="/survey" class="w3-button w3-left w3-amber">I've Had Enough</a><a href="/games/odometer" class="w3-button w3-right w3-green">Next Level</a>
