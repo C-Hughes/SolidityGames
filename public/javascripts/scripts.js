@@ -113,6 +113,20 @@ function completedStatus(){
     showCurrentLevel();
 }
 
+//Button toggle for submitting level feedback.
+function submitLvlFeedback(){
+    var btn = document.getElementById('levelFeedbackBtn');
+    var txtarea = document.getElementById('levelFeedback');
+
+    if (txtarea.style.display == 'none') {
+        txtarea.style.display = 'block';
+        btn.innerText = 'Hide';
+    } else {
+        txtarea.style.display = 'none';
+        btn.innerText = 'Submit level feedback';
+    }
+}
+
 //Set local storage if not initialised
 if (!localStorage.getItem("theme")){
     localStorage.setItem("theme", "night");
