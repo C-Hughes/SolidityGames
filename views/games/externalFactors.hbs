@@ -24,6 +24,7 @@
             Difficulty: <span class="w3-tag w3-yellow">4/10</span>
         </div>
     </div>
+    <button id="levelWonBtn" onclick="document.getElementById('levelCompleteModal').style.display='block';" style="display:none;" class="w3-button w3-green">View Winning Message</button>
 
     <hr>
 
@@ -110,6 +111,9 @@ function deployContract() {
 }
 
 function updateUI(){
+    if (localStorage.getItem("externalFactorsComplete")) {
+        document.getElementById('levelWonBtn').style.display = 'block';
+    }
     refreshInfo();
     //Display dApp UI
     document.getElementById("contractInterface").style.display="block";
@@ -130,9 +134,12 @@ function viewOwner(){
     externalFactorsInstance.owner.call(function(error, result){
         viewOwner.innerHTML = result;
         if(result != web3.eth.accounts[0]){
+            if (!localStorage.getItem("externalFactorsComplete")){
+                document.getElementById('levelCompleteModal').style.display='block';
+                document.getElementById('levelWonBtn').style.display = 'block';
+            }
             localStorage.setItem("externalFactorsComplete", "true");
             completedStatus();
-            document.getElementById('levelCompleteModal').style.display='block';
             clearInterval(updateInfo);
         }
     });

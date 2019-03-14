@@ -24,6 +24,7 @@
             Difficulty: <span class="w3-tag w3-green">1/10</span>
         </div>
     </div>
+    <button id="levelWonBtn" onclick="document.getElementById('levelCompleteModal').style.display='block';" style="display:none;" class="w3-button w3-green">View Winning Message</button>
 
     <hr>
     <div class="w3-cell-row">
@@ -156,6 +157,9 @@ function deployContract() {
 }
 
 function updateUI(){
+    if (localStorage.getItem("warmUpComplete")) {
+        document.getElementById('levelWonBtn').style.display = 'block';
+    }
     //Display dApp UI
     document.getElementById("contractInterface").style.display = "block";
     document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+ localStorage.getItem('networkURL') +".etherscan.io/address/"+warmUpInstance.address+"'>" + warmUpInstance.address + "</a>" +
@@ -225,9 +229,12 @@ function viewOwner(){
     warmUpInstance.owner.call(function(error, result){
         viewOwner.innerHTML = result;
         if(result == web3.eth.accounts[0]){
+            if (!localStorage.getItem("warmUpComplete")){
+                document.getElementById('levelCompleteModal').style.display='block';
+                document.getElementById('levelWonBtn').style.display = 'block';
+            }
             localStorage.setItem("warmUpComplete", "true");
             completedStatus();
-            document.getElementById('levelCompleteModal').style.display='block';
             clearInterval(updateInfo);
         }
     });

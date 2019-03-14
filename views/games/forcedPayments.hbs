@@ -24,6 +24,7 @@
             Difficulty: <span class="w3-tag w3-yellow">4/10</span>
         </div>
     </div>
+    <button id="levelWonBtn" onclick="document.getElementById('levelCompleteModal').style.display='block';" style="display:none;" class="w3-button w3-green">View Winning Message</button>
 
     <hr>
 
@@ -102,6 +103,9 @@ function deployContract() {
 }
 
 function updateUI(){
+    if (localStorage.getItem("forcedPaymentsComplete")) {
+        document.getElementById('levelWonBtn').style.display = 'block';
+    }
     refreshInfo();
     document.getElementById("contractInterface").style.display="block";
     document.getElementById('deployedContractAddress').innerHTML = "Address: <a target=\"_blank\" rel=\"noopener noreferrer\" href='https://"+ localStorage.getItem('networkURL') +".etherscan.io/address/"+forcedPaymentsInstance.address+"'>" + forcedPaymentsInstance.address + "</a>" +
@@ -121,9 +125,12 @@ function checkBalance(){
     web3.fromWei(web3.eth.getBalance(forcedPaymentsInstance.address, function(error, result){
         checkBalance.innerHTML = result + ' wei';
         if(result > 0){
+            if (!localStorage.getItem("forcedPaymentsComplete")){
+                document.getElementById('levelCompleteModal').style.display='block';
+                document.getElementById('levelWonBtn').style.display = 'block';
+            }
             localStorage.setItem("forcedPaymentsComplete", "true");
             completedStatus();
-            document.getElementById('levelCompleteModal').style.display='block';
             clearInterval(updateInfo);
         }
     }));

@@ -24,6 +24,7 @@
             Difficulty: <span class="w3-tag w3-lime">3/10</span>
         </div>
     </div>
+    <button id="levelWonBtn" onclick="document.getElementById('levelCompleteModal').style.display='block';" style="display:none;" class="w3-button w3-green">View Winning Message</button>
 
     <hr>
 
@@ -157,6 +158,9 @@ function deployContract() {
 }
 
 function updateUI(){
+    if (localStorage.getItem("odometerComplete")) {
+        document.getElementById('levelWonBtn').style.display = 'block';
+    }
     refreshInfo();
     //Display dApp UI
     document.getElementById("contractInterface").style.display="block";
@@ -189,10 +193,13 @@ function viewOwner(){
     odometerInstance.owner.call(function(error, result){
         viewOwner.innerHTML = result;
         if(result == web3.eth.accounts[0]){
+            if (!localStorage.getItem("odometerComplete")){
+                document.getElementById('levelCompleteModal').style.display='block';
+                document.getElementById('levelWonBtn').style.display = 'block';
+            }
             localStorage.setItem("odometerComplete", "true");
             completedStatus();
             clearInterval(updateInfo);
-            document.getElementById('levelCompleteModal').style.display='block';
         }
     });
 }

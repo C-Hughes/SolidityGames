@@ -10,7 +10,7 @@
             <p>You have completed all of the levels.</p>
         </div>
         <footer class="w3-container w3-padding w3-indigo">
-            <a href="/survey" class="w3-button w3-left w3-green w3-block">Finish</a>
+            <a href="/survey" class="w3-button w3-left w3-amber">I've Had Enough</a><a href="/games/simpleDAO" class="w3-button w3-right w3-green">Next Level</a>
         </footer>
     </div>
 </div>
@@ -24,6 +24,7 @@
             Difficulty: <span class="w3-tag w3-amber">5/10</span>
         </div>
     </div>
+    <button id="levelWonBtn" onclick="document.getElementById('levelCompleteModal').style.display='block';" style="display:none;" class="w3-button w3-green">View Winning Message</button>
 
     <hr>
 
@@ -141,6 +142,9 @@ function deployContract() {
 }
 
 function updateUI(){
+    if (localStorage.getItem("randomnessComplete")) {
+        document.getElementById('levelWonBtn').style.display = 'block';
+    }
     refreshInfo();
     //Display dApp UI
     document.getElementById("contractInterface").style.display = "block";
@@ -161,9 +165,12 @@ function checkWins(){
     randomnessInstance.wins.call(function(error, result){
         checkWins.innerHTML = result + ' Wins';
         if(result >= 10){
+            if (!localStorage.getItem("randomnessComplete")){
+                document.getElementById('levelCompleteModal').style.display='block';
+                document.getElementById('levelWonBtn').style.display = 'block';
+            }
             localStorage.setItem("randomnessComplete", "true");
             completedStatus();
-            document.getElementById('levelCompleteModal').style.display='block';
         }
     });
 }
