@@ -77,10 +77,11 @@ contract forcedPayments {/*
 </div>
 <script>
 hljs.initHighlightingOnLoad();
-var forcedPaymentsContract = web3.eth.contract([]);
+var forcedPaymentsContract;
 var forcedPaymentsInstance;
 
 function deployContract() {
+    forcedPaymentsContract = web3.eth.contract([]);
     var forcedPayments = forcedPaymentsContract.new(
     {
         from: web3.eth.accounts[0],
