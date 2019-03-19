@@ -87,11 +87,10 @@
 pragma solidity 0.5.4;
 
 contract Randomness {
-
     uint256 public wins;
 
     constructor() public {
-        wins = 0;
+        uint8 wins = 0;
     }
 
     function generateRandom() public view returns(uint) {
