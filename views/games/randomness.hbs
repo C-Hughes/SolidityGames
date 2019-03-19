@@ -117,10 +117,11 @@ contract Randomness {
 hljs.initHighlightingOnLoad();
 
 var abi = [{"constant":true,"inputs":[],"name":"generateRandom","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"wins","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_guess","type":"uint8"}],"name":"guessNumber","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}];
-var randomnessContract = web3.eth.contract(abi);
+var randomnessContract;
 var randomnessInstance;
 
 function deployContract() {
+    randomnessContract = web3.eth.contract(abi);
     var randomness = randomnessContract.new(
     {
         from: web3.eth.accounts[0],
