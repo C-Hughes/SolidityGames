@@ -26,10 +26,6 @@ router.get('/ethereum', function(req, res, next) {
     res.render('info/ethereum', { title: 'Solidity Games' });
 });
 
-router.get('/smartContracts', function(req, res, next) {
-    res.render('info/smartContracts', { title: 'Solidity Games' });
-});
-
 router.get('/metamask', function(req, res, next) {
     res.render('info/metaMask', { title: 'Solidity Games' });
 });
