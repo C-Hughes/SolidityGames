@@ -115,6 +115,7 @@ function updateUI(){
 }
 //If the contract has already been deployed, get instance from localstorage variable
 function getInstance(){
+    forcedPaymentsContract = web3.eth.contract([]);
     var forcedPaymentsAddr = localStorage.getItem("forcedPaymentsAddr");
     forcedPaymentsInstance = forcedPaymentsContract.at(forcedPaymentsAddr);
     console.log(forcedPaymentsInstance);

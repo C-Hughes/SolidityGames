@@ -156,6 +156,7 @@ function updateUI(){
 }
 //If the contract has already been deployed, get instance from localstorage variable
 function getInstance(){
+    randomnessContract = web3.eth.contract(abi);
     var randomnessAddr = localStorage.getItem("randomnessAddr");
     randomnessInstance = randomnessContract.at(randomnessAddr);
     console.log(randomnessInstance);

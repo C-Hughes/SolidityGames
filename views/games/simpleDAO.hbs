@@ -187,6 +187,7 @@ function updateUI(){
 }
 //If the contract has already been deployed, get instance from localstorage variable
 function getInstance(){
+    simpleDAOContract = web3.eth.contract(abi);
     var simpleDAOAddr = localStorage.getItem("simpleDAOAddr");
     simpleDAOInstance = simpleDAOContract.at(simpleDAOAddr);
     console.log(simpleDAOInstance);

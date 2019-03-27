@@ -169,6 +169,7 @@ function updateUI(){
 }
 //If the contract has already been deployed, get instance from localstorage variable
 function getInstance(){
+    odometerContract = web3.eth.contract(abi);
     var odometerAddr = localStorage.getItem("odometerAddr");
     odometerInstance = odometerContract.at(odometerAddr);
     console.log(odometerInstance);

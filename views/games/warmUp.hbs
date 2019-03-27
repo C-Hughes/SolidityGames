@@ -169,6 +169,7 @@ function updateUI(){
 }
 //If the contract has already been deployed, get instance from localstorage variable
 function getInstance(){
+    warmUpContract = web3.eth.contract(abi);
     var warmUpAddr = localStorage.getItem("warmUpAddr");
     warmUpInstance = warmUpContract.at(warmUpAddr);
     console.log(warmUpInstance);

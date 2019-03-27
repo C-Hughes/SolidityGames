@@ -126,6 +126,7 @@ function updateUI(){
 }
 //If the contract has already been deployed, get instance from localstorage variable
 function getInstance(){
+    externalFactorsContract = web3.eth.contract(abi);
     var externalFactorsAddr = localStorage.getItem("externalFactorsAddr");
     externalFactorsInstance = externalFactorsContract.at(externalFactorsAddr);
     console.log(externalFactorsInstance);

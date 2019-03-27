@@ -187,6 +187,7 @@ function updateUI(){
 }
 //If the contract has already been deployed, get instance from localstorage variable
 function getInstance(){
+    rubixiContract = web3.eth.contract(abi);
     var rubixiAddr = localStorage.getItem("rubixiAddr");
     rubixiInstance = rubixiContract.at(rubixiAddr);
     console.log(rubixiInstance);
